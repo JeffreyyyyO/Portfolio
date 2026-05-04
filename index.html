@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Portfolio</title>
+    
+    <!-- Google Sans Font (via CDN) -->
+    <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
+
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        google: ['"Product Sans"', '"Google Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Tailwind Typography plugin (Styles the Markdown automatically) -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    
+    <!-- Marked.js for parsing Markdown to HTML -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Force Google Sans font application */
+        .font-google, .font-google * {
+            font-family: 'Product Sans', 'Google Sans', sans-serif !important;
+        }
+
+        /* Custom typing cursor blink animation */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .cursor-blink {
+            animation: blink 1s step-end infinite;
+        }
+        
+        /* Skill cycler animation classes */
+        .skill-transition {
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .skill-hidden-bottom {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+        .skill-hidden-top {
+            opacity: 0;
+            transform: translateY(-15px);
+        }
+        .skill-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 min-h-screen font-sans selection:bg-emerald-500/30">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div onclick="switchView('profile-view')" class="text-xl font-bold text-slate-100 flex items-center gap-2 cursor-pointer font-google">
+                <i data-lucide="shield" class="w-6 h-6 text-emerald-500"></i>
+                <span>Jeffrey<span class="text-emerald-500">O</span></span>
+            </div>
+            <div class="flex items-center gap-6">
+                <button onclick="switchView('about-view')" class="text-slate-400 hover:text-slate-100 transition-colors hidden sm:block">About Me</button>
+                <button onclick="switchView('contact-view')" class="text-slate-400 hover:text-slate-100 transition-colors hidden sm:block">Contact Me</button>
+                <div class="h-6 w-px bg-slate-800 hidden sm:block"></div>
+                <a href="https://github.com/JeffreyyyyO" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-emerald-400 transition-colors" title="GitHub">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/jeffreyoo/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-400 transition-colors" title="LinkedIn">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://medium.com/@JeffreyyyyO" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="Medium Blog">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.14-.37 5.68-.83 5.68-.46 0-.83-2.54-.83-5.68s.37-5.68.83-5.68.83 2.54.83 5.68"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/jeffreyyyyo/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-pink-500 transition-colors" title="Instagram">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-10 pb-20">
+        
+        <!-- PROFILE VIEW (HOME) -->
+        <div id="profile-view" class="block animate-in fade-in duration-500">
+            <!-- Professional Profile Section -->
+            <section class="py-16 md:py-24 flex flex-col md:flex-row items-center md:items-stretch gap-10 lg:gap-16">
+                <!-- Profile Photo -->
+                <!-- Uses absolute positioning on desktop so it perfectly inherits the exact height of the text column -->
+                <div class="shrink-0 relative w-56 md:w-64 lg:w-72 aspect-[9/16] md:aspect-auto">
+                    <div class="w-full h-full md:absolute md:inset-0 rounded-2xl bg-slate-800 border border-slate-700 overflow-hidden shadow-[0_0_40px_-10px_rgba(16,185,129,0.2)] hover:shadow-[0_0_50px_-10px_rgba(16,185,129,0.4)] transition-all duration-500 rotate-2 hover:rotate-0 group cursor-pointer">
+                        <!-- Replaced Unsplash URL with local image -->
+                        <img src="./images/jeffreyo_profile.jpg" alt="Jeffrey O - Professional Profile Photo" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                </div>
+
+                <!-- Profile Details -->
+                <div class="text-center md:text-left flex-1">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-sm font-medium border border-emerald-500/20 mb-6">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                        Available for Opportunities
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-6xl font-bold text-slate-100 mb-4 tracking-tight font-google">
+                        Hi, I'm <span id="typewriter-text" class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500"></span><span class="cursor-blink text-emerald-400 font-light ml-1">|</span>
+                    </h1>
+                    
+                    <p class="text-lg text-slate-400 mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
+                        <strong>Cybersecurity Analyst & Cloud Security Architect.</strong> <br/>
+                        I specialize in hybrid cloud environments, threat detection, and robust network architecture. I build secure systems and hunt threats to protect critical assets.
+                    </p>
+                    
+                    <!-- Wrapper to align the Skill Cycler with the Certifications button's right edge -->
+                    <div class="flex flex-col w-full lg:w-max max-w-full mx-auto md:mx-0">
+                        <!-- Quick Links (Buttons) -->
+                        <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
+                            <button onclick="switchView('projects-view')" class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors flex items-center gap-2">
+                                <i data-lucide="terminal" class="w-4 h-4"></i>
+                                View Projects
+                            </button>
+                            <button onclick="switchView('skills-view')" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-lg transition-colors flex items-center gap-2 border border-slate-700">
+                                <i data-lucide="wrench" class="w-4 h-4"></i>
+                                Tools & Skills
+                            </button>
+                            <button onclick="switchView('resume-view')" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-lg transition-colors flex items-center gap-2 border border-slate-700">
+                                <i data-lucide="file-text" class="w-4 h-4"></i>
+                                Resume
+                            </button>
+                            <button onclick="switchView('certifications-view')" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-lg transition-colors flex items-center gap-2 border border-slate-700">
+                                <i data-lucide="award" class="w-4 h-4"></i>
+                                Certifications
+                            </button>
+                        </div>
+                        
+                        <!-- Social Links and Skill Cycler -->
+                        <div class="flex items-center justify-between w-full mt-8 border-t border-slate-800/50 pt-8">
+                            <div class="flex items-center justify-center md:justify-start gap-6">
+                                <a href="https://github.com/JeffreyyyyO" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-emerald-400 hover:scale-110 transition-all duration-200" title="GitHub">
+                                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                </a>
+                                <a href="https://www.linkedin.com/in/jeffreyoo/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-400 hover:scale-110 transition-all duration-200" title="LinkedIn">
+                                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                    </svg>
+                                </a>
+                                <a href="https://medium.com/@JeffreyyyyO" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white hover:scale-110 transition-all duration-200" title="Medium Blog">
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.14-.37 5.68-.83 5.68-.46 0-.83-2.54-.83-5.68s.37-5.68.83-5.68.83 2.54.83 5.68"/>
+                                    </svg>
+                                </a>
+                                <a href="https://www.instagram.com/jeffreyyyyo/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-pink-500 hover:scale-110 transition-all duration-200" title="Instagram">
+                                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <!-- Animated Text Cycler -->
+                            <div class="hidden lg:block relative h-6 w-72 overflow-hidden text-right">
+                                <div id="skill-cycler" class="absolute right-0 text-slate-400 font-mono text-sm whitespace-nowrap skill-transition skill-visible">
+                                    Network Security & Protocols
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ABOUT ME VIEW -->
+        <div id="about-view" class="hidden animate-in fade-in duration-500">
+            <section class="py-10 max-w-4xl mx-auto">
+                <div class="mb-12 border-b border-slate-800 pb-8 text-center md:text-left">
+                    <h2 class="text-4xl md:text-5xl font-bold text-slate-100 mb-4 font-google">The Ambition for Protection</h2>
+                    <p class="text-xl text-emerald-400 font-medium">The Architecture Destiny manifest in security</p>
+                </div>
+                
+                <div class="prose prose-invert prose-emerald prose-lg max-w-none text-slate-300 leading-relaxed">
+                    <p>
+                        From the earliest days of my childhood, long before the complex abstractions of modern networking or cloud environments made sense to me, there was always an inherent, inescapable magnetism toward technology. I was the kid who was "naturally good at computers." While others viewed machines as black boxes of frustration or simple appliances for entertainment, I saw them as intricate puzzles waiting to be unraveled. Taking hardware apart, experimenting with software constraints, and intuitively grasping the logic gates of early operating systems wasn't a hobby—it was a baseline state of being. 
+                    </p>
+                    <p>
+                        However, the journey into the core of cybersecurity wasn't a straight, unbroken line. It was heavily informed and refined by a parallel discipline: Architecture. Studying physical architecture taught me that a structure is only as resilient as its foundation, the careful deliberate planning of its load-bearing walls, and the foresight to account for extreme, unpredictable stress. Architecture is fundamentally about understanding how disjointed components integrate into a singular, functioning, and resilient whole. You learn to anticipate the environment, to design for the human element, and to safeguard the occupants within. 
+                    </p>
+                    <p>
+                        This architectural mindset became the crucial pivot point. I realized that the digital world—the invisible infrastructure that underpins global finance, communication, and critical societal functions—requires the exact same rigorous structural integrity. The transition from physical architecture to securing digital assets felt less like a career change and more like a "manifest destiny." Designing a Defense-in-Depth strategy is, in every meaningful way, analogous to designing a fortress. A firewall is a perimeter wall; strict Identity and Access Management (IAM) controls are the reinforced gates and biometric locks; a SIEM platform acts as the ubiquitous surveillance system. 
+                    </p>
+                    <p>
+                        My passion for cybersecurity stems from this deep-seated ambition for protection. In a landscape where threat actors continuously evolve, wielding highly sophisticated tools to compromise systems and exploit vulnerabilities, the role of the security professional is the ultimate architectural challenge. It requires an intimate understanding of the systems being protected, an analytical mind capable of anticipating attack vectors before they are exploited, and the technical prowess to deploy robust countermeasures. 
+                    </p>
+                    <p>
+                        <em>[Placeholder Text Expansion below to meet the 2,000-word spatial requirement. Please replace this entire text block with your final bio when ready.]</em>
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. 
+                    </p>
+                    <p>
+                        Aliquam consequat. Mauris dictum facilisis augue. Suspendisse nisl. Suspendisse potenti. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Mauris dictum facilisis augue. Suspendisse nisl. Suspendisse potenti. Vivamus euismod, leo tincidunt volutpat suscipit, mauris est tristique dolor, sed bibendum neque mauris interdum lectus. Quisque congue. Duis vel nisl. Mauris id eros ac est tristique interdum. Maecenas nisl. Nulla facilisi. Praesent sit amet tortor. Etiam id nisl. Praesent non metus. Nullam at est. Suspendisse potenti. Nam a elit. Integer at tellus. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. 
+                    </p>
+                    <p>
+                        Phasellus faucibus molestie nisl. Quisque ac magna. Maecenas neque magna, laoreet sit amet, elementum sit amet, accumsan a, odio. Integer et elit. Quisque eget elit a sem hendrerit ultricies. Integer porta sollicitudin urna. Etiam a dolor. Suspendisse imperdiet, libero eget pulvinar interdum, lacus dolor iaculis massa, at ultrices lorem elit non nunc. Donec convallis purus non velit. Vivamus ut lorem id nisi gravida lobortis. Praesent id arcu. Maecenas rutrum adipiscing tellus. In ullamcorper scelerisque nulla. Suspendisse iaculis justo at dui. Nunc ultrices. Integer at tellus. Sed cursus, est sagittis elementum eleifend, metus magna aliquet massa, vel varius dui leo aliquet metus. Mauris vestibulum, ligula vitae dictum interdum, dolor est tristique dui, pretium luctus nulla magna vitae est. Proin interdum felis sit amet est. Integer eu ipsum. Suspendisse est sem, auctor sit amet, auctor sit amet, euismod in, orci. Sed aliquet, magna rutrum dignissim imperdiet, sapien nibh condimentum mi, nec lacinia ante mi eget magna. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. 
+                    </p>
+                    <p>
+                        Mauris id eros ac est tristique interdum. Maecenas nisl. Nulla facilisi. Praesent sit amet tortor. Etiam id nisl. Praesent non metus. Nullam at est. Suspendisse potenti. Nam a elit. Integer at tellus. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Mauris dictum facilisis augue. Suspendisse nisl. Suspendisse potenti. Vivamus euismod, leo tincidunt volutpat suscipit, mauris est tristique dolor, sed bibendum neque mauris interdum lectus. Quisque congue. Duis vel nisl. Mauris id eros ac est tristique interdum. Maecenas nisl. Nulla facilisi. Praesent sit amet tortor. Etiam id nisl. Praesent non metus. Nullam at est. Suspendisse potenti. Nam a elit. 
+                    </p>
+                    <p>
+                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Mauris dictum facilisis augue. Suspendisse nisl. Suspendisse potenti. Vivamus euismod, leo tincidunt volutpat suscipit, mauris est tristique dolor, sed bibendum neque mauris interdum lectus. Quisque congue. Duis vel nisl. Mauris id eros ac est tristique interdum. Maecenas nisl. Nulla facilisi. Praesent sit amet tortor. Etiam id nisl. Praesent non metus. Nullam at est. Suspendisse potenti. Nam a elit. Integer at tellus. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam.
+                    </p>
+                    <p>
+                        Integer et elit. Quisque eget elit a sem hendrerit ultricies. Integer porta sollicitudin urna. Etiam a dolor. Suspendisse imperdiet, libero eget pulvinar interdum, lacus dolor iaculis massa, at ultrices lorem elit non nunc. Donec convallis purus non velit. Vivamus ut lorem id nisi gravida lobortis. Praesent id arcu. Maecenas rutrum adipiscing tellus. In ullamcorper scelerisque nulla. Suspendisse iaculis justo at dui. Nunc ultrices. Integer at tellus. Sed cursus, est sagittis elementum eleifend, metus magna aliquet massa, vel varius dui leo aliquet metus. Mauris vestibulum, ligula vitae dictum interdum, dolor est tristique dui, pretium luctus nulla magna vitae est. Proin interdum felis sit amet est. Integer eu ipsum. Suspendisse est sem, auctor sit amet, auctor sit amet, euismod in, orci. Sed aliquet, magna rutrum dignissim imperdiet, sapien nibh condimentum mi, nec lacinia ante mi eget magna. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- CONTACT ME VIEW -->
+        <div id="contact-view" class="hidden animate-in fade-in duration-500">
+            <section class="py-10">
+                <div class="mb-10">
+                    <h2 class="text-3xl font-bold text-slate-100 flex items-center gap-3 mb-4 font-google">
+                        <i data-lucide="mail" class="w-8 h-8 text-emerald-500"></i>
+                        Contact Me
+                    </h2>
+                    <p class="text-slate-400">Get in touch to discuss opportunities, architectures, and security solutions.</p>
+                </div>
+
+                <div class="max-w-2xl">
+                    <div class="bg-slate-900 border border-slate-800 p-8 rounded-xl hover:border-emerald-500/50 transition-all duration-300 flex flex-col group">
+                        
+                        <!-- Card Header -->
+                        <div class="flex items-start justify-between mb-8 border-b border-slate-800 pb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-slate-100 mb-1 group-hover:text-emerald-400 transition-colors font-google tracking-tight">
+                                    Mr. Jeffrey Obi
+                                </h3>
+                                <p class="text-emerald-500 font-mono text-sm">Cybersecurity Analyst</p>
+                            </div>
+                            <div class="p-3 bg-slate-800 rounded-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="contact-2" class="w-6 h-6 text-emerald-400"></i>
+                            </div>
+                        </div>
+
+                        <!-- Contact Details List -->
+                        <div class="space-y-5 mb-10 text-slate-300">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center shrink-0">
+                                    <i data-lucide="mail" class="w-4 h-4 text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 uppercase tracking-wider mb-0.5">Email</p>
+                                    <a href="mailto:jeffrey.o.obi@gmail.com" class="hover:text-emerald-400 transition-colors font-medium">jeffrey.o.obi@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center shrink-0">
+                                    <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 uppercase tracking-wider mb-0.5">Location</p>
+                                    <span class="font-medium">Lagos, Nigeria</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center shrink-0">
+                                    <i data-lucide="globe" class="w-4 h-4 text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 uppercase tracking-wider mb-0.5">Website / GitHub</p>
+                                    <a href="https://github.com/JeffreyyyyO" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors font-medium break-all">https://github.com/JeffreyyyyO</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notice Box -->
+                        <div class="p-4 bg-slate-800/40 rounded-lg border border-slate-700/50 mb-8 relative overflow-hidden">
+                            <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-500"></div>
+                            <p class="text-sm text-slate-400 leading-relaxed ml-2">
+                                <i data-lucide="info" class="w-4 h-4 inline-block mr-1.5 mb-0.5 text-blue-400"></i>
+                                <strong>Notice:</strong> Further contact information, including direct phone numbers and alternative communication channels, will be provided at my discretion via email after initial contact has been established.
+                            </p>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4 mt-auto">
+                            <a href="mailto:jeffrey.o.obi@gmail.com" class="flex-1 flex items-center justify-center px-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+                                <i data-lucide="send" class="w-5 h-5"></i> Send Email
+                            </a>
+                            <a href="./contact/jeffrey_obi_contact_card.vcf" download="Jeffrey_Obi_Contact_Card.vcf" class="flex-1 flex items-center justify-center px-4 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-lg border border-slate-700 transition-colors gap-2">
+                                <i data-lucide="download" class="w-5 h-5"></i> Download vCard
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PROJECTS VIEW -->
+        <div id="projects-view" class="hidden animate-in fade-in duration-500">
+            <section class="py-10">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-6">
+                    <h2 class="text-3xl font-bold text-slate-100 flex items-center gap-3">
+                        <i data-lucide="server" class="w-8 h-8 text-emerald-500"></i>
+                        Technical Labs & Projects
+                    </h2>
+                    
+                    <!-- Filters injected via JS -->
+                    <div id="filters" class="flex flex-wrap gap-2"></div>
+                </div>
+
+                <!-- Project Grid injected via JS -->
+                <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+            </section>
+        </div>
+
+        <!-- SKILLS VIEW -->
+        <div id="skills-view" class="hidden animate-in fade-in duration-500">
+            <section class="py-10">
+                <div class="mb-10">
+                    <h2 class="text-3xl font-bold text-slate-100 flex items-center gap-3 mb-4 font-google">
+                        <i data-lucide="wrench" class="w-8 h-8 text-emerald-500"></i>
+                        Technical Skills & Tools Inventory
+                    </h2>
+                    <p class="text-slate-400">A comprehensive overview of my technical capabilities and the software stacks I utilize.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Category: Cybersecurity & SIEM -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-colors">
+                        <h3 class="text-xl font-semibold text-slate-100 mb-4 border-b border-slate-800 pb-3 flex items-center gap-2">
+                            <i data-lucide="shield" class="w-5 h-5 text-emerald-400"></i>
+                            Security & SIEM
+                        </h3>
+                        <ul class="space-y-3 text-slate-300">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Splunk Enterprise</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Elastic Security (ELK)</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Wazuh XDR</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Wireshark & tcpdump</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Snort / Suricata IDS</li>
+                        </ul>
+                    </div>
+
+                    <!-- Category: Cloud Computing -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-blue-500/50 transition-colors">
+                        <h3 class="text-xl font-semibold text-slate-100 mb-4 border-b border-slate-800 pb-3 flex items-center gap-2">
+                            <i data-lucide="cloud" class="w-5 h-5 text-blue-400"></i>
+                            Cloud Computing
+                        </h3>
+                        <ul class="space-y-3 text-slate-300">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500"></i> Amazon Web Services (AWS)</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500"></i> Microsoft Azure</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500"></i> Terraform & CloudFormation</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500"></i> Docker & Kubernetes</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500"></i> IAM & Cloud Security Posture</li>
+                        </ul>
+                    </div>
+
+                    <!-- Category: Networking & Infrastructure -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-purple-500/50 transition-colors">
+                        <h3 class="text-xl font-semibold text-slate-100 mb-4 border-b border-slate-800 pb-3 flex items-center gap-2">
+                            <i data-lucide="network" class="w-5 h-5 text-purple-400"></i>
+                            Networking & Infra
+                        </h3>
+                        <ul class="space-y-3 text-slate-300">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500"></i> Cisco IOS & Juniper Junos</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500"></i> BGP, OSPF, VLANs, IPsec</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500"></i> Palo Alto & pfSense Firewalls</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500"></i> Proxmox & VMware ESXi</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500"></i> Linux (RHEL, Debian) & Windows</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- CERTIFICATIONS VIEW -->
+        <div id="certifications-view" class="hidden animate-in fade-in duration-500">
+            <section class="py-10">
+                <div class="mb-10">
+                    <h2 class="text-3xl font-bold text-slate-100 flex items-center gap-3 mb-4 font-google">
+                        <i data-lucide="award" class="w-8 h-8 text-emerald-500"></i>
+                        Professional Certifications
+                    </h2>
+                    <p class="text-slate-400">Verified credentials and formal security competencies.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Certification: Security+ -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300 flex flex-col h-full group">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3 bg-slate-800 rounded-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="shield-check" class="w-6 h-6 text-red-500"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500">March 2026</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-100 mb-2 group-hover:text-emerald-400 transition-colors">
+                            CompTIA Security+
+                        </h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Validates foundational knowledge of cybersecurity principles, threat management, and secure network architecture.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700">Threat Management</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700">Cryptography</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700">Identity & Access</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700">Incident Response</span>
+                        </div>
+                        <a href="https://cp.certmetrics.com/comptia/en/public/verify/credential/75808fbe5c124fd8b48a22bf5cecb40a" target="_blank" rel="noopener noreferrer" class="mt-auto flex items-center text-emerald-500 font-medium text-sm w-fit">
+                            Verify Credential <i data-lucide="external-link" class="w-4 h-4 ml-1 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <!-- Certification: ISC2 CC -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300 flex flex-col h-full group">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3 bg-slate-800 rounded-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="lock" class="w-6 h-6 text-blue-500"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500">October 2025</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-100 mb-2 group-hover:text-emerald-400 transition-colors">
+                            ISC2 Certified in Cybersecurity
+                        </h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Demonstrates core competency in security concepts, access controls, network security, and incident response.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700">Security Principles</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700">BC/DR</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700">Access Controls</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700">Network Security</span>
+                        </div>
+                        <a href="https://www.credly.com/badges/35b3fa2f-063a-4772-8963-1912383e9db1/public_url" target="_blank" rel="noopener noreferrer" class="mt-auto flex items-center text-emerald-500 font-medium text-sm w-fit">
+                            Verify Credential <i data-lucide="external-link" class="w-4 h-4 ml-1 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <!-- Certification: Google Cyber -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300 flex flex-col h-full group">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3 bg-slate-800 rounded-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="search" class="w-6 h-6 text-yellow-500"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500">September 2025</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-100 mb-2 group-hover:text-emerald-400 transition-colors">
+                            Google Cybersecurity Professional
+                        </h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Confirms hands-on ability to use Python, Linux, SQL, and SIEM tools to detect and mitigate security threats.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700">Packet Analysis</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700">Python & SQL</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700">SIEM (Splunk/Chronicle)</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700">Linux CLI</span>
+                        </div>
+                        <a href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/WFZCNJVLDU9J" target="_blank" rel="noopener noreferrer" class="mt-auto flex items-center text-emerald-500 font-medium text-sm w-fit">
+                            Verify Credential <i data-lucide="external-link" class="w-4 h-4 ml-1 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <!-- Certification: Fortinet FCF -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300 flex flex-col h-full group">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3 bg-slate-800 rounded-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="server" class="w-6 h-6 text-purple-500"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500">November 2025</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-100 mb-2 group-hover:text-emerald-400 transition-colors">
+                            Fortinet Certified Fundamentals
+                        </h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Certifies foundational understanding of the cybersecurity landscape, network security concepts, and endpoint protection.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700">InfoSec Concepts</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700">Network Security</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700">Endpoint Security</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700">Fortinet Security Fabric</span>
+                        </div>
+                        <a href="https://www.credly.com/badges/230610a3-2ac6-400f-b318-468af87b1753" target="_blank" rel="noopener noreferrer" class="mt-auto flex items-center text-emerald-500 font-medium text-sm w-fit">
+                            Verify Credential <i data-lucide="external-link" class="w-4 h-4 ml-1 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- RESUME VIEW -->
+        <div id="resume-view" class="hidden animate-in fade-in duration-500">
+            <section class="py-10">
+                <div class="mb-10">
+                    <h2 class="text-3xl font-bold text-slate-100 flex items-center gap-3 mb-4 font-google">
+                        <i data-lucide="file-text" class="w-8 h-8 text-emerald-500"></i>
+                        Résumé
+                    </h2>
+                    <p class="text-slate-400">Download a copy of my most up-to-date professional résumé.</p>
+                </div>
+
+                <div class="max-w-md">
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300 flex flex-col group">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3 bg-slate-800 rounded-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="file-badge" class="w-6 h-6 text-emerald-400"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-100 mb-2 group-hover:text-emerald-400 transition-colors">
+                            Cybersecurity Résumé
+                        </h3>
+                        <p class="text-slate-400 mb-8">
+                            Download the résumé here to review my complete work history, education, and technical background.
+                        </p>
+                        <a href="./documents/jeffrey_o_résumé.pdf" download="jeffrey_o_résumé.pdf" class="mt-auto flex items-center justify-center px-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors w-full gap-2">
+                            <i data-lucide="download" class="w-5 h-5"></i> Download PDF
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- TAG VIEW -->
+        <div id="tag-view" class="hidden animate-in fade-in duration-500">
+            <section class="py-10">
+                <button onclick="switchView('projects-view')" class="flex items-center text-slate-400 hover:text-emerald-400 transition-colors mb-8 group">
+                    <i data-lucide="arrow-left" class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform"></i>
+                    Back to All Projects
+                </button>
+                <div class="mb-10 border-b border-slate-800 pb-8">
+                    <h2 id="tag-header" class="text-3xl font-bold text-slate-100 flex items-center gap-3 mb-3 font-google">
+                        <!-- Injected via JS -->
+                    </h2>
+                    <p class="text-slate-400">Showing all entries in reverse chronological order.</p>
+                </div>
+
+                <!-- Tag Project Grid injected via JS -->
+                <div id="tag-project-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+            </section>
+        </div>
+
+        <!-- PROJECT DETAIL VIEW -->
+        <div id="project-view" class="hidden animate-in slide-in-from-right-8 duration-500">
+            <button onclick="switchView('projects-view')" class="flex items-center text-slate-400 hover:text-emerald-400 transition-colors mb-8 group">
+                <i data-lucide="arrow-left" class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform"></i>
+                Back to Projects
+            </button>
+
+            <article class="max-w-4xl mx-auto">
+                <!-- Article Header injected via JS -->
+                <header id="project-header" class="mb-12 border-b border-slate-800 pb-8"></header>
+
+                <!-- Markdown Content parsed and injected here -->
+                <div id="markdown-content" class="prose prose-invert prose-emerald max-w-none"></div>
+            </article>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 mt-10 py-8 text-center text-slate-500 text-sm">
+        <div class="flex items-center justify-center gap-4 mb-4">
+            <i data-lucide="shield" class="w-4 h-4"></i>
+            <i data-lucide="cloud" class="w-4 h-4"></i>
+            <i data-lucide="network" class="w-4 h-4"></i>
+        </div>
+        <p>© 2026 Jeffrey Obi. A highly trained and highly qualified security professional.</p>
+    </footer>
+
+    <!-- Application Logic -->
+    <script>
+        // --- DATA REGISTRY & MARKDOWN CONTENT ---
+        const categories = ['All', 'Cybersecurity', 'Cloud Computing', 'Networking', 'IT'];
+        
+        const projects = [
+            {
+                id: 5,
+                title: 'PayLink Africa Security Architecture',
+                category: 'Cybersecurity',
+                excerpt: 'Designed a highly available, SABSA-aligned secure system architecture for a fintech platform, featuring automated cloud failover and PCI-DSS compliance.',
+                tags: ['Architecture', 'Fintech', 'High Availability', 'PCI-DSS', 'SABSA'],
+                icon: 'shield',
+                iconColor: 'text-emerald-400',
+                date: 'March 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    I was tasked with designing a secure, scalable, and compliant system architecture for "PayLink Africa," a fintech company developing an online payment and digital wallet platform. The core challenge was protecting highly sensitive customer financial data, card payments, and API transactions while ensuring zero downtime.
+    </p>
+</div>
+
+## Core Technologies & Frameworks
+* **Design Tool:** Draw.io
+* **Network & Security Devices:** Edge Routers, VPN Gateways, NGFW, WAF, Network & Host IDPS, Database Firewalls, Dedicated HSMs, Air-Gapped Backup Servers
+* **Cloud Services:** Amazon Route 53, AWS Database Migration Service, AWS Shield, AWS GuardDuty, Cloud WAF, Cloud HSM
+* **Frameworks & Standards:** SABSA, Defense-in-Depth, CIA Triad, PCI-DSS, NDPR
+
+## 1. Situation
+PayLink Africa operates in a high-stakes financial sector where any system compromise or downtime could result in severe financial loss, regulatory penalties, and reputational damage. The infrastructure needed to handle sensitive financial data, facilitate continuous API transactions with banks and merchants, and remain operational even in the face of targeted cyberattacks or physical localized disasters.
+
+## 2. Task
+Design a robust, high-level system architecture that establishes clear network segmentation, integrates comprehensive security devices, enforces CIA/Defense-in-Depth/Least Privilege principles, and mitigates advanced threats like MITM, APTs, and Data Exfiltration.
+
+## 3. Action: Architecture & Implementation
+I designed a Hybrid Network Architecture heavily influenced by the **SABSA framework** (Security Domain Separation, Trust Framework, Business Continuity).
+
+### The Ingenuity of the Cloud Failover System
+Instead of relying on a traditional, single-environment setup, I engineered a highly resilient hybrid architecture featuring a primary On-Premise system and a parallel Cloud Backup/Failover System.
+* **Intelligent Traffic Routing:** Utilized a Traffic Manager (e.g., Amazon Route 53) at the perimeter. If the primary on-premise system experiences an outage or a debilitating DDoS attack, traffic is seamlessly routed to the cloud environment.
+* **Real-time Synchronization:** Implemented a Database Migration Service between the On-Premise Database Server and the Cloud Relational Database to guarantee real-time data resolution.
+
+<figure class="my-8 not-prose">
+    <!-- Replace the src below with your actual image hosting URL -->
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/paylink-architecture.png" alt="PayLink Africa Security Architecture" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Hybrid Cloud Network Topology</figcaption>
+</figure>
+
+### On-Premise Defense-in-Depth
+I segmented the primary on-premise system into strict micro-segments to enforce Least Privilege:
+* **Perimeter & Access Control:** Secured via an Edge Router with strict ACLs, an External Network IDPS, and a VPN Gateway for secure, MFA-authenticated administrative tunnels.
+* **Demilitarized Zone (DMZ):** Public-facing web servers sit behind an External NGFW, a WAF for deep-packet HTTPS inspection, and load balancers.
+* **Application Tier:** Guarded by an internal firewall and localized Host IDS.
+* **Database Tier:** Protected by a dedicated Database Firewall, a Dedicated Hardware Security Module (HSM) for storing cryptographic keys, and an Air-Gapped On-Prem Backup Server.
+
+### Cloud Native Security Functionality
+To ensure the Cloud Failover system matched the security posture of the On-Premise system, I mapped corresponding cloud-native security controls:
+* **Perimeter Defense:** Implemented DDoS Protection (e.g., AWS Shield).
+* **Compute & Inspection:** Utilized Cloud Firewalls, a Cloud WAF, and Cloud-Native IDS (e.g., AWS GuardDuty).
+* **Cloud Data Security:** Integrated a Cloud HSM.
+
+## 4. Result & Business Impact
+The resulting architecture provided a highly resilient, enterprise-grade fintech environment. By balancing cost, security, and usability, the design successfully:
+* **Guaranteed High Availability:** The ingenious cloud failover mechanism mitigates the risk of localized physical damage or hardware failure.
+* **Thwarted Advanced Threats:** Strict tiering limits the blast radius of any potential APTs. MITM attacks are neutralized via enforced VPN tunnels and HSTS.
+* **Ensured Compliance Readiness:** The implementation of HSMs, air-gapped backups, and end-to-end encryption aligns the system with strict financial regulatory standards like **PCI-DSS** and **NDPR**.
+                `
+            },
+            {
+                id: 6,
+                title: 'Automated Security Monitoring & Active Defense System',
+                category: 'Cloud Computing',
+                excerpt: 'Engineered a serverless AWS active defense pipeline using EventBridge and Lambda to automatically neutralize compromised IAM credentials in real-time.',
+                tags: ['AWS', 'Automation', 'Python', 'IAM', 'Active Defense'],
+                icon: 'zap',
+                iconColor: 'text-yellow-400',
+                date: 'February 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    In cloud environments, attackers often bypass traditional perimeters by abusing valid credentials. This project demonstrates a robust, automated security architecture designed to monitor sensitive AWS resources, detect unauthorized access in real-time, and execute an automated "Kill-Switch" to neutralize threats before data exfiltration occurs.
+    </p>
+</div>
+
+## Core Technologies
+* **AWS Services:** AWS CloudTrail, Amazon CloudWatch, Amazon EventBridge, AWS Lambda, Amazon SNS, AWS Secrets Manager, AWS IAM
+* **Languages & SDKs:** Python, Boto3
+
+## 1. Situation
+Security within a cloud environment is paramount, particularly concerning sensitive credentials like database passwords or API keys. Organizations face significant risks from insider threats, accidental exposure, and credential theft. Traditional security monitoring often relies on passive logging, which requires human intervention to analyze and respond to threats. This passive approach creates a dangerous latency period between a breach occurring and a security team initiating a response, giving attackers ample time to cause damage.
+
+## 2. Task
+Architect a comprehensive security monitoring and alerting pipeline entirely within native AWS services. Goals included establishing a secure audit trail, deploying a "honeytoken" tripwire, evaluating two detection flows, and implementing an "Active Defense" mechanism to automatically revoke access from any compromised entity.
+
+## 3. Action: Architecture & Implementation
+I engineered a multi-phase, serverless security pipeline using native AWS tools:
+
+* **Infrastructure & Logging:** Configured multi-region AWS CloudTrail integrated with Amazon CloudWatch Logs. Established an S3 bucket with Server Access Logging and created a honeytoken (\`Production_Database_Credentials\`) in AWS Secrets Manager.
+* **Detection Flow 1 (CloudWatch Metrics):** Created a Metric Filter in CloudWatch to scan logs specifically for the \`GetSecretValue\` API call targeting the honeytoken. Bound this to a CloudWatch Alarm configured to trigger if the threshold was met within a one-minute window, routing alerts to Amazon SNS.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/cloudwatch-alarm.png" alt="CloudWatch Alarm Configuration" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: CloudWatch Alarm Configuration & Threshold</figcaption>
+</figure>
+
+* **Detection Flow 2 (EventBridge):** Utilized Amazon EventBridge to capture CloudTrail API events in near real-time, filtering specifically for the target secret and routing to a secondary SNS topic.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/eventbridge-rule.png" alt="EventBridge Rule Configuration" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: EventBridge Rule Configuration & Event Pattern</figcaption>
+</figure>
+
+* **Active Defense (The Kill-Switch):** Developed a Python script utilizing the \`boto3\` SDK deployed via AWS Lambda. When triggered by the EventBridge rule, this Lambda dynamically parsed the attacker's username from the event payload and immediately detached all associated IAM policies (e.g., \`AdministratorAccess\`, \`SecretsManagerReadWrite\`), quarantining the compromised user identity.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/iam-kill-switch.png" alt="IAM Console - Kill-Switch Proof" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Victim User Stripped of Permissions</figcaption>
+</figure>
+
+## 4. Result & Organizational Benefits
+The simulation was highly successful. The Lambda Kill-Switch worked flawlessly—upon the victim user's first attempt to access the honeytoken, their permissions were immediately stripped, returning an \`Access Denied\` error on subsequent attempts without any human intervention.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3 flex flex-col gap-4">
+        <img src="./images/cloudtrail-access-denied.png" alt="CloudTrail Access Denied Log" class="w-full rounded-lg object-contain border border-slate-700/50">
+        <img src="./images/sns-email-alert.png" alt="SNS Email Alert" class="w-full rounded-lg object-contain border border-slate-700/50">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Evidence of 'Access Denied' and Real-Time Event Notification</figcaption>
+</figure>
+
+**Architectural Comparison:** Flow 2 (EventBridge) drastically outperformed Flow 1 (CloudWatch Metric Filters). EventBridge triggered alerts and the Lambda function in near real-time (seconds), whereas CloudWatch Alarms took roughly 2-3 minutes to aggregate metrics.
+
+**Business Value Highlights:**
+1. **Drastic Reduction in MTTR:** By shifting from manual incident response to event-driven automation, the time to stop an active threat is reduced from hours down to milliseconds.
+2. **Cost-Effective Security:** Leveraging serverless, native tools provides enterprise-grade monitoring without the hefty licensing fees of third-party SIEM platforms.
+3. **Proactive Insider Threat Mitigation:** Honeytokens serve as high-fidelity alerts with virtually zero false positives, eliminating "alert fatigue."
+4. **Simplified Compliance:** Satisfied PCI DSS v4.0 Requirement 10.4.1 and demonstrated high-maturity adherence to the NIST Cybersecurity Framework (Continuous Response).
+                `
+            },
+            {
+                id: 7,
+                title: 'Continuous Compliance: Change Management',
+                category: 'Cloud Computing',
+                excerpt: 'Implemented an automated change management and continuous compliance alerting system in AWS using AWS Config and Amazon SNS.',
+                tags: ['AWS Config', 'Compliance', 'Amazon SNS', 'Automation', 'Cloud Security'],
+                icon: 'check-circle',
+                iconColor: 'text-blue-400',
+                date: 'January 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This project demonstrates the implementation of an automated change management and continuous compliance alerting system within an Amazon Web Services (AWS) environment. By leveraging native AWS monitoring and messaging tools, the setup ensures that critical security misconfigurations—such as exposing sensitive data to the public—are instantly detected, recorded, and reported.
+    </p>
+</div>
+
+## Core Technologies
+* **AWS Services:** AWS Config, Amazon SNS, Amazon S3, AWS IAM
+* **Other Tools:** JSON (Bucket Policies)
+
+## 1. Situation
+In modern cloud environments, infrastructure is highly dynamic. Organizations face significant security risks and potential data breaches when cloud resources are accidentally or maliciously misconfigured. A common and critical vulnerability is the accidental public exposure of Amazon S3 buckets containing sensitive data. To maintain a strong security posture, organizations require automated, continuous monitoring mechanisms rather than relying on manual, periodic audits.
+
+## 2. Task
+The objective was to design and deploy a continuous compliance monitoring pipeline that automatically detects insecure infrastructure changes. Specifically, I needed to configure a system that would immediately flag any S3 bucket that was made publicly accessible, log the exact configuration change, and automatically trigger a real-time email alert to administrators so they could take immediate remediation steps.
+
+## 3. Action: Architecture & Implementation
+To achieve this, I implemented a comprehensive "Break and Fix" workflow using AWS native services:
+
+### 1. Configured the Recorder (AWS Config)
+Enabled AWS Config to record all resource configurations within the region. I provisioned a dedicated S3 bucket (\`jeffrey-assessment3-bucket\`) to act as the secure delivery channel for configuration history logs.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./aws-config-setup.png" alt="AWS Config Settings" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: AWS Config Settings - AWS Config configuration showing the recording strategy and the designated S3 bucket used as the delivery channel.</figcaption>
+</figure>
+
+### 2. Established the Messenger (Amazon SNS)
+Created an SNS Standard Topic named \`SecurityAlerts Topic\` and configured an email subscription to route alerts directly to an administrator inbox.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./sns-topic-subscription.png" alt="SNS Topic and Subscription" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: SNS Topic and Subscription - Amazon SNS dashboard displaying the active 'SecurityAlerts Topic' and the confirmed email subscription endpoint.</figcaption>
+</figure>
+
+### 3. Defined Compliance Rules
+Deployed the AWS Managed Rule \`s3-bucket-public-read-prohibited\` within AWS Config. I then linked the AWS Config delivery channel to the SNS topic so that compliance state changes would trigger notifications.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./aws-config-rule.png" alt="AWS Managed Rule Configuration" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: AWS Managed Rule Configuration - Adding the 's3-bucket-public-read-prohibited' managed rule to evaluate continuous S3 bucket compliance.</figcaption>
+</figure>
+
+### 4. Executed "Break and Fix" Testing
+**Break:** Created a test S3 bucket (\`assessment3-public-bucket\`) and intentionally modified its permissions by disabling "Block all public access" and applying a public-read JSON bucket policy.
+
+**Observe:** Verified the state change on the AWS Config Dashboard as the resource was immediately flagged as Noncompliant. Confirmed the receipt of the automated AWS SNS email alert detailing the violation.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3 flex flex-col gap-4">
+        <img src="./config-noncompliant-dashboard.png" alt="AWS Config Dashboard - Noncompliant" class="w-full rounded-lg object-contain border border-slate-700/50">
+        <img src="./sns-noncompliant-email-alert.png" alt="Real-time SNS Email Alert (Noncompliant)" class="w-full rounded-lg object-contain border border-slate-700/50">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4 & 5: AWS Config detecting the Noncompliant bucket, and the resulting real-time automated email alert warning of the exposure.</figcaption>
+</figure>
+
+**Investigate:** Utilized the AWS Config Resource Timeline to audit the exact timestamp and nature of the configuration change (CloudTrail event integration).
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./config-resource-timeline.png" alt="AWS Config Resource Timeline" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 6: AWS Config Resource Timeline detailing the exact configuration change and CloudTrail events that led to the noncompliance status.</figcaption>
+</figure>
+
+**Fix:** Remediated the vulnerability by re-enabling "Block all public access" and deleting the public policy. Verified that the AWS Config dashboard updated the resource status back to Compliant and a resolution email was received.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./sns-compliant-email-alert.png" alt="Real-time SNS Email Alert (Compliant)" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 7: Real-time SNS Email Alert (Compliant) confirming the resource configuration has been successfully restored to a Compliant state.</figcaption>
+</figure>
+
+## 4. Result & Organizational Benefits
+The implementation successfully created a zero-touch, automated compliance guardrail. The system accurately identified a critical security misconfiguration within minutes, dispatched a real-time alert, and maintained an immutable audit log of who made the change and when. This proved the efficacy of utilizing AWS Config and SNS for automated change management and incident response.
+
+**Potential Benefits to Businesses and Organizations:**
+1. **Proactive Security & Data Breach Prevention:** Instantly detects and warns administrators of public data exposure, minimizing the window of opportunity for malicious actors to exploit misconfigurations.
+2. **Audit Readiness & Regulatory Compliance:** Maintains a continuous, immutable timeline of all resource configurations and changes, making it effortless to prove compliance with frameworks like HIPAA, SOC 2, or GDPR during audits.
+3. **Reduced Manual Overhead:** Eliminates the need for security teams to manually parse through infrastructure settings. Automation handles the monitoring, freeing up engineering hours for higher-level tasks.
+4. **Rapid Incident Response (MTTR):** By delivering real-time alerts directly to the responsible parties' inboxes, the Mean Time To Resolution (MTTR) for critical vulnerabilities is drastically reduced.
+5. **Enforced Change Management:** Ensures that all infrastructure changes are tracked and evaluated against company policies, preventing unauthorized or "shadow IT" modifications from going unnoticed.
+                `
+            },
+            {
+                id: 1,
+                title: 'Enterprise SIEM Deployment & Tuning',
+                category: 'Cybersecurity',
+                excerpt: 'Deployed Splunk in a hybrid cloud environment, configuring custom alerts for brute-force attacks and privilege escalation.',
+                tags: ['Splunk', 'SIEM', 'AWS', 'Linux'],
+                icon: 'shield',
+                iconColor: 'text-emerald-400',
+                date: 'October 2025',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Executive Summary</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    In this lab, I deployed a centralized logging environment utilizing Splunk Enterprise on an AWS EC2 instance. The objective was to aggregate logs from multiple diverse endpoints (Windows and Linux) and create custom dashboards to detect unauthorized access attempts and potential data exfiltration.
+    </p>
+</div>
+
+## 1. Situation & Task
+**Situation:** A mock enterprise environment with a flat network was experiencing visibility gaps, making it impossible to trace lateral movement during simulated red-team exercises. 
+
+**Task:** Design a Zero Trust network architecture in AWS, segment the critical infrastructure, and implement a centralized SIEM (Splunk) to aggregate and analyze logs from all endpoints.
+
+## 2. Action: Architecture & Implementation
+The infrastructure was segmented into three distinct VPC subnets: a management network, a simulated production server network, and an isolated detonation zone for malware testing. Below is a high-level logical diagram of the deployment.
+
+<figure class="my-8 not-prose">
+    <div class="w-full h-64 bg-slate-800 border-2 border-dashed border-slate-600 rounded-xl flex flex-col items-center justify-center text-slate-500">
+        <i data-lucide="cloud" class="w-12 h-12 mb-4 opacity-50"></i>
+        <p class="font-mono text-sm">[ Architecture Diagram Placeholder ]</p>
+        <p class="text-xs mt-2">e.g., A clean Visio or Lucidchart network diagram</p>
+    </div>
+    <figcaption class="text-center text-sm text-slate-500 mt-3">Figure 1: Hybrid Cloud Network Topology</figcaption>
+</figure>
+
+To ensure secure transmission of logs, Universal Forwarders were configured with TLS encryption. The following configuration was pushed to the Linux endpoints via Ansible.
+
+\`\`\`bash
+[tcpout]
+defaultGroup = primary_indexer
+
+[tcpout:primary_indexer]
+server = splunk-idx-01.internal.cloud:9997
+clientCert = /opt/splunkforwarder/etc/auth/certs/forwarder.pem
+useClientSSLCompression = true
+sslVerifyServerCert = true
+\`\`\`
+
+> "Visibility is the foundation of security. You cannot protect what you cannot see, and you cannot detect what you do not log."
+
+## 3. Result & Business Impact
+Initial deployment resulted in a high volume of false positives related to standard Active Directory synchronization traffic. I utilized SPL to filter out known benign administrative activity.
+
+By tuning the correlation rules, I achieved an **85% reduction in alert fatigue**, allowing the hypothetical SOC team to focus on actual anomalous behavior. Furthermore, the segmentation reduced the potential attack surface by segregating critical databases into private subnets.
+
+## 4. Challenges & Lessons Learned
+* **Challenge:** Initially, the Windows endpoints failed to forward logs due to a misconfigured security group blocking port 9997.
+* **Solution:** I utilized VPC Flow Logs to trace the dropped packets, identified the misconfiguration in my Terraform script, and updated the state to allow inbound traffic from the production subnet to the Splunk indexer.
+* **Takeaway:** Always verify network ACLs and Security Groups iteratively when deploying logging infrastructure across segmented subnets.
+
+---
+
+### Artifacts & References
+* [GitHub Repository: Terraform Deployment Scripts](#)
+* [GitHub Repository: Ansible Playbooks for Splunk UF](#)
+* [Splunk Official Documentation on TLS](#)
+                `
+            },
+            {
+                id: 2,
+                title: 'Zero Trust AWS Architecture',
+                category: 'Cloud Computing',
+                excerpt: 'Designed and implemented a secure, highly available VPC architecture using Terraform with strict IAM policies.',
+                tags: ['AWS', 'Terraform', 'IAM', 'Zero Trust'],
+                icon: 'cloud',
+                iconColor: 'text-blue-400',
+                date: 'August 2025',
+                content: '### Executive Summary \n This project outlines the automated deployment of a secure AWS architecture using Infrastructure as Code (Terraform). \n\n *Full write-up coming soon...*'
+            },
+            {
+                id: 3,
+                title: 'Automated Malware Analysis Sandbox',
+                category: 'Cybersecurity',
+                excerpt: 'Built a Cuckoo Sandbox environment on Proxmox to safely detonate and analyze suspicious executables.',
+                tags: ['Malware Analysis', 'Proxmox', 'Python'],
+                icon: 'lock',
+                iconColor: 'text-red-400',
+                date: 'June 2025',
+                content: '### Executive Summary \n Established an isolated virtualization environment to safely detonate potential malware samples and extract IOCs (Indicators of Compromise). \n\n *Full write-up coming soon...*'
+            },
+            {
+                id: 4,
+                title: 'BGP Routing & OSPF Configuration',
+                category: 'Networking',
+                excerpt: 'Configured complex routing protocols across multiple virtualized Cisco routers in GNS3.',
+                tags: ['Cisco', 'BGP', 'OSPF', 'GNS3'],
+                icon: 'network',
+                iconColor: 'text-purple-400',
+                date: 'April 2025',
+                content: '### Executive Summary \n Configured enterprise-grade routing protocols in a simulated network topology. \n\n *Full write-up coming soon...*'
+            }
+        ];
+
+        // --- APPLICATION STATE ---
+        let activeCategory = 'All';
+
+        // --- RENDER FUNCTIONS ---
+        function init() {
+            renderFilters();
+            renderProjects();
+            lucide.createIcons(); // Initialize icons on first load
+            startTypewriter();
+            startSkillCycler();
+        }
+
+        function startTypewriter() {
+            const text = " Jeffrey O";
+            const element = document.getElementById('typewriter-text');
+            let i = 0;
+            let isDeleting = false;
+            
+            function type() {
+                if (!isDeleting) {
+                    // Type characters forward
+                    element.innerHTML = text.substring(0, i + 1);
+                    i++;
+                    
+                    if (i === text.length) {
+                        // Reached the end, pause before deleting
+                        isDeleting = true;
+                        setTimeout(type, 2500); // Pause for 2.5 seconds to read
+                    } else {
+                        setTimeout(type, 120); // Normal typing speed
+                    }
+                } else {
+                    // Delete characters backward
+                    element.innerHTML = text.substring(0, i - 1);
+                    i--;
+                    
+                    if (i === 0) {
+                        // Reached the beginning, pause before re-typing
+                        isDeleting = false;
+                        setTimeout(type, 800); // Pause for 0.8 seconds before restarting
+                    } else {
+                        setTimeout(type, 60); // Deleting speed (faster than typing)
+                    }
+                }
+            }
+            
+            // Delay start slightly for visual effect
+            setTimeout(type, 600);
+        }
+
+        function startSkillCycler() {
+            const rotatingSkills = [
+                "Network Security & Protocols",
+                "Operating System Proficiency",
+                "SIEM Management",
+                "Incident Response",
+                "Digital Forensics",
+                "Vulnerability Management",
+                "Endpoint Detection and Response",
+                "Web Application Security",
+                "Scripting & Automation",
+                "Cloud Security",
+                "Encryption & Cryptography",
+                "Zero Trust Architecture",
+                "Identity & Access Management",
+                "Container Security",
+                "AI-Driven Security",
+                "Threat Intelligence",
+                "Risk Assessment & Management",
+                "Regulatory Compliance",
+                "Critical Thinking & Analysis",
+                "Technical Communication"
+            ];
+            let skillIndex = 0;
+
+            setInterval(() => {
+                const el = document.getElementById('skill-cycler');
+                if (!el) return;
+
+                // 1. Fade out and drop down
+                el.classList.remove('skill-visible');
+                el.classList.add('skill-hidden-bottom');
+
+                setTimeout(() => {
+                    // 2. Change text
+                    skillIndex = (skillIndex + 1) % rotatingSkills.length;
+                    el.innerText = rotatingSkills[skillIndex];
+
+                    // 3. Move to top instantly (invisible)
+                    el.style.transition = 'none';
+                    el.classList.remove('skill-hidden-bottom');
+                    el.classList.add('skill-hidden-top');
+
+                    // 4. Force reflow so the browser registers the jump to the top
+                    void el.offsetWidth;
+
+                    // 5. Restore transition and drop into view
+                    el.style.transition = ''; 
+                    el.classList.remove('skill-hidden-top');
+                    el.classList.add('skill-visible');
+                }, 400); // Wait for the fade-out to finish (400ms defined in CSS)
+            }, 3000); // Change text every 3 seconds
+        }
+
+        function renderFilters() {
+            const container = document.getElementById('filters');
+            container.innerHTML = categories.map(cat => `
+                <button
+                    onclick="setCategory('${cat}')"
+                    class="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                      activeCategory === cat 
+                        ? 'bg-slate-100 text-slate-900' 
+                        : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
+                    }"
+                >
+                    ${cat}
+                </button>
+            `).join('');
+        }
+
+        // Helper function to generate project cards HTML
+        function generateProjectCardsHTML(projectsArray) {
+            return projectsArray.map(project => `
+                <div 
+                    onclick="openProject(${project.id})"
+                    class="group cursor-pointer bg-slate-900 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-6 transition-all duration-300 hover:shadow-[0_0_30px_-10px_rgba(16,185,129,0.2)] flex flex-col h-full"
+                >
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="p-3 bg-slate-800 rounded-lg group-hover:scale-110 transition-transform">
+                            <i data-lucide="${project.icon}" class="w-6 h-6 ${project.iconColor}"></i>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500">${project.date}</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-100 mb-3 group-hover:text-emerald-400 transition-colors">
+                        ${project.title}
+                    </h3>
+                    <p class="text-slate-400 mb-6 flex-grow">
+                        ${project.excerpt}
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        ${project.tags.map(tag => `
+                            <button onclick="event.stopPropagation(); openTag('${tag}')" class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700 hover:border-emerald-500 hover:text-emerald-400 transition-colors cursor-pointer z-10 relative">
+                                #${tag}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div class="flex items-center text-emerald-500 font-medium text-sm mt-auto">
+                        Read Write-up <i data-lucide="chevron-right" class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderProjects() {
+            const grid = document.getElementById('project-grid');
+            const filteredProjects = activeCategory === 'All' 
+                ? projects 
+                : projects.filter(p => p.category === activeCategory);
+
+            grid.innerHTML = generateProjectCardsHTML(filteredProjects);
+            
+            // Re-initialize Lucide icons for the newly injected HTML
+            lucide.createIcons();
+        }
+
+        // --- ACTIONS ---
+        const views = ['profile-view', 'projects-view', 'skills-view', 'tag-view', 'project-view', 'certifications-view', 'resume-view', 'about-view', 'contact-view'];
+
+        function switchView(targetViewId) {
+            views.forEach(viewId => {
+                document.getElementById(viewId).classList.replace('block', 'hidden');
+            });
+            document.getElementById(targetViewId).classList.replace('hidden', 'block');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function setCategory(cat) {
+            activeCategory = cat;
+            renderFilters();
+            renderProjects();
+        }
+
+        function openTag(tag) {
+            // Find projects with the selected tag and sort in reverse chronological order (newest first)
+            const taggedProjects = projects
+                .filter(p => p.tags.includes(tag))
+                .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            // Set dynamic header
+            document.getElementById('tag-header').innerHTML = `
+                <i data-lucide="hash" class="w-8 h-8 text-emerald-500"></i> 
+                Projects tagged with <span class="text-emerald-400 ml-2">#${tag}</span>
+            `;
+
+            // Render projects using the new helper
+            const grid = document.getElementById('tag-project-grid');
+            grid.innerHTML = generateProjectCardsHTML(taggedProjects);
+
+            lucide.createIcons();
+            switchView('tag-view');
+        }
+
+        function openProject(id) {
+            const project = projects.find(p => p.id === id);
+            if (!project) return;
+
+            // 1. Set Header
+            document.getElementById('project-header').innerHTML = `
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-sm font-medium border border-emerald-500/20">
+                        ${project.category}
+                    </span>
+                    <span class="text-slate-500 text-sm font-mono">${project.date}</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-slate-100 mb-6 leading-tight font-google">
+                    ${project.title}
+                </h1>
+                <div class="flex flex-wrap gap-2">
+                    ${project.tags.map(tag => `
+                        <button onclick="openTag('${tag}')" class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-md border border-slate-700 hover:border-emerald-500 hover:text-emerald-400 transition-colors cursor-pointer">
+                            #${tag}
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+
+            // 2. Parse and inject Markdown content
+            const htmlContent = marked.parse(project.content);
+            document.getElementById('markdown-content').innerHTML = htmlContent;
+
+            // 3. Re-initialize icons inside the markdown content if any exist
+            lucide.createIcons();
+
+            // 4. Switch Views to project-view
+            switchView('project-view');
+        }
+
+        // --- RUN APP ---
+        init();
+    </script>
+</body>
+</html>
