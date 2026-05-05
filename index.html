@@ -112,11 +112,9 @@
             <!-- Professional Profile Section -->
             <section class="py-16 md:py-24 flex flex-col md:flex-row items-center md:items-stretch gap-10 lg:gap-16">
                 <!-- Profile Photo -->
-                <!-- Uses absolute positioning on desktop so it perfectly inherits the exact height of the text column -->
                 <div class="shrink-0 relative w-56 md:w-64 lg:w-72 aspect-[9/16] md:aspect-auto">
                     <div class="w-full h-full md:absolute md:inset-0 rounded-2xl bg-slate-800 border border-slate-700 overflow-hidden shadow-[0_0_40px_-10px_rgba(16,185,129,0.2)] hover:shadow-[0_0_50px_-10px_rgba(16,185,129,0.4)] transition-all duration-500 rotate-2 hover:rotate-0 group cursor-pointer">
-                        <!-- Replaced Unsplash URL with local image -->
-                        <img src="./images/jeffreyo_profile.jpg" alt="Jeffrey O - Professional Profile Photo" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <img src="./images/jeffreyo_profile.jpg" alt="Jeffrey O - Professional Profile Photo" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" onerror="this.src='https://images.unsplash.com/photo-1555949963-aa79dcee57d5?q=80&w=2070&auto=format&fit=crop'">
                     </div>
                 </div>
 
@@ -127,7 +125,7 @@
                           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                           <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                         </span>
-                        Available for Opportunities
+                        Globally Available for Opportunities
                     </div>
                     
                     <h1 class="text-4xl md:text-6xl font-bold text-slate-100 mb-4 tracking-tight font-google">
@@ -139,7 +137,6 @@
                         I specialize in hybrid cloud environments, threat detection, and robust network architecture. I build secure systems and hunt threats to protect critical assets.
                     </p>
                     
-                    <!-- Wrapper to align the Skill Cycler with the Certifications button's right edge -->
                     <div class="flex flex-col w-full lg:w-max max-w-full mx-auto md:mx-0">
                         <!-- Quick Links (Buttons) -->
                         <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
@@ -203,6 +200,10 @@
         <!-- ABOUT ME VIEW -->
         <div id="about-view" class="hidden animate-in fade-in duration-500">
             <section class="py-10 max-w-4xl mx-auto">
+                <button onclick="switchView('profile-view')" class="flex items-center text-slate-400 hover:text-emerald-400 transition-colors mb-8 group">
+                    <i data-lucide="arrow-left" class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform"></i>
+                    Back to Home
+                </button>
                 <div class="mb-12 border-b border-slate-800 pb-8 text-center md:text-left">
                     <h2 class="text-4xl md:text-5xl font-bold text-slate-100 mb-4 font-google">The Ambition for Protection</h2>
                     <p class="text-xl text-emerald-400 font-medium">The Architecture Destiny manifest in security</p>
@@ -249,6 +250,10 @@
         <!-- CONTACT ME VIEW -->
         <div id="contact-view" class="hidden animate-in fade-in duration-500">
             <section class="py-10">
+                <button onclick="switchView('profile-view')" class="flex items-center text-slate-400 hover:text-emerald-400 transition-colors mb-8 group">
+                    <i data-lucide="arrow-left" class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform"></i>
+                    Back to Home
+                </button>
                 <div class="mb-10">
                     <h2 class="text-3xl font-bold text-slate-100 flex items-center gap-3 mb-4 font-google">
                         <i data-lucide="mail" class="w-8 h-8 text-emerald-500"></i>
@@ -332,6 +337,10 @@
         <!-- PROJECTS VIEW -->
         <div id="projects-view" class="hidden animate-in fade-in duration-500">
             <section class="py-10">
+                <button onclick="switchView('profile-view')" class="flex items-center text-slate-400 hover:text-emerald-400 transition-colors mb-8 group">
+                    <i data-lucide="arrow-left" class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform"></i>
+                    Back to Home
+                </button>
                 <div class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-6">
                     <h2 class="text-3xl font-bold text-slate-100 flex items-center gap-3">
                         <i data-lucide="server" class="w-8 h-8 text-emerald-500"></i>
@@ -350,6 +359,10 @@
         <!-- SKILLS VIEW -->
         <div id="skills-view" class="hidden animate-in fade-in duration-500">
             <section class="py-10">
+                <button onclick="switchView('profile-view')" class="flex items-center text-slate-400 hover:text-emerald-400 transition-colors mb-8 group">
+                    <i data-lucide="arrow-left" class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform"></i>
+                    Back to Home
+                </button>
                 <div class="mb-10">
                     <h2 class="text-3xl font-bold text-slate-100 flex items-center gap-3 mb-4 font-google">
                         <i data-lucide="wrench" class="w-8 h-8 text-emerald-500"></i>
@@ -410,6 +423,10 @@
         <!-- CERTIFICATIONS VIEW -->
         <div id="certifications-view" class="hidden animate-in fade-in duration-500">
             <section class="py-10">
+                <button onclick="switchView('profile-view')" class="flex items-center text-slate-400 hover:text-emerald-400 transition-colors mb-8 group">
+                    <i data-lucide="arrow-left" class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform"></i>
+                    Back to Home
+                </button>
                 <div class="mb-10">
                     <h2 class="text-3xl font-bold text-slate-100 flex items-center gap-3 mb-4 font-google">
                         <i data-lucide="award" class="w-8 h-8 text-emerald-500"></i>
@@ -525,6 +542,10 @@
         <!-- RESUME VIEW -->
         <div id="resume-view" class="hidden animate-in fade-in duration-500">
             <section class="py-10">
+                <button onclick="switchView('profile-view')" class="flex items-center text-slate-400 hover:text-emerald-400 transition-colors mb-8 group">
+                    <i data-lucide="arrow-left" class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform"></i>
+                    Back to Home
+                </button>
                 <div class="mb-10">
                     <h2 class="text-3xl font-bold text-slate-100 flex items-center gap-3 mb-4 font-google">
                         <i data-lucide="file-text" class="w-8 h-8 text-emerald-500"></i>
@@ -853,6 +874,827 @@ The implementation successfully created a zero-touch, automated compliance guard
                 `
             },
             {
+                id: 8,
+                title: 'Wazuh Endpoint Security (Phase 1): Server Installation, Configuration & Setup',
+                category: 'Cybersecurity',
+                excerpt: 'Deployed the foundational phase of a comprehensive threat detection system using Wazuh SIEM/XDR within an isolated, customized virtual network.',
+                tags: ['Wazuh', 'SIEM', 'XDR', 'VMware', 'Networking'],
+                icon: 'server',
+                iconColor: 'text-blue-500',
+                date: 'December 2025',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This project represents the foundational phase of deploying a comprehensive device monitoring and threat detection system using Wazuh. Wazuh is a leading open-source security platform that delivers extended detection and response (XDR) alongside Security Information and Event Management (SIEM) capabilities. By deploying the Wazuh central server in an isolated, locally hosted virtual environment, this project establishes a robust, highly customizable, and cost-effective centralized hub. This hub is engineered to administer, monitor, and collect logs from endpoint agents across various network environments, laying the groundwork for a mature organizational security posture.
+    </p>
+</div>
+
+## Core Technologies
+* **SIEM / XDR Platform:** Wazuh (v4.14.1)
+* **Virtualization Hypervisor:** VMware Workstation Pro 17.5
+* **Host Operating System:** Windows 10 (x64)
+* **Networking:** Custom NAT Subnet Configuration & DHCP
+* **Hardware Capabilities:** Intel Core i7-7700HQ, 12GB RAM, 512GB NVMe SSD (ASUS ROG Strix)
+
+## Situation
+Organizations require deep visibility into their endpoints, network devices, and cloud environments to defend against modern cyber threats and maintain regulatory compliance. Deploying a SIEM/XDR solution directly into a live production environment can be risky, costly, and limited by external bandwidth or connectivity constraints. There was a critical need to establish a fully controlled, private, and customizable localized security lab to safely build, configure, and test a centralized monitoring infrastructure before enterprise-wide endpoint integration.
+
+## Task
+The objective was to deploy and configure a Wazuh central server within a local virtual lab. As Phase 1 of a broader device monitoring initiative, this server needed to be isolated yet fully capable of serving as the primary administration hub. It required custom network configuration to ensure secure, reliable communication with future endpoint agents while remaining entirely independent of external network limitations.
+
+## Action
+To engineer this solution, I executed a structured deployment and configuration protocol:
+
+**1. Appliance Acquisition:** I sourced the official Wazuh Virtual Machine image (OVA format, v4.14.1), which pre-packages the Wazuh manager, indexer, and dashboard on an Amazon Linux 2023 OS, ensuring a stable and standardized baseline.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-ova-download.png" alt="Downloading the Wazuh OVA package from the official repository" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Sourcing the verified Wazuh Open Virtual Appliance (OVA) package.</figcaption>
+</figure>
+
+**2. Hypervisor Network Engineering:** Within VMware Workstation Pro 17.5, I engineered a dedicated Virtual Network (VMnet8) using NAT. I secured administrator privileges to establish a custom subnet (192.168.123.0/24) and configured local DHCP services to ensure dynamic, yet predictable, IP allocation for the SIEM infrastructure.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/vmware-nat-config.png" alt="Configuring a custom NAT subnet in VMware Workstation Virtual Network Editor" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Architecting the virtualized NAT network environment for secure server isolation.</figcaption>
+</figure>
+
+**3. Server Provisioning:** I imported the OVA package into the hypervisor, provisioning it with optimal resources (8GB RAM, 4 Processors, 50GB storage) to ensure seamless log processing and dashboard rendering. I bridged the virtual machine to the newly created NAT network.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-vm-provisioning.png" alt="Importing and configuring the Wazuh VM settings in VMware" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Provisioning the Wazuh server within the VMware hypervisor.</figcaption>
+</figure>
+
+**4. Initialization & Network Verification:** Upon booting the virtual server, I accessed the Linux command-line interface (CLI), authenticated using default administrative credentials, and executed network queries (\`ip a\`) to verify successful DHCP lease acquisition (192.168.123.128).
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-terminal-ip.png" alt="Running the 'ip a' command in the Wazuh server terminal to verify DHCP lease" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Querying the server terminal to verify internal network address allocation.</figcaption>
+</figure>
+
+**5. Console Access & Security Handshake:** Finally, I established a connection to the Wazuh web dashboard via the host machine's browser. After bypassing the expected self-signed certificate security warning (a standard in localized, non-production setups), I successfully authenticated into the primary administrative console.
+
+## Result
+The deployment was a complete success. The Wazuh central server is now fully operational within a secure, custom-networked virtual environment. It dynamically processes its own network parameters and successfully hosts the web-based administrative dashboard. The SIEM hub is currently in a state of readiness, perfectly positioned for Phase 2: the deployment and integration of endpoint security agents.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-dashboard-login.png" alt="The main Wazuh SIEM/XDR dashboard after successful authentication" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 5: Successful authentication into the Wazuh SIEM/XDR central administrative dashboard.</figcaption>
+</figure>
+
+## Business Value & Organizational Benefits
+Implementing a robust SIEM/XDR platform like Wazuh provides immense strategic value to an organization:
+
+* **Proactive Threat Hunting & Incident Response:** Centralized logging allows security teams to detect anomalies, malware, and indicators of compromise (IoCs) in real-time, drastically reducing the Mean Time to Detect (MTTD) and Mean Time to Respond (MTTR).
+* **Regulatory Compliance Support:** Automated log retention, file integrity monitoring, and configuration assessments heavily support compliance with industry standards such as PCI DSS, HIPAA, GDPR, and ISO 27001.
+* **Cost-Effective Scalability:** Utilizing open-source enterprise-grade software minimizes licensing overhead. The localized testing methodology ensures that when scaling to production, configurations are proven, reducing costly deployment errors.
+* **Unified Security Posture:** By consolidating cloud security, endpoint protection, and network monitoring into a single pane of glass, organizations eliminate security silos and streamline their Security Operations Center (SOC) workflows.
+                `
+            },
+            {
+                id: 9,
+                title: 'Wazuh Endpoint Security (Phase 2): Agent Deployment on Endpoints',
+                category: 'Cybersecurity',
+                excerpt: 'Seamlessly connected, configured, and registered Wazuh security agents on Linux and Windows virtual environments for centralized SIEM/XDR monitoring.',
+                tags: ['Wazuh', 'SIEM', 'XDR', 'Linux', 'Windows Server', 'PowerShell'],
+                icon: 'monitor',
+                iconColor: 'text-indigo-400',
+                date: 'December 2025',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    Building upon the centralized Wazuh SIEM/XDR server established in Phase 1, Phase 2 focuses on integrating target endpoints into the security architecture. A centralized hub is only effective when it receives rich, continuous data streams from across the network. This phase demonstrates cross-platform deployment capabilities by seamlessly connecting, configuring, and registering Wazuh security agents on both Linux and Windows virtual environments. This implementation bridges the gap between isolated endpoints and the central monitoring dashboard, creating a fully functional, real-time threat detection network.
+    </p>
+</div>
+
+## Core Technologies
+* **SIEM / XDR Platform:** Wazuh (v4.14.1)
+* **Virtualization Hypervisor:** VMware Workstation Pro 17.5
+* **Host Operating System:** Windows 10 (x64)
+* **Linux Endpoint:** Kali OS (GNU/Linux)
+* **Windows Endpoint:** Windows Server 2022
+* **Scripting & Automation:** Bash, PowerShell
+* **Hardware Capabilities:** Intel Core i7-7700HQ, 12GB RAM, 512GB NVMe SSD (ASUS ROG Strix)
+
+## Situation
+Following the successful deployment of the Wazuh central server in a controlled virtual lab, the SIEM architecture required active data sources to monitor. In enterprise environments, infrastructure consists of diverse, cross-platform operating systems that are susceptible to various threat vectors. To establish a robust security monitoring capability, it was necessary to securely link typical client and server operating systems to the centralized Wazuh manager.
+
+## Task
+The objective was to deploy and authenticate Wazuh endpoint agents across two distinct virtual machines: a Linux client (Kali OS) and a Windows client (Windows Server 2022). This required configuring the virtual network adapters for secure NAT communication, verifying connectivity to the centralized server, pulling the correct OS-specific deployment packages via CLI interfaces, and registering the agents to the main Wazuh dashboard.
+
+## Action
+To integrate the endpoints, I executed a dual-platform deployment strategy:
+
+**1. Network Configuration & Verification:** For both the Kali OS and Windows Server 2022 virtual machines, I modified the hypervisor's hardware settings to bridge them to the custom NAT network created in Phase 1. I then verified connectivity by executing ICMP echo requests (\`ping\`) from both endpoints to the Wazuh Server's IP address (192.168.123.128), ensuring zero packet loss.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-p2-network-ping.png" alt="Command line interface showing successful ICMP echo requests from endpoints to the Wazuh server" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Verifying secure NAT network connectivity via ICMP requests from the endpoints to the Wazuh central server.</figcaption>
+</figure>
+
+**2. Linux Agent Deployment (Kali OS):** I accessed the Wazuh web console directly from the Kali virtual machine. Using the deployment wizard, I generated an installation script for a DEB amd64 package. Executing the \`wget\` and \`apt-get\` commands in the Linux terminal, I downloaded the package, imported the Wazuh GPG key, installed the agent, and used \`systemctl\` to enable and start the Wazuh daemon.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-p2-kali-agent.png" alt="Linux terminal displaying the execution of the Wazuh installation script on Kali OS" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Executing the Wazuh deployment script via the Linux terminal to install and start the agent on Kali OS.</figcaption>
+</figure>
+
+**3. Windows Agent Deployment (Windows Server 2022):** From the Windows Server environment, I accessed the Wazuh dashboard to generate an MSI 32/64 bits deployment command. I launched Windows PowerShell with administrative privileges and executed an \`Invoke-WebRequest\` to pull and quietly install the MSI package (\`msiexec.exe\`), followed by starting the Wazuh service using the \`NET Start Wazuh\` command.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-p2-windows-agent.png" alt="Windows PowerShell executing Invoke-WebRequest and msiexec to install the Wazuh agent" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Utilizing administrative PowerShell commands to quietly download, install, and initialize the Wazuh agent on Windows Server 2022.</figcaption>
+</figure>
+
+**4. Console Registration & Validation:** Finally, I accessed the Endpoint Summary dashboard within the Wazuh central console to validate the handshake. I verified that the deployed agents correctly registered their respective hostnames, OS versions, and IP addresses.
+
+## Result
+The deployment was highly successful, resulting in a fully integrated, multi-node monitoring environment. The Wazuh central console successfully registered both Kali-Agent and WinServ22-Agent as "Active" endpoints. The system is now actively ingesting logs and security telemetry from both a Linux client and a Windows Server, proving the architecture's scalability and readiness for advanced threat hunting and vulnerability detection.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-p2-active-endpoints.png" alt="Wazuh Endpoint Summary dashboard showing two active agents connected" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: The Wazuh Endpoint Summary dashboard confirming the active status and successful registration of both the Kali Linux and Windows Server 2022 agents.</figcaption>
+</figure>
+
+## Business Value & Organizational Benefits
+Deploying and managing endpoint agents effectively brings immediate, tangible benefits to modern businesses:
+
+* **Comprehensive Cross-Platform Visibility:** Whether infrastructure runs on Windows servers, Linux machines, or macOS devices, unified agents ensure there are no blind spots in the network, providing security teams with a single pane of glass for all OS telemetry.
+* **Rapid Threat Detection & Containment:** With agents continuously forwarding logs and system state changes, organizations can identify anomalous behavior, unauthorized access, or malware execution the moment it happens on the endpoint.
+* **Automated Auditing & Compliance:** The agents enable continuous file integrity monitoring (FIM) and Security Configuration Assessments (SCA), automating the grueling process of ensuring all endpoints comply with internal policies and external regulatory frameworks (like GDPR, HIPAA, or SOC 2).
+* **Scalable Security Operations:** The scripted deployment methods (using Bash and PowerShell) demonstrated in this project represent highly scalable processes that can be easily adapted into enterprise mass-deployment tools (like SCCM, Ansible, or Group Policy) for thousands of devices.
+                `
+            },
+            {
+                id: 10,
+                title: 'Wazuh Endpoint Security (Phase 3): File Integrity Monitoring (FIM)',
+                category: 'Cybersecurity',
+                excerpt: 'Configured and rigorously tested Wazuh\'s File Integrity Monitoring (FIM) capabilities across Linux and Windows to detect unauthorized file modifications and deletions.',
+                tags: ['Wazuh', 'SIEM', 'FIM', 'Linux', 'Windows Server', 'Compliance'],
+                icon: 'file-search',
+                iconColor: 'text-red-400',
+                date: 'December 2025',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    With the centralized SIEM hub established and endpoints successfully integrated in previous phases, Phase 3 advances the architecture from basic connectivity to active threat detection. This project demonstrates the configuration, deployment, and rigorous testing of Wazuh's File Integrity Monitoring (FIM) capabilities across a multi-OS environment. By explicitly tracking highly sensitive directories on both Linux and Windows targets, this phase proves the system's ability to immediately detect, log, and alert on unauthorized file modifications and deletions—a critical defense mechanism against ransomware, malware, and insider threats.
+    </p>
+</div>
+
+## Core Technologies
+* **SIEM / XDR Platform:** Wazuh (v4.14.1)
+* **Virtualization Hypervisor:** VMware Workstation Pro 17.5
+* **Monitored Endpoints:** Kali OS (GNU/Linux), Windows Server 2022
+* **Configuration Management:** \`ossec.conf\` XML manipulation
+* **Core Security Module:** Wazuh FIM (Syscheck)
+* **Command Line Interfaces:** Bash (Linux), Command Prompt/PowerShell (Windows)
+
+## Situation
+While successfully gathering standard event logs is foundational, modern cybersecurity requires granular visibility into the state of critical system files, configuration directories, and sensitive user data. Without active integrity monitoring, an adversary or malicious insider could silently alter configuration files, tamper with logs, or delete critical assets without triggering immediate alarms. The architecture required a proactive mechanism to track the exact state of specific high-value assets across diverse operating systems.
+
+## Task
+The objective was to configure the Wazuh File Integrity Monitoring (FIM) module to observe designated "secret" directories on both a Kali Linux machine and a Windows Server 2022 endpoint. Once configured, the task required conducting rigorous simulated attacks—specifically modifying and deleting files—and validating that the central Wazuh manager successfully captured, categorized, and alerted on these specific events in near real-time.
+
+## Action
+To implement and validate the FIM architecture, I executed a controlled testing protocol:
+
+**1. Target Provisioning:** I created dedicated, highly restricted directories on both the Linux (\`/home/jeffreyoo/Desktop/AltSchool/Assessment_2/\`) and Windows (\`C:\\Users\\Administrator\\Desktop\\Secrets\\\`) endpoints, populating them with a target asset named \`secrets.txt\`.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-p3-provisioning.png" alt="Terminal and Explorer windows showing the creation of secrets.txt on Kali Linux and Windows Server 2022" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Provisioning target assets ("secrets.txt") on Kali OS and Windows Server 2022.</figcaption>
+</figure>
+
+**2. Agent Configuration (ossec.conf):** Using elevated privileges (\`sudo nano\` on Linux, Administrator Notepad on Windows), I injected custom directory tracking parameters into the Wazuh agent's core configuration file. By adding the \`<directories check_all="yes">\` flag to the \`<syscheck>\` block, I instructed the agent to perform deep cryptographic hashing (SHA1/SHA256) and attribute monitoring on the target folders.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-p3-ossec-conf.png" alt="Editing the ossec.conf XML file to include specific directories in the syscheck module" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Engineering the Wazuh agent configuration XML to actively monitor the designated directories.</figcaption>
+</figure>
+
+**3. Baseline Inventory Validation:** After restarting the wazuh-agent services, I utilized the Wazuh central web console to query the endpoint inventory. I successfully validated that the manager had hashed and indexed \`secrets.txt\` for both agents, establishing a clean baseline for future comparisons.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-p3-baseline-validation.png" alt="Wazuh dashboard displaying the successful cryptographic hashing and indexing of the target files" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Validating the cryptographic baseline of the target files within the Wazuh central dashboard.</figcaption>
+</figure>
+
+**4. Simulation 1 (Unauthorized Modification):** I simulated an unauthorized data append by echoing "Extra!" into the Linux file and manually altering the Windows text document. Searching the Wazuh Events dashboard, I verified that the system immediately caught the SHA256 hash mismatch, triggering Rule ID 550 (Integrity checksum changed).
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-p3-rule550.png" alt="Wazuh security events dashboard showing Rule ID 550 alerts for integrity checksum changes on both OS environments" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Successful detection and alerting of unauthorized file modifications (Rule ID 550) across both OS environments.</figcaption>
+</figure>
+
+**5. Simulation 2 (Unauthorized Deletion):** To test destructive actions, I permanently deleted the \`secrets.txt\` assets from both virtual machines via their respective CLIs and GUIs. The Wazuh dashboard successfully caught the missing assets during its syscheck routine, triggering Rule ID 553 (File deleted).
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-p3-rule553.png" alt="Wazuh security events dashboard showing Rule ID 553 alerts confirming the deletion of the monitored files" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 5: Immediate detection and centralized logging of asset deletion events (Rule ID 553).</figcaption>
+</figure>
+
+## Result
+The File Integrity Monitoring deployment was definitively successful. The Wazuh centralized dashboard proved highly responsive, accurately identifying both the modification and deletion of monitored assets across drastically different operating systems. The test confirmed that the syscheck module successfully hashes files, tracks attribute changes, and securely forwards these cryptographic alerts to the SIEM manager, proving the system's readiness for production-level endpoint defense.
+
+## Business Value & Organizational Benefits
+Implementing precise File Integrity Monitoring provides organizations with critical defensive and operational advantages:
+
+* **Ransomware & Malware Early Warning:** FIM is one of the most reliable indicators of a ransomware attack. Detecting unexpected mass-encryption (which registers as file modifications) allows automated response playbooks to isolate endpoints before lateral movement occurs.
+* **Stringent Regulatory Compliance:** Frameworks such as PCI DSS (Requirement 11.5), HIPAA, and GDPR explicitly mandate the deployment of change-detection mechanisms to alert personnel to unauthorized modifications of critical system files, configuration files, or content files.
+* **Insider Threat Mitigation:** FIM creates an immutable audit trail. If an authenticated user or malicious insider attempts to alter logs, steal data, or sabotage configurations, the SIEM immediately flags the exact time, file path, and nature of the change.
+* **Zero-Trust Validation:** By continuously verifying the cryptographic hashes of core system files against known-good baselines, organizations ensure that their infrastructure has not been silently compromised by persistent threats or rootkits.
+                `
+            },
+            {
+                id: 11,
+                title: 'Sophos Firewall: Installation, Configuration & Setup',
+                category: 'Networking',
+                excerpt: 'Engineered a robust network perimeter defense by deploying and configuring a Sophos Next-Generation Firewall (NGFW) within a dual-homed virtualized lab environment.',
+                tags: ['Sophos', 'Firewall', 'NGFW', 'Networking', 'VMware'],
+                icon: 'shield',
+                iconColor: 'text-orange-500',
+                date: 'November 2025',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This project focuses on engineering a robust network perimeter defense by deploying and configuring a Sophos Next-Generation Firewall (NGFW) within a virtualized lab environment. Sophos Firewall Operating System (SFOS) provides enterprise-grade security services, including deep packet inspection, VPN capabilities, web filtering, and zero-day ransomware protection. By implementing this firewall as a virtual gateway, the project establishes a highly secure, isolated local area network (LAN) for internal endpoints, ensuring all inbound and outbound traffic is strictly monitored, routed, and sanitized against advanced cyber threats.
+    </p>
+</div>
+
+## Core Technologies
+* **Next-Generation Firewall (NGFW):** Sophos Firewall (SFOS v21.5.0)
+* **Virtualization Hypervisor:** VMware Workstation Pro 17.5
+* **Host Operating System:** Windows 10 (x64)
+* **Networking:** Dual-Homed Architecture (Host-Only LAN & Bridged WAN), Custom Subnetting (192.168.56.0/24)
+* **Core Security Modules:** Deep Packet Inspection, Zero-Day Sandboxing, Malware Scanning
+
+## Situation
+Modern IT infrastructures require strict perimeter security to protect sensitive internal assets from external intrusion and lateral movement. When building a security testing lab or an enterprise network, deploying vulnerable endpoints directly on a flat, unmonitored network is highly risky. There was a critical need to introduce a dedicated, intelligent gateway that could securely isolate internal virtual machines from the host network while still providing controlled, inspected access to the internet.
+
+## Task
+The objective was to deploy a Sophos Firewall virtual appliance to act as the primary security gateway for a local lab. This required designing a dual-network topology—bridging one interface to the external internet while confining the other to an isolated internal subnet. Following the network engineering, the task involved executing the initial command-line setup and configuring advanced protection policies via the web administration console.
+
+## Action
+To implement this secure perimeter, I executed a comprehensive deployment strategy:
+
+**1. Appliance Acquisition & Import:** I sourced the official Sophos Firewall OS virtual installer (OVA format) and imported it into VMware Workstation Pro, allocating optimal computational resources (4GB RAM, 32GB primary storage) to handle intensive traffic inspection.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/sophos-provisioning.png" alt="VMware Workstation displaying the virtual machine settings and resource allocation for the Sophos Firewall appliance" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Provisioning the Sophos Firewall virtual appliance within the hypervisor.</figcaption>
+</figure>
+
+**2. Dual-Homed Network Engineering:** To ensure proper traffic routing, I engineered a dual-adapter configuration. I configured a custom Virtual Network (VMnet1) as a Host-only adapter to serve as the secure internal LAN (192.168.56.0/24), and designated a second adapter as Bridged to provide the firewall with external internet connectivity.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/sophos-dual-homed.png" alt="Virtual Network Editor showing the configuration of VMnet1 (Host-only) and VMnet0 (Bridged) interfaces" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Architecting the dual-homed network topology to isolate internal LAN traffic from the Bridged WAN connection.</figcaption>
+</figure>
+
+**3. CLI Network Initialization:** Upon booting the SFOS appliance, I accessed the GNU GRUB bootloader and navigated the initial command-line interface. Through the network configuration menu, I statically assigned the LAN IP address (192.168.56.201) to Ethernet Port A, officially establishing the firewall's management interface.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/sophos-cli-init.png" alt="Sophos Firewall CLI console showing the network configuration and IP assignment for Port A" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Initializing the primary management interface via the firewall's command-line console.</figcaption>
+</figure>
+
+**4. Web Console & Security Configuration:** Utilizing a host browser, I connected to the management interface via port 4444. Proceeding through the web setup wizard, I established secure administrative credentials, synchronized system time zones, and explicitly enabled advanced network protection features, including web malware scanning and zero-day threat sandboxing.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/sophos-web-console.png" alt="Sophos Web Admin Console setup wizard highlighting the activation of advanced threat protection features" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Enforcing baseline security policies and advanced threat protection via the Web Admin Console.</figcaption>
+</figure>
+
+**5. Licensing & Dashboard Access:** After generating and applying a 30-day evaluation serial number, I completed the setup process. By bypassing forced cloud synchronization to maintain strict local control, I successfully authenticated into the main Control Center dashboard.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/sophos-control-center.png" alt="The main Sophos Firewall Control Center dashboard displaying network health, traffic insights, and active security services" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 5: Successful authentication into the sophisticated Sophos Control Center, providing a unified view of network health.</figcaption>
+</figure>
+
+## Result
+The Sophos Firewall deployment was completely successful. The system now functions as an independent, hardened security gateway bridging the isolated virtual LAN and the external network. The firewall is actively routing traffic and stands ready to perform deep packet inspection, enforce access control lists (ACLs), and protect all future endpoint deployments within the lab environment.
+
+## Business Value & Organizational Benefits
+Implementing an enterprise-grade Next-Generation Firewall provides critical advantages to any organizational infrastructure:
+
+* **Advanced Perimeter Defense:** By inspecting traffic at the edge, organizations can block intrusion attempts, malicious payloads, and unauthorized access before they ever reach vulnerable internal servers or employee workstations.
+* **Granular Traffic Visibility & Control:** Deep packet inspection (DPI) and web filtering provide security teams with absolute visibility into application usage, allowing for the enforcement of strict corporate policies and the prevention of data exfiltration.
+* **Zero-Day Threat Prevention:** Integration with advanced sandboxing technology automatically quarantines and analyzes suspicious files, isolating unknown malware and zero-day ransomware variants before they can execute.
+* **Secure Network Segmentation:** Dual-homed and multi-zoned network architectures (like the one engineered in this project) securely isolate sensitive internal assets, serving as the foundational building block for a Zero-Trust security model.
+                `
+            },
+            {
+                id: 12,
+                title: 'Sophos Firewall: NAT Gateway',
+                category: 'Networking',
+                excerpt: 'Configured the Sophos Next-Generation Firewall as a NAT Gateway to secure outbound internet access for an isolated internal LAN while masking private IPs.',
+                tags: ['Sophos', 'Firewall', 'NAT', 'Networking', 'VMware'],
+                icon: 'network',
+                iconColor: 'text-purple-500',
+                date: 'November 2025',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    Building upon the initial deployment of the Sophos Next-Generation Firewall, this project demonstrates the practical configuration of the firewall as a Network Address Translation (NAT) Gateway. By engineering a secure routing path, the Sophos Firewall acts as the definitive bridge between an isolated internal local area network (LAN) and the external wide area network (WAN). This setup ensures that internal endpoints can securely access external resources while having their private IP addresses masked, guaranteeing that all outbound and inbound traffic is forced through the firewall's security inspection engines.
+    </p>
+</div>
+
+## Core Technologies
+* **Next-Generation Firewall (NGFW):** Sophos Firewall (SFOS v21.5.0)
+* **Virtualization Hypervisor:** VMware Workstation Pro 17.5
+* **Test Endpoint:** Kali OS (GNU/Linux)
+* **Networking Protocols:** IPv4, NAT (Masquerading), DHCP, ICMP
+* **Network Architecture:** Dual-Homed Gateway (LAN: 192.168.56.201/24 | WAN: 192.168.0.103/24)
+
+## Situation
+Enterprise networks and secure testing labs typically consist of highly sensitive virtual machines that operate on strictly isolated, private subnets. While this isolation protects them from external threats, these machines still require internet connectivity for software updates, threat intelligence feeds, and standard web communication. Exposing them directly to the public internet is a massive security risk. A secure intermediary was needed to grant outbound internet access without compromising the private status of the internal network.
+
+## Task
+The objective was to configure the Sophos Firewall to serve as a NAT gateway for a Host-Only virtualized LAN. This required mapping the firewall's internal interface (Port A) to the isolated subnet and its external interface (Port B) to the bridged WAN. Once configured, I needed to test and validate the routing path using a Kali Linux endpoint to ensure all outbound packets were successfully hopping through the firewall before reaching the broader internet.
+
+## Action
+To engineer this secure NAT gateway, I followed a precise network configuration and validation protocol:
+
+**1. Hypervisor Network Validation:** I launched the VMware Virtual Network Editor to explicitly verify the adapter settings. I ensured that VMnet1 was strictly configured as a Host-Only adapter with a designated subnet (192.168.56.0/24) and local DHCP enabled, establishing the isolated environment for the internal endpoints.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/sophos-nat-vmware.png" alt="VMware Virtual Network Editor interface showing the Host-Only VMnet1 configuration with its assigned subnet and local DHCP settings" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Verifying the isolated Host-Only (VMnet1) and NAT network configurations within the VMware Virtual Network Editor.</figcaption>
+</figure>
+
+**2. Dual-Interface Gateway Configuration:** Within the Sophos Firewall, I configured two distinct zones. Port A was assigned as the LAN gateway (192.168.56.201), while Port B was configured to face the WAN (192.168.0.103). This established the physical routing boundaries necessary for Network Address Translation.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/sophos-nat-interfaces.png" alt="Sophos Firewall interface management screen displaying Port A mapped to LAN and Port B mapped to WAN with corresponding IP addresses" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Sophos Firewall interface configuration detailing the LAN (Port A) and bridged WAN (Port B) IP assignments.</figcaption>
+</figure>
+
+**3. NAT Policy & Masquerading:** I ensured the firewall's routing policies were set to masquerade the private IP addresses of the internal LAN. This meant that any outbound request from an internal VM would be rewritten to appear as if it originated from the firewall's public-facing IP, effectively hiding the internal architecture.
+
+**4. Diagnostic Path Validation:** To prove the configuration worked, I deployed a Kali OS virtual machine on the VMnet1 LAN. From the Kali terminal, I executed a \`traceroute\` command to an external domain (altschoolafrica.com). I monitored the packet hops to verify the exact routing path taken by the endpoint.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/sophos-nat-traceroute.png" alt="Kali Linux terminal displaying a traceroute execution where the first hop reaches the Sophos Firewall LAN IP 192.168.56.201" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Executing a traceroute from the isolated Kali OS endpoint, confirming the first hop hits the Sophos Firewall gateway.</figcaption>
+</figure>
+
+## Result
+The NAT Gateway configuration was a complete success. The diagnostic traceroute confirmed that packets from the Kali OS machine successfully reached the external internet, with the very first network hop registering at 192.168.56.201 (the Sophos Firewall). This proves that the isolated LAN is successfully utilizing the firewall as its exclusive, secure exit point, ensuring all traffic is subjected to the firewall's security policies before leaving the network.
+
+## Business Value & Organizational Benefits
+Configuring a robust NAT Gateway through an NGFW like Sophos provides organizations with several architectural and security advantages:
+
+* **Internal Architecture Obfuscation:** NAT completely hides the internal IP addressing scheme from the outside world. Attackers probing the perimeter only see the firewall's public IP, drastically reducing the attack surface.
+* **Centralized Security Choke Point:** Forcing all internal devices to route through a single gateway ensures that 100% of outbound and inbound traffic is subjected to deep packet inspection, web filtering, and malware scanning.
+* **IPv4 Address Conservation:** Businesses can host hundreds of internal workstations and servers using a single public IP address, saving significant costs on public IP allocation from ISPs.
+* **Controlled External Access:** By managing outbound access at the gateway level, administrators can easily restrict specific internal subnets or devices from accessing the internet, preventing data exfiltration from highly sensitive servers.
+                `
+            },
+            {
+                id: 13,
+                title: 'Sophos Firewall: Content Filtering',
+                category: 'Networking',
+                excerpt: 'Implemented advanced web protection and dynamic content filtering using Sophos NGFW to automatically block unauthorized web categories and enforce Acceptable Use Policies.',
+                tags: ['Sophos', 'Firewall', 'Content Filtering', 'Networking', 'Web Protection'],
+                icon: 'filter',
+                iconColor: 'text-teal-400',
+                date: 'November 2025',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This project demonstrates the implementation of advanced web protection and content filtering using the Sophos Next-Generation Firewall. Content filtering (or URL filtering) is a crucial security mechanism used to control access to web-based content and enforce an organization's Acceptable Use Policy (AUP). Instead of relying on static, difficult-to-maintain lists of individual URLs, this project leverages Sophos's dynamic categorization engine to automatically identify and block entire classifications of web traffic—specifically, "News and Media"—ensuring precise control over outbound network activity.
+    </p>
+</div>
+
+## Core Technologies
+* **Next-Generation Firewall (NGFW):** Sophos Firewall (SFOS v21.5.0)
+* **Virtualization Hypervisor:** VMware Workstation Pro 17.5
+* **Test Endpoint:** Kali OS (GNU/Linux)
+* **Security Modules:** Sophos Web Protection, Dynamic URL Categorization, Deep Packet Inspection
+* **Network Architecture:** Dual-Homed NAT Gateway
+
+## Situation
+In enterprise environments, unrestricted internet access can lead to significant issues, including bandwidth degradation, loss of employee productivity, and increased exposure to malicious or legally compromising websites. Manually blacklisting thousands of individual websites is operationally impossible. To properly enforce an Acceptable Use Policy (AUP), the network required a smart, automated intervention system capable of categorizing and screening outbound HTTP and HTTPS traffic in real-time.
+
+## Task
+The objective was to configure the Sophos Firewall as an intelligent content filter. Specifically, I needed to create a Web Policy designed to block all access to the "News" category and apply this policy to the existing LAN-to-WAN routing rule. Finally, the configuration had to be rigorously tested both from the firewall's internal diagnostic tools and from a live internal endpoint to ensure the intervention page triggered correctly.
+
+## Action
+To engineer this content filtering solution, I executed the following configuration and validation steps:
+
+**1. Web Policy Creation:** Within the Sophos Web Console, I navigated to the Web Protection module to author a new policy named \`Block_News_Sites\`. I added a specific rule targeting the "News" category, setting the action explicitly to "Block" to prevent any matching traffic from leaving the network.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/sophos-cf-policy.png" alt="Sophos Web Protection module showing the configuration of the Block_News_Sites policy with the News category set to Block" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Configuring the "Block_News_Sites" policy within the Sophos Web Protection module, targeting the News category.</figcaption>
+</figure>
+
+**2. Firewall Rule Enforcement:** Policies are ineffective unless bound to traffic flows. I modified the primary LAN to WAN firewall rule (Rule ID: 3), injecting the newly created \`Block_News_Sites\` web policy into the rule's security parameters. This ensured that all outbound traffic from the internal subnet would be subjected to URL categorization.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/sophos-cf-rule.png" alt="Sophos Firewall rules configuration screen showing the Web Policy bound to the active LAN to WAN traffic rule" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Binding the Web Policy to the active LAN to WAN firewall rule to enforce deep packet inspection on outbound traffic.</figcaption>
+</figure>
+
+**3. Diagnostic Policy Testing:** Before live testing, I utilized the Sophos built-in Policy Tester. I simulated a request from an internal IP address targeting a known news domain. The diagnostic tool successfully returned a "Block" result, confirming the policy logic was correctly identifying the URL category and applying the intervention.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/sophos-cf-tester.png" alt="Sophos Policy Tester interface confirming the web protection engine successfully blocks the simulated news URL request" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Utilizing the Sophos Policy Tester to validate that the web protection engine successfully categorizes and blocks the test URL.</figcaption>
+</figure>
+
+**4. Live Endpoint Validation:** I launched the isolated Kali OS virtual machine situated on the internal LAN. Opening the Firefox browser, I attempted to navigate to \`abcnews.com\`. The firewall successfully intercepted the request, performed the DNS categorization, and dropped the connection to the external server.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/sophos-cf-blockpage.png" alt="Browser window on the Kali OS endpoint displaying the customized Sophos Stop! This website is blocked warning page" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: The customized Sophos "Stop! This website is blocked" intervention page displayed on the Kali OS endpoint browser.</figcaption>
+</figure>
+
+## Result
+The content filtering deployment was a complete success. The firewall seamlessly intercepted outbound web requests, analyzed them against its dynamic categorization database, and effectively blocked access to news media sites without requiring a single URL to be manually blacklisted. The endpoint successfully received the customized Sophos block page, providing clear feedback to the user and proving the network's adherence to the simulated Acceptable Use Policy.
+
+## Business Value & Organizational Benefits
+Implementing dynamic Content Filtering via an NGFW like Sophos yields significant operational and security benefits for any organization:
+
+* **Automated Policy Enforcement:** IT administrators can enforce corporate Acceptable Use Policies (AUPs) instantly across thousands of devices by simply toggling predefined categories (e.g., Adult, Gambling, Social Media).
+* **Bandwidth Optimization:** By blocking high-bandwidth categories like streaming media or peer-to-peer (P2P) file sharing, organizations can reclaim critical network bandwidth for legitimate business applications.
+* **Proactive Threat Mitigation:** Beyond productivity, URL filtering acts as a critical security layer by categorically blocking known malicious domains, phishing sites, and command-and-control (C2) servers before a user can ever reach them.
+* **Legal Liability Reduction:** Filtering prevents users from accessing or downloading illicit, pirated, or illegal content on company networks, thereby shielding the organization from potential legal exposure and compliance violations.
+                `
+            },
+            {
+                id: 14,
+                title: 'Sophos Firewall: Denial of Service Protection',
+                category: 'Networking',
+                excerpt: 'Implemented Intrusion Prevention System (IPS) and DoS protection policies on a Sophos NGFW to automatically mitigate aggressive SYN and ICMP flood attacks.',
+                tags: ['Sophos', 'Firewall', 'DoS', 'Networking', 'IPS'],
+                icon: 'shield-alert',
+                iconColor: 'text-rose-500',
+                date: 'November 2025',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This project demonstrates the engineering of resilient network infrastructure by implementing Denial-of-Service (DoS) and spoofing protection using the Sophos Next-Generation Firewall. Malicious actors frequently utilize volumetric attacks to overwhelm network resources, degrade performance, or create a smokescreen for deeper unauthorized access. By configuring strict packet rate limits, burst thresholds, and intelligent drop rules within the firewall's Intrusion Prevention System (IPS), this project proves the network's ability to automatically absorb, mitigate, and log massive floods of malicious traffic while ensuring high availability for legitimate users.
+    </p>
+</div>
+
+## Core Technologies
+* **Next-Generation Firewall (NGFW):** Sophos Firewall (SFOS v21.5.0)
+* **Virtualization Hypervisor:** VMware Workstation Pro 17.5
+* **Management Endpoint:** Parrot Security OS
+* **Attack Simulation Endpoint:** Kali OS (GNU/Linux)
+* **Security Modules:** Intrusion Prevention System (IPS), DoS & Spoof Protection
+* **Network Protocols:** TCP (SYN), ICMP
+
+## Situation
+Downtime translates directly to financial loss and operational paralysis for any modern enterprise. Networks without explicit volumetric safeguards are highly susceptible to DoS and Distributed Denial-of-Service (DDoS) attacks, such as SYN floods or Ping (ICMP) floods, which exhaust server resources and state tables. To guarantee network survivability, the infrastructure required a hardened perimeter capable of dynamically distinguishing between legitimate traffic spikes and malicious, high-volume packet floods.
+
+## Task
+The objective was to configure the Sophos Firewall to actively defend against targeted volumetric attacks. This required establishing baseline packet rate limits and burst thresholds within the DoS protection module. To validate the configuration's effectiveness, a live simulation was necessary: launching aggressive SYN and ICMP flood attacks from an isolated Kali OS virtual machine and utilizing a Parrot Security OS management node to monitor the firewall's real-time defensive response.
+
+## Action
+To implement and validate this defensive posture, I executed the following configuration and simulation protocol:
+
+**1. Simulation Environment Initialization:** I provisioned two specialized Linux virtual machines within the VMware hypervisor: Kali OS to serve as the external attack node and Parrot Security OS to act as the secure internal management console.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/sophos-dos-init.png" alt="VMware interface showing Kali OS and Parrot Security OS virtual machines running in the isolated lab environment" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Initializing the attack and management virtual machines (Kali OS and Parrot Security) within the isolated lab environment.</figcaption>
+</figure>
+
+**2. DoS Threshold Configuration:** Accessing the Sophos Web Console via the Parrot OS management node, I navigated to the Intrusion Prevention module. Under the DoS attacks configuration, I defined strict upper limits for packet rates and burst thresholds specifically targeting ICMP, UDP, and TCP SYN traffic to prevent state-table exhaustion.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/sophos-dos-thresholds.png" alt="Sophos Web Console DoS attacks settings showing packet rate limits and burst thresholds for ICMP, UDP, and TCP SYN traffic" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Configuring aggressive packet rate limits and burst thresholds within the Sophos Intrusion Prevention (DoS attacks) settings.</figcaption>
+</figure>
+
+**3. Volumetric Attack Simulation:** With the defenses active, I transitioned to the Kali OS endpoint. Utilizing aggressive network stress-testing tools, I directed high-volume SYN floods and ICMP echo-request floods directly at the firewall's external-facing interface to simulate a concerted volumetric attack.
+
+**4. Defensive Validation & Telemetry:** Returning to the Parrot OS management console, I monitored the live Intrusion Prevention logs. I verified that the firewall successfully identified the anomalous traffic spikes, applied the configured rate limits, and systematically dropped the excess packets without degrading the management console's connection.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/sophos-dos-telemetry.png" alt="Sophos Web Console Intrusion Prevention logs displaying real-time traffic drop telemetry for SYN and ICMP floods" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: The Sophos Web Console displaying real-time traffic drop telemetry during the active DoS simulation.</figcaption>
+</figure>
+
+## Result
+The DoS protection configuration was remarkably successful, demonstrating enterprise-grade resilience. The Sophos Firewall seamlessly absorbed the simulated volumetric attacks without failing. Telemetry from the Intrusion Prevention module confirmed the massive scale of the mitigation: the firewall successfully identified and dropped 1,211,832 SYN flood packets and 1,579,292 ICMP flood packets. The network remained healthy, and management access remained uninterrupted, proving the architecture's capacity to withstand aggressive stress conditions.
+
+## Business Value & Organizational Benefits
+Implementing explicit Denial-of-Service protection at the firewall level provides organizations with critical stability and security assurances:
+
+* **Guaranteed High Availability:** By automatically dropping malicious floods before they reach internal switches or web servers, organizations ensure their critical services and customer-facing applications remain online and responsive.
+* **Smokescreen Attack Prevention:** Cybercriminals often use DoS attacks to distract security teams while simultaneously executing data breaches or ransomware payloads. Automated DoS mitigation frees security personnel to focus on sophisticated threats.
+* **Resource Optimization:** Filtering out millions of junk packets at the edge prevents internal infrastructure (routers, load balancers, and application servers) from wasting valuable compute cycles and memory processing illegitimate requests.
+* **Financial Protection:** For e-commerce and SaaS platforms, mitigating downtime directly prevents the catastrophic loss of revenue and brand reputation associated with service outages.
+                `
+            },
+            {
+                id: 15,
+                title: 'Virtual Lab Setup & Configuration',
+                category: 'IT',
+                excerpt: 'Established a foundational, multi-node virtual infrastructure using VMware Workstation to safely simulate and test enterprise network topologies and security policies.',
+                tags: ['Virtualization', 'VMware', 'Windows Server', 'Linux', 'Lab Setup'],
+                icon: 'hard-drive',
+                iconColor: 'text-slate-400',
+                date: 'September 2025',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This project establishes the foundational infrastructure required for advanced cybersecurity testing, network engineering, and system administration by building a robust, isolated virtual lab. By leveraging a Type-2 hypervisor on a standard host machine, this setup provisions a diverse, multi-operating system environment. It securely bridges offensive security tools with standard enterprise client and server environments, creating a highly controlled sandbox where complex network topologies, malware analysis, and defensive configurations can be safely engineered and validated without risking production systems.
+    </p>
+</div>
+
+## Core Technologies
+* **Virtualization Hypervisor:** VMware Workstation Pro 17.5
+* **Host Operating System:** Windows 10 (x64)
+* **Offensive Security OS:** Parrot Security 6.3.2 (GNU/Linux)
+* **Enterprise Server OS:** Windows Server 2022 (x64)
+* **Enterprise Client OS:** Windows 11 (24H2 x64)
+* **Hardware Capabilities:** Intel Core i7, NVMe SSD storage
+
+## Situation
+Modern IT and cybersecurity professionals require a safe, isolated, and highly customizable environment to simulate real-world attacks, test network policies, and deploy new enterprise services. Deploying experimental configurations or analyzing potential threats directly on a live host machine or corporate network introduces unacceptable risks, including data loss, malware infection, and system instability. There was a critical need to architect a self-contained "sandbox" that accurately mirrors a diverse corporate network.
+
+## Task
+The objective was to deploy a hypervisor on a Windows 10 host machine and provision a multi-node virtual lab. This required acquiring the necessary enterprise and security-focused Operating System images (ISOs), installing the hypervisor, and systematically building virtual machines for a Linux-based security endpoint (Parrot OS), an enterprise server environment (Windows Server 2022), and a standard corporate client (Windows 11).
+
+## Action
+To construct this versatile virtual infrastructure, I executed a systematic provisioning protocol:
+
+**1. Resource Acquisition & Hypervisor Deployment:** I sourced the official VMware Workstation Pro executable alongside the necessary ISO images for Parrot Security, Windows Server 2022, and Windows 11. I then installed the hypervisor on the Windows 10 host, carefully configuring driver settings to optimize virtual hardware performance.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/virt-lab-iso-acquisition.png" alt="File explorer or browser showing the downloaded VMware Workstation executable and multiple OS ISO files including Parrot OS, Windows Server, and Windows 11" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Acquisition of the VMware Workstation hypervisor and required OS ISO images for lab provisioning.</figcaption>
+</figure>
+
+**2. Virtual Machine Provisioning:** Within the VMware hypervisor, I architected the individual virtual machines, allocating precise compute resources (RAM, CPU cores, and dynamically allocated storage) to ensure each OS had the necessary power to function efficiently without exhausting the host's physical hardware.
+
+**3. Operating System Installation & Configuration:** I mounted the respective ISOs to each virtual machine and executed the bare-metal installations. For the enterprise endpoints, such as Windows 11, I navigated the Out-of-Box Experience (OOBE), establishing local administrator credentials, configuring security questions, and customizing telemetry/privacy settings to suit an isolated lab environment.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/virt-lab-win11-oobe.png" alt="Virtual machine console displaying the Windows 11 Out-of-Box Experience setup screens and configuration" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Executing the installation and Out-of-Box Experience (OOBE) configuration for the Windows 11 virtual endpoint.</figcaption>
+</figure>
+
+## Result
+The virtual lab deployment was a complete success. The VMware hypervisor efficiently manages the compute resources, and all three primary virtual machines (Parrot Security, Windows Server 2022, and Windows 11) were successfully installed, booted, and configured. This highly versatile, isolated sandbox now serves as the operational staging ground for all subsequent advanced network deployments, firewall configurations, and endpoint monitoring (SIEM/XDR) projects.
+
+## Business Value & Organizational Benefits
+Architecting a robust, in-house virtual lab provides organizations and engineering teams with immense strategic value:
+
+* **Zero-Risk Testing & Staging:** Engineers can safely detonate malware, test destructive scripts, or deploy massive architectural changes in a 100% isolated environment without threatening production data or business continuity.
+* **Cost-Effective Infrastructure:** Virtualization drastically reduces capital expenditure (CapEx). Instead of purchasing physical servers and switches for testing, organizations can simulate entire corporate networks on a single high-performance host machine.
+* **Rapid Prototyping & Revertibility:** Hypervisor snapshot technology allows engineers to take a "picture" of a system's state before a major change. If a configuration breaks, the system can be rolled back to a perfect working state in seconds, accelerating the development lifecycle.
+* **Continuous Training & Development:** A dedicated virtual lab provides an ever-ready, safe playground for IT and security personnel to upskill, practice incident response, and familiarize themselves with new operating systems and defensive platforms.
+                `
+            },
+            {
+                id: 16,
+                title: 'Virtual Machine Vulnerability Assessment',
+                category: 'Cybersecurity',
+                excerpt: 'Conducted a comprehensive vulnerability assessment of a simulated corporate Active Directory environment using offensive security tools to enumerate and exploit default configurations.',
+                tags: ['Vulnerability Assessment', 'Active Directory', 'Penetration Testing', 'Windows Server', 'Linux'],
+                icon: 'target',
+                iconColor: 'text-red-500',
+                date: 'September 2025',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This project transitions the virtual lab from a static infrastructure into an active, simulated corporate environment to conduct a comprehensive vulnerability assessment. By establishing a fully functional Windows Active Directory (AD) domain and deploying an offensive security endpoint, this project simulates the exact tactics an adversary would use to enumerate and exploit an enterprise network. The assessment highlights the critical importance of secure baseline configurations and demonstrates practical penetration testing techniques against live domain controllers and client workstations.
+    </p>
+</div>
+
+## Core Technologies
+* **Offensive Security OS:** Parrot Security / Kali Linux
+* **Enterprise Server:** Windows Server 2022 (Domain Controller, Active Directory Domain Services, DNS)
+* **Enterprise Client:** Windows 11
+* **Assessment Tooling:** enum4linux, hydra, Fasttrack Wordlists
+* **Protocols Evaluated:** Server Message Block (SMB), DNS, Active Directory Services
+
+## Situation
+Operating within an internship role at a Managed Security Service Provider (MSSP) serving financial institutions and fintech companies across Africa and Europe, there was a strict requirement to understand how enterprise networks are structured and subsequently targeted. Corporate environments almost universally rely on Active Directory for identity and access management. To effectively secure these client environments, I needed to simulate a realistic corporate network and actively probe it for vulnerabilities to understand the attacker's perspective.
+
+## Task
+The objective was to network a multi-node virtual lab, promote a Windows Server instance to a central Domain Controller (running AD and DNS), and join a Windows 11 client workstation to this newly created domain. Following the infrastructure build, the primary task was to pivot to an offensive security mindset. Using a Linux-based security endpoint, I was required to launch targeted enumeration and password brute-force attacks against the networked machines to evaluate their defensive resilience.
+
+## Action
+To engineer the domain and execute the vulnerability assessment, I followed a structured methodology:
+
+**1. Domain Controller Provisioning:** Utilizing Server Manager on Windows Server 2022, I installed and configured the Active Directory Domain Services (AD DS) and DNS server roles. I then promoted the server to a Domain Controller, establishing the root forest and defining the internal domain architecture.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/vuln-assess-ad-roles.png" alt="Windows Server 2022 Server Manager dashboard showing the configuration of Active Directory Domain Services and DNS roles" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Configuring Active Directory Domain Services and DNS roles within the Windows Server 2022 Server Manager dashboard.</figcaption>
+</figure>
+
+**2. Client Domain Integration:** I networked the Windows 11 client machine to the server's subnet, pointed its DNS settings to the new Domain Controller, and successfully joined the workstation to the domain, mimicking a standard corporate employee deployment.
+
+**3. Active Information Enumeration:** Transitioning to the Parrot Security/Kali endpoint, I initiated network reconnaissance. I utilized enum4linux to aggressively poll the target machines for sensitive information, checking for null sessions, open shares, and user group lists.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/vuln-assess-enum4linux.png" alt="Linux terminal executing the enum4linux tool to extract domain information and evaluate node resilience" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Executing the enum4linux tool from the Linux terminal to extract domain information and evaluate node resilience.</figcaption>
+</figure>
+
+**4. Password Attack Simulation:** To test authentication resilience, I configured a brute-force dictionary attack using hydra and the fasttrack.txt wordlist. I targeted the Domain Controller's SMB service (port 445) to attempt to crack administrative credentials.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/vuln-assess-hydra.png" alt="Linux terminal showing a targeted SMB dictionary attack using Hydra against the Windows Server 2022 Domain Controller" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Attempting a targeted SMB dictionary attack using Hydra against the Windows Server 2022 Domain Controller.</figcaption>
+</figure>
+
+## Result
+The vulnerability assessment successfully mapped the security posture of the simulated enterprise network. The enumeration phase revealed that while the Windows 11 client and Parrot Security machines were highly resilient, enum4linux successfully extracted highly useful domain information from the Windows Server 2022 Domain Controller. This highlighted a critical, real-world vulnerability in default Active Directory configurations regarding anonymous enumeration. Additionally, the hydra password attack returned a compilation error (\`LIBSMBCLIENT missing\`), which accurately simulated the real-world operational challenges and dependency troubleshooting required during live penetration testing engagements.
+
+## Business Value & Organizational Benefits
+Conducting rigorous vulnerability assessments on Active Directory environments provides indispensable value to enterprise organizations:
+
+* **Proactive Risk Mitigation:** Identifying default misconfigurations in Domain Controllers (such as excessive information disclosure via SMB/RPC) allows security teams to harden systems before malicious actors can exploit them for lateral movement.
+* **Realistic Security Baselines:** Testing against an actual, functional Domain Controller provides much higher fidelity and actionable intelligence than relying solely on theoretical, automated vulnerability scans.
+* **Privilege Escalation Defense:** By simulating brute-force password attacks, organizations can actively test the efficacy of their password complexity policies and account lockout thresholds.
+* **Compliance & Trust:** For MSSPs servicing financial and fintech clients, demonstrating the ability to securely configure, test, and audit Active Directory environments is essential for meeting strict regulatory requirements (such as PCI-DSS and ISO 27001).
+                `
+            },
+            {
+                id: 17,
+                title: 'Networking Simulation (Cisco Packet Tracer)',
+                category: 'Networking',
+                excerpt: 'Designed and implemented a secure, segmented small enterprise network using Cisco Packet Tracer with inter-VLAN routing and strict ACLs.',
+                tags: ['Cisco', 'Packet Tracer', 'VLAN', 'ACL', 'Networking'],
+                icon: 'network',
+                iconColor: 'text-cyan-400',
+                date: 'September 2025',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This project demonstrates the design and implementation of a secure, segmented small enterprise network using Cisco Packet Tracer. Simulating a branch office infrastructure for a financial services company, the project involves architecting a network with distinct Virtual Local Area Networks (VLANs) for different departments, configuring inter-VLAN routing, and enforcing strict security policies using Access Control Lists (ACLs). This simulation showcases the practical application of core networking and security concepts to create a controlled and defensible network architecture.
+    </p>
+</div>
+
+## Core Technologies
+* **Simulation Software:** Cisco Packet Tracer
+* **Networking Hardware (Simulated):** Cisco Routers, Layer 2 Switches, End Devices (PCs, Laptops, Servers)
+* **Networking Concepts:** VLAN Segmentation (802.1Q), Inter-VLAN Routing (Router-on-a-Stick), Subnetting, Access Control Lists (ACLs)
+
+## Situation
+A mid-sized financial services company is expanding its operations and requires a standardized, secure network design for its branch offices. The branch offices consist of three core departments: Administration (handling HR and Finance), Sales (focusing on customer engagement), and IT Support (managing technical operations). A flat network design presents significant security risks, allowing unrestricted lateral movement in the event of a compromise. A secure, segmented architecture is required to enforce the principle of least privilege and protect sensitive departmental data.
+
+## Task
+The objective was to design and configure a simulated branch office network with the following requirements:
+1. **VLAN Segmentation:** Create three distinct VLANs (Admin, Sales, and IT) with appropriate IP subnetting and assign end devices accordingly.
+2. **Inter-VLAN Routing:** Configure a Router-on-a-Stick (ROAS) topology to enable communication between the isolated VLANs.
+3. **Security Policies (ACLs):** Implement extended Access Control Lists (ACLs) to strictly regulate traffic flow based on organizational needs:
+   * The Admin VLAN can access the Sales VLAN but not the IT VLAN.
+   * The Sales VLAN cannot access the Admin VLAN but can access the IT VLAN for support.
+   * The IT VLAN must have unrestricted access to all VLANs for administrative purposes.
+
+## Action
+To implement this secure network simulation, I followed a structured configuration approach:
+
+**1. Network Topology Design & Subnetting:** I designed the physical topology in Packet Tracer, connecting end devices to switches, and the switches to a central router. I developed an IP addressing scheme, allocating distinct subnets for each department (e.g., Admin: 192.168.10.0/24, Sales: 192.168.20.0/24, IT: 192.168.30.0/24).
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/packet-tracer-topology.png" alt="Cisco Packet Tracer workspace showing the physical network topology and IPv4 subnetting scheme" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Designing the physical network topology and establishing the IPv4 subnetting scheme in Cisco Packet Tracer.</figcaption>
+</figure>
+
+**2. VLAN Configuration & Port Assignment:** On the Cisco switches, I created the three required VLANs and assigned the access ports connected to the respective departmental PCs to the correct VLANs. I also configured 802.1Q trunk links between the switches and the router to carry traffic for multiple VLANs.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/packet-tracer-vlan.png" alt="Cisco switch CLI displaying the configuration of VLANs and assignment of access ports" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Configuring VLANs and assigning access ports on the Cisco switch CLI.</figcaption>
+</figure>
+
+**3. Inter-VLAN Routing (ROAS):** I configured the central router using the Router-on-a-Stick method. This involved creating sub-interfaces on the router's physical interface connected to the switch, assigning the corresponding 802.1Q encapsulation tags, and configuring the default gateway IP addresses for each VLAN subnet.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/packet-tracer-roas.png" alt="Cisco router CLI showing the creation of sub-interfaces and 802.1Q encapsulation for inter-VLAN routing" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Configuring sub-interfaces and 802.1Q encapsulation on the Cisco router to enable Inter-VLAN routing.</figcaption>
+</figure>
+
+**4. Access Control List (ACL) Implementation:** I authored extended ACLs to enforce the required security policies and applied them to the appropriate router interfaces (inbound or outbound).
+* I configured rules explicitly permitting Admin traffic to Sales and denying it to IT.
+* I configured rules denying Sales traffic to Admin while permitting it to IT.
+* IT was implicitly permitted to access all networks based on the rule structuring.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/packet-tracer-acls.png" alt="Cisco router CLI illustrating the application of extended Access Control Lists (ACLs) to enforce departmental policies" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Applying extended Access Control Lists to enforce departmental access policies based on the Principle of Least Privilege.</figcaption>
+</figure>
+
+**5. Connectivity & Policy Validation:** I utilized ICMP (ping) from various end devices to test the configured routing and ACLs. I verified that inter-VLAN routing was functional where permitted, and that the ACLs successfully dropped traffic that violated the established security policies (e.g., confirming a Sales PC could not ping an Admin PC).
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/packet-tracer-ping.png" alt="Command prompt of an end device showing ICMP ping requests testing the ACLs and inter-VLAN routing" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 5: Validating inter-VLAN routing and ACL enforcement using ICMP ping requests from end devices.</figcaption>
+</figure>
+
+## Result
+The network simulation was successfully implemented and validated. The branch office network is logically segmented into functional VLANs, reducing broadcast domains and improving performance. Inter-VLAN routing enables necessary communication, while the implemented extended ACLs strictly enforce the organization's access requirements. The testing phase confirmed that the ACLs effectively restricted lateral movement between departments, demonstrating a practical implementation of the principle of least privilege within a realistic enterprise network design.
+
+## Business Value & Organizational Benefits
+Implementing structured network segmentation and Access Control Lists provides fundamental security and operational benefits:
+
+* **Containment of Security Breaches:** By segmenting the network into VLANs, organizations limit the blast radius of a security incident. If a workstation in the Sales department is compromised with malware, the ACLs prevent the infection from spreading laterally to the sensitive HR and Finance systems in the Admin VLAN.
+* **Enforcement of Least Privilege:** ACLs allow administrators to granularly define access based on departmental roles. Users only have network access to the resources absolutely necessary for their jobs, significantly reducing the risk of unauthorized data access or insider threats.
+* **Improved Network Performance:** VLANs break up large broadcast domains into smaller, more efficient segments. This reduces unnecessary network congestion and improves overall performance for critical applications.
+* **Simplified Compliance:** Logical segmentation and strict access controls are often mandatory requirements for compliance frameworks (such as PCI-DSS, which requires isolating cardholder data environments). This architecture provides a clear boundary for auditing and compliance verification.
+                `
+            },
+            {
                 id: 1,
                 title: 'Enterprise SIEM Deployment & Tuning',
                 category: 'Cybersecurity',
@@ -957,13 +1799,157 @@ By tuning the correlation rules, I achieved an **85% reduction in alert fatigue*
         // --- APPLICATION STATE ---
         let activeCategory = 'All';
 
+        // --- ROUTING & ACTIONS ---
+        const views = ['profile-view', 'projects-view', 'skills-view', 'tag-view', 'project-view', 'certifications-view', 'resume-view', 'about-view', 'contact-view'];
+
+        // Listen for history changes (browser back/forward buttons)
+        window.addEventListener('hashchange', handleRouting);
+
+        function getSafeHash() {
+            try {
+                return window.location.hash;
+            } catch (e) {
+                return '';
+            }
+        }
+
+        function safeSetHash(hash) {
+            try {
+                // This updates the URL hash and triggers the hashchange event in normal environments
+                window.location.hash = hash;
+            } catch (e) {
+                // Fallback for strict sandboxed environments (like the live preview)
+                // where setting window.location.hash throws a SecurityError.
+                console.warn("URL hash update blocked by browser sandbox. Using internal routing fallback.");
+                
+                if (hash.startsWith('project-')) {
+                    renderProject(parseInt(hash.replace('project-', '')));
+                } else if (hash.startsWith('tag-')) {
+                    renderTag(decodeURIComponent(hash.replace('tag-', '')));
+                } else if (views.includes(hash)) {
+                    renderView(hash);
+                } else {
+                    renderView('profile-view');
+                }
+            }
+        }
+
+        function handleRouting() {
+            // Get hash safely, default to profile-view if empty
+            const hash = getSafeHash().substring(1) || 'profile-view';
+            
+            if (hash.startsWith('project-')) {
+                const id = parseInt(hash.replace('project-', ''));
+                renderProject(id);
+            } else if (hash.startsWith('tag-')) {
+                const tag = decodeURIComponent(hash.replace('tag-', ''));
+                renderTag(tag);
+            } else if (views.includes(hash)) {
+                renderView(hash);
+            } else {
+                renderView('profile-view'); // Fallback
+            }
+        }
+
+        function switchView(targetViewId) {
+            if (getSafeHash() === '#' + targetViewId) {
+                renderView(targetViewId);
+            } else {
+                safeSetHash(targetViewId);
+            }
+        }
+
+        function openTag(tag) {
+            const hash = 'tag-' + encodeURIComponent(tag);
+            if (getSafeHash() === '#' + hash) {
+                renderTag(tag);
+            } else {
+                safeSetHash(hash);
+            }
+        }
+
+        function renderTag(tag) {
+            // Find projects with the selected tag and sort in reverse chronological order
+            const taggedProjects = projects
+                .filter(p => p.tags.includes(tag))
+                .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            // Set dynamic header
+            document.getElementById('tag-header').innerHTML = `
+                <i data-lucide="hash" class="w-8 h-8 text-emerald-500"></i> 
+                Projects tagged with <span class="text-emerald-400 ml-2">#${tag}</span>
+            `;
+
+            // Render projects
+            const grid = document.getElementById('tag-project-grid');
+            grid.innerHTML = generateProjectCardsHTML(taggedProjects);
+
+            lucide.createIcons();
+            renderView('tag-view');
+        }
+
+        function openProject(id) {
+            const hash = 'project-' + id;
+            if (getSafeHash() === '#' + hash) {
+                renderProject(id);
+            } else {
+                safeSetHash(hash);
+            }
+        }
+
+        function renderProject(id) {
+            const project = projects.find(p => p.id === id);
+            if (!project) return switchView('projects-view'); // Fallback if project is invalid
+
+            // 1. Set Header
+            document.getElementById('project-header').innerHTML = `
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-sm font-medium border border-emerald-500/20">
+                        ${project.category}
+                    </span>
+                    <span class="text-slate-500 text-sm font-mono">${project.date}</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-slate-100 mb-6 leading-tight font-google">
+                    ${project.title}
+                </h1>
+                <div class="flex flex-wrap gap-2">
+                    ${project.tags.map(tag => `
+                        <button onclick="openTag('${tag}')" class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-md border border-slate-700 hover:border-emerald-500 hover:text-emerald-400 transition-colors cursor-pointer">
+                            #${tag}
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+
+            // 2. Parse and inject Markdown content
+            const htmlContent = marked.parse(project.content);
+            document.getElementById('markdown-content').innerHTML = htmlContent;
+
+            // 3. Re-initialize icons inside the markdown content if any exist
+            lucide.createIcons();
+
+            // 4. Switch to project-view
+            renderView('project-view');
+        }
+
         // --- RENDER FUNCTIONS ---
+        function renderView(targetViewId) {
+            views.forEach(viewId => {
+                document.getElementById(viewId).classList.replace('block', 'hidden');
+            });
+            document.getElementById(targetViewId).classList.replace('hidden', 'block');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         function init() {
             renderFilters();
             renderProjects();
             lucide.createIcons(); // Initialize icons on first load
             startTypewriter();
             startSkillCycler();
+            
+            // Trigger the initial route based on the URL hash when the page loads
+            handleRouting();
         }
 
         function startTypewriter() {
@@ -1119,76 +2105,10 @@ By tuning the correlation rules, I achieved an **85% reduction in alert fatigue*
             lucide.createIcons();
         }
 
-        // --- ACTIONS ---
-        const views = ['profile-view', 'projects-view', 'skills-view', 'tag-view', 'project-view', 'certifications-view', 'resume-view', 'about-view', 'contact-view'];
-
-        function switchView(targetViewId) {
-            views.forEach(viewId => {
-                document.getElementById(viewId).classList.replace('block', 'hidden');
-            });
-            document.getElementById(targetViewId).classList.replace('hidden', 'block');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
         function setCategory(cat) {
             activeCategory = cat;
             renderFilters();
             renderProjects();
-        }
-
-        function openTag(tag) {
-            // Find projects with the selected tag and sort in reverse chronological order (newest first)
-            const taggedProjects = projects
-                .filter(p => p.tags.includes(tag))
-                .sort((a, b) => new Date(b.date) - new Date(a.date));
-
-            // Set dynamic header
-            document.getElementById('tag-header').innerHTML = `
-                <i data-lucide="hash" class="w-8 h-8 text-emerald-500"></i> 
-                Projects tagged with <span class="text-emerald-400 ml-2">#${tag}</span>
-            `;
-
-            // Render projects using the new helper
-            const grid = document.getElementById('tag-project-grid');
-            grid.innerHTML = generateProjectCardsHTML(taggedProjects);
-
-            lucide.createIcons();
-            switchView('tag-view');
-        }
-
-        function openProject(id) {
-            const project = projects.find(p => p.id === id);
-            if (!project) return;
-
-            // 1. Set Header
-            document.getElementById('project-header').innerHTML = `
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-sm font-medium border border-emerald-500/20">
-                        ${project.category}
-                    </span>
-                    <span class="text-slate-500 text-sm font-mono">${project.date}</span>
-                </div>
-                <h1 class="text-4xl md:text-5xl font-bold text-slate-100 mb-6 leading-tight font-google">
-                    ${project.title}
-                </h1>
-                <div class="flex flex-wrap gap-2">
-                    ${project.tags.map(tag => `
-                        <button onclick="openTag('${tag}')" class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-md border border-slate-700 hover:border-emerald-500 hover:text-emerald-400 transition-colors cursor-pointer">
-                            #${tag}
-                        </button>
-                    `).join('')}
-                </div>
-            `;
-
-            // 2. Parse and inject Markdown content
-            const htmlContent = marked.parse(project.content);
-            document.getElementById('markdown-content').innerHTML = htmlContent;
-
-            // 3. Re-initialize icons inside the markdown content if any exist
-            lucide.createIcons();
-
-            // 4. Switch Views to project-view
-            switchView('project-view');
         }
 
         // --- RUN APP ---
