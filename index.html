@@ -76,6 +76,7 @@
                 <span>Jeffrey<span class="text-emerald-500">O</span></span>
             </div>
             <div class="flex items-center gap-6">
+                <button onclick="switchView('documentation-view')" class="text-slate-400 hover:text-slate-100 transition-colors hidden sm:block">Documentation</button>
                 <button onclick="switchView('about-view')" class="text-slate-400 hover:text-slate-100 transition-colors hidden sm:block">About Me</button>
                 <button onclick="switchView('contact-view')" class="text-slate-400 hover:text-slate-100 transition-colors hidden sm:block">Contact Me</button>
                 <div class="h-6 w-px bg-slate-800 hidden sm:block"></div>
@@ -192,6 +193,101 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- DOCUMENTATION VIEW -->
+        <div id="documentation-view" class="hidden animate-in fade-in duration-500">
+            <section class="py-10">
+                <button onclick="switchView('profile-view')" class="flex items-center text-slate-400 hover:text-emerald-400 transition-colors mb-8 group">
+                    <i data-lucide="arrow-left" class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform"></i>
+                    Back to Home
+                </button>
+                <div class="mb-10">
+                    <h2 class="text-3xl font-bold text-slate-100 flex items-center gap-3 mb-4 font-google">
+                        <i data-lucide="library" class="w-8 h-8 text-emerald-500"></i>
+                        Documentation & Lab Reports
+                    </h2>
+                    <p class="text-slate-400">Download detailed PDF reports of technical installations, security configurations, and defensive architectures.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Documentation Entry: Sophos NGFW -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300 flex flex-col group">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3 bg-slate-800 rounded-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="file-text" class="w-6 h-6 text-orange-500"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500">PDF Document</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-100 mb-2 group-hover:text-emerald-400 transition-colors">
+                            Sophos Next-Gen Firewall: Installation, Setup & Security Policy Configuration
+                        </h3>
+                        <p class="text-slate-400 text-sm mb-8 leading-relaxed">
+                            A comprehensive guide documenting the deployment of Sophos SFOS, network interface engineering, NAT configuration, and the enforcement of advanced web protection policies.
+                        </p>
+                        <a href="./documents/Sophos Next-Gen Firewall—Installation, Setup & Security Policy Configuration.pdf" download="Sophos Next-Gen Firewall—Installation, Setup & Security Policy Configuration.pdf" class="mt-auto flex items-center justify-center px-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors w-full gap-2">
+                            <i data-lucide="download" class="w-5 h-5"></i> Download Lab Report
+                        </a>
+                    </div>
+
+                    <!-- Documentation Entry: Virtual Lab Setup -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300 flex flex-col group">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3 bg-slate-800 rounded-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="file-text" class="w-6 h-6 text-slate-400"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500">PDF Document</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-100 mb-2 group-hover:text-emerald-400 transition-colors">
+                            Virtual Lab: Setup & Configuration
+                        </h3>
+                        <p class="text-slate-400 text-sm mb-8 leading-relaxed">
+                            A detailed report outlining the architectural setup and provisioning of a multi-node virtual infrastructure for safe security testing and network simulation.
+                        </p>
+                        <a href="./documents/Virtual Lab—Setup & Configuration.pdf" download="Virtual Lab—Setup & Configuration.pdf" class="mt-auto flex items-center justify-center px-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors w-full gap-2">
+                            <i data-lucide="download" class="w-5 h-5"></i> Download Lab Report
+                        </a>
+                    </div>
+
+                    <!-- Documentation Entry: Virtual Lab Vulnerability Assessment -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300 flex flex-col group">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3 bg-slate-800 rounded-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="file-text" class="w-6 h-6 text-red-500"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500">PDF Document</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-100 mb-2 group-hover:text-emerald-400 transition-colors">
+                            Virtual Lab: Vulnerability Assessment
+                        </h3>
+                        <p class="text-slate-400 text-sm mb-8 leading-relaxed">
+                            A comprehensive analysis detailing the enumeration and exploitation of a simulated corporate Active Directory environment using offensive security methodologies.
+                        </p>
+                        <a href="./documents/Virtual Lab—Vulnerability Assessment.pdf" download="Virtual Lab Vulnerability Assessment.pdf" class="mt-auto flex items-center justify-center px-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors w-full gap-2">
+                            <i data-lucide="download" class="w-5 h-5"></i> Download Lab Report
+                        </a>
+                    </div>
+
+                    <!-- Documentation Entry: Cloud Security AWS -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300 flex flex-col group">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3 bg-slate-800 rounded-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="cloud" class="w-6 h-6 text-blue-500"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500">PDF Document</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-100 mb-2 group-hover:text-emerald-400 transition-colors">
+                            Cloud Security: Building a Security Monitoring System in AWS
+                        </h3>
+                        <p class="text-slate-400 text-sm mb-8 leading-relaxed">
+                            A detailed report demonstrating the architecture and implementation of an automated security monitoring and active defense system within Amazon Web Services.
+                        </p>
+                        <a href="./documents/Cloud Security—Building a Security Monitoring System in AWS.pdf" download="Cloud Security—Building a Security Monitoring System in AWS.pdf" class="mt-auto flex items-center justify-center px-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors w-full gap-2">
+                            <i data-lucide="download" class="w-5 h-5"></i> Download Lab Report
+                        </a>
                     </div>
                 </div>
             </section>
@@ -372,48 +468,48 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Category: Cybersecurity & SIEM -->
+                    <!-- Category: Security Ops & Threat Intel -->
                     <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-colors">
                         <h3 class="text-xl font-semibold text-slate-100 mb-4 border-b border-slate-800 pb-3 flex items-center gap-2">
-                            <i data-lucide="shield" class="w-5 h-5 text-emerald-400"></i>
-                            Security & SIEM
+                            <i data-lucide="shield-alert" class="w-5 h-5 text-emerald-400"></i>
+                            Security Ops & Threat Intel
                         </h3>
                         <ul class="space-y-3 text-slate-300">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Splunk Enterprise</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Elastic Security (ELK)</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Wazuh XDR</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Wireshark & tcpdump</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Snort / Suricata IDS</li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mt-1 shrink-0"></i> <span><strong>SIEM & XDR:</strong> Wazuh, Sophos Central</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mt-1 shrink-0"></i> <span><strong>Detection & Integrity:</strong> IDS/IPS, File Integrity Monitoring (FIM)</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mt-1 shrink-0"></i> <span><strong>Traffic Analysis:</strong> Wireshark, tcpdump</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mt-1 shrink-0"></i> <span><strong>Malware & OSINT:</strong> VirusTotal, CyberChef, Open Source Intelligence</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mt-1 shrink-0"></i> <span><strong>Investigations:</strong> Phishing Analysis (Thunderbird)</span></li>
                         </ul>
                     </div>
 
-                    <!-- Category: Cloud Computing -->
+                    <!-- Category: Cloud Security & Automation -->
                     <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-blue-500/50 transition-colors">
                         <h3 class="text-xl font-semibold text-slate-100 mb-4 border-b border-slate-800 pb-3 flex items-center gap-2">
                             <i data-lucide="cloud" class="w-5 h-5 text-blue-400"></i>
-                            Cloud Computing
+                            Cloud Security & Automation
                         </h3>
                         <ul class="space-y-3 text-slate-300">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500"></i> Amazon Web Services (AWS)</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500"></i> Microsoft Azure</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500"></i> Terraform & CloudFormation</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500"></i> Docker & Kubernetes</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500"></i> IAM & Cloud Security Posture</li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500 mt-1 shrink-0"></i> <span><strong>AWS Infrastructure:</strong> EC2, S3 Security, IAM</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500 mt-1 shrink-0"></i> <span><strong>Cloud Monitoring:</strong> CloudTrail, CloudWatch, AWS Config</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500 mt-1 shrink-0"></i> <span><strong>Serverless Security:</strong> EventBridge, Lambda, Amazon SNS</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500 mt-1 shrink-0"></i> <span><strong>Methodology:</strong> Zero-Trust Architecture Principles</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500 mt-1 shrink-0"></i> <span><strong>Scripting:</strong> Python scripting and automation</span></li>
                         </ul>
                     </div>
 
-                    <!-- Category: Networking & Infrastructure -->
+                    <!-- Category: Network & Systems Infrastructure -->
                     <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-purple-500/50 transition-colors">
                         <h3 class="text-xl font-semibold text-slate-100 mb-4 border-b border-slate-800 pb-3 flex items-center gap-2">
                             <i data-lucide="network" class="w-5 h-5 text-purple-400"></i>
-                            Networking & Infra
+                            Network & Systems Infra
                         </h3>
                         <ul class="space-y-3 text-slate-300">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500"></i> Cisco IOS & Juniper Junos</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500"></i> BGP, OSPF, VLANs, IPsec</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500"></i> Palo Alto & pfSense Firewalls</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500"></i> Proxmox & VMware ESXi</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500"></i> Linux (RHEL, Debian) & Windows</li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500 mt-1 shrink-0"></i> <span><strong>Perimeter Security:</strong> Sophos Firewall, WAF, VPN, DMZ</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500 mt-1 shrink-0"></i> <span><strong>Routing & Access:</strong> VLANs, ACLs, Cisco Packet Tracer</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500 mt-1 shrink-0"></i> <span><strong>Operating Systems:</strong> Linux (Kali, Parrot, Ubuntu), Windows Server 2022</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500 mt-1 shrink-0"></i> <span><strong>Virtualization:</strong> VMware Workstation, VirtualBox</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500 mt-1 shrink-0"></i> <span><strong>Cryptography:</strong> Public Key Infrastructure (PKI), OpenSSL</span></li>
                         </ul>
                     </div>
                 </div>
@@ -567,7 +663,7 @@
                         <p class="text-slate-400 mb-8">
                             Download the résumé here to review my complete work history, education, and technical background.
                         </p>
-                        <a href="./documents/jeffrey_o_résumé.pdf" download="jeffrey_o_résumé.pdf" class="mt-auto flex items-center justify-center px-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors w-full gap-2">
+                        <a href="./documents/Jeffrey O (Résumé).pdf" download="Jeffrey O (Résumé).pdf" class="mt-auto flex items-center justify-center px-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors w-full gap-2">
                             <i data-lucide="download" class="w-5 h-5"></i> Download PDF
                         </a>
                     </div>
@@ -1459,7 +1555,7 @@ Implementing explicit Denial-of-Service protection at the firewall level provide
             },
             {
                 id: 15,
-                title: 'Virtual Lab Setup & Configuration',
+                title: 'Virtual Lab: Setup & Configuration',
                 category: 'IT',
                 excerpt: 'Established a foundational, multi-node virtual infrastructure using VMware Workstation to safely simulate and test enterprise network topologies and security policies.',
                 tags: ['Virtualization', 'VMware', 'Windows Server', 'Linux', 'Lab Setup'],
@@ -1525,7 +1621,7 @@ Architecting a robust, in-house virtual lab provides organizations and engineeri
             },
             {
                 id: 16,
-                title: 'Virtual Machine Vulnerability Assessment',
+                title: 'Virtual Lab: Vulnerability Assessment',
                 category: 'Cybersecurity',
                 excerpt: 'Conducted a comprehensive vulnerability assessment of a simulated corporate Active Directory environment using offensive security tools to enumerate and exploit default configurations.',
                 tags: ['Vulnerability Assessment', 'Active Directory', 'Penetration Testing', 'Windows Server', 'Linux'],
@@ -1695,104 +1791,114 @@ Implementing structured network segmentation and Access Control Lists provides f
                 `
             },
             {
-                id: 1,
-                title: 'Enterprise SIEM Deployment & Tuning',
-                category: 'Cybersecurity',
-                excerpt: 'Deployed Splunk in a hybrid cloud environment, configuring custom alerts for brute-force attacks and privilege escalation.',
-                tags: ['Splunk', 'SIEM', 'AWS', 'Linux'],
-                icon: 'shield',
-                iconColor: 'text-emerald-400',
-                date: 'October 2025',
+                id: 18,
+                title: 'App Development: Circle10 Study App',
+                category: 'IT',
+                excerpt: 'Engineered a highly optimized, mobile-first web application designed to empower Cybersecurity students through a decentralized, lightweight SPA.',
+                tags: ['Web App', 'JavaScript', 'SPA', 'Tailwind', 'Frontend'],
+                icon: 'smartphone',
+                iconColor: 'text-purple-400',
+                date: 'November 2025',
                 content: `
 <div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
-    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Executive Summary</h3>
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
     <p class="text-slate-300 leading-relaxed mb-0">
-    In this lab, I deployed a centralized logging environment utilizing Splunk Enterprise on an AWS EC2 instance. The objective was to aggregate logs from multiple diverse endpoints (Windows and Linux) and create custom dashboards to detect unauthorized access attempts and potential data exfiltration.
+    Circle10 is a highly optimized, mobile-first web application designed to empower Cybersecurity students at AltSchool Africa. The platform delivers critical course materials, lecture transcripts, and test quizzes through a decentralized, lightweight Single Page Application (SPA). Engineered to eliminate the barriers of location, limited resources, and low bandwidth, Circle10 provides a seamless on-the-go learning experience. The project showcases a transition from complex backend dependencies to a streamlined, secure, and easily maintainable static architecture, highlighting a strong understanding of operational efficiency and secure data management. <br><br><strong>Live Project:</strong> <a href="https://jeffreyyyyo.github.io/Circle10_v2/" target="_blank" class="text-emerald-400 hover:underline">https://jeffreyyyyo.github.io/Circle10_v2/</a>
     </p>
 </div>
 
-## 1. Situation & Task
-**Situation:** A mock enterprise environment with a flat network was experiencing visibility gaps, making it impossible to trace lateral movement during simulated red-team exercises. 
-
-**Task:** Design a Zero Trust network architecture in AWS, segment the critical infrastructure, and implement a centralized SIEM (Splunk) to aggregate and analyze logs from all endpoints.
-
-## 2. Action: Architecture & Implementation
-The infrastructure was segmented into three distinct VPC subnets: a management network, a simulated production server network, and an isolated detonation zone for malware testing. Below is a high-level logical diagram of the deployment.
-
 <figure class="my-8 not-prose">
-    <div class="w-full h-64 bg-slate-800 border-2 border-dashed border-slate-600 rounded-xl flex flex-col items-center justify-center text-slate-500">
-        <i data-lucide="cloud" class="w-12 h-12 mb-4 opacity-50"></i>
-        <p class="font-mono text-sm">[ Architecture Diagram Placeholder ]</p>
-        <p class="text-xs mt-2">e.g., A clean Visio or Lucidchart network diagram</p>
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/circle10-frontpage-lobbies.jpg" alt="Three mobile screens showing the Circle10 minimalist frontpage, main lobby, and Notes lobby organized by semester" class="w-full rounded-lg object-contain">
     </div>
-    <figcaption class="text-center text-sm text-slate-500 mt-3">Figure 1: Hybrid Cloud Network Topology</figcaption>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1 (from left to right): 1. The minimalist and welcoming frontpage of the Circle10 Study App, inviting students to challenge themselves today. 2. The main lobby interface providing structured, quick access to Notes, Decks, Tests, and Miscellaneous study materials. 3. The Notes Lobby organized by semester and month, making it easy to locate specific domains like Network Security or Cryptography.</figcaption>
 </figure>
 
-To ensure secure transmission of logs, Universal Forwarders were configured with TLS encryption. The following configuration was pushed to the Linux endpoints via Ansible.
+## Core Technologies
+* **Frontend Architecture:** Pure HTML, Vanilla JavaScript, Single Page Application (SPA) design
+* **Styling & UI:** Tailwind CSS, Inline SVGs (for zero external image request overhead)
+* **Content Rendering:** Marked.js (Markdown to HTML parsing)
+* **Hosting & CI/CD:** GitHub Pages
+* **Analytics:** Google Analytics
+* **Previous Stack Experience:** Firebase, Node.js (for initial API and database security modeling)
 
-\`\`\`bash
-[tcpout]
-defaultGroup = primary_indexer
+## Situation
+Cybersecurity students in developing regions often face significant infrastructural challenges, including unreliable internet access, bandwidth limitations, and restricted device capabilities. To effectively study complex domains like Network Security and Cryptography, these learners needed a reliable, instantaneous way to access structured course materials. Traditional Learning Management Systems (LMS) are often heavy, resource-intensive, and slow to load on mobile connections, creating a barrier to consistent learning and exam preparation.
 
-[tcpout:primary_indexer]
-server = splunk-idx-01.internal.cloud:9997
-clientCert = /opt/splunkforwarder/etc/auth/certs/forwarder.pem
-useClientSSLCompression = true
-sslVerifyServerCert = true
-\`\`\`
+## Task
+The objective was to engineer a decentralized, hyper-lightweight educational platform that could deliver vast amounts of text-based learning materials and interactive quizzes without taxing the user's bandwidth. Furthermore, from an administrative perspective, the platform required a low-overhead data management system so that new modules, transcripts, and labs could be published rapidly without needing to alter the core application codebase or manage a complex, vulnerable database backend.
 
-> "Visibility is the foundation of security. You cannot protect what you cannot see, and you cannot detect what you do not log."
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/circle10-notes-tests.jpg" alt="Three mobile screens displaying the formatted Notes Reader page, a Dark Mode version, and the Tests Lobby" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2 (from left to right): 1. The beautifully formatted Notes Reader page, parsing markdown files dynamically into a clean, highly readable layout. 2. A seamless Dark Mode experience on the Notes Reader page, fully optimized for comfortable late-night study sessions without straining the eyes. 3. The Tests Lobby where users can select specific cybersecurity modules to put their knowledge base to the test.</figcaption>
+</figure>
 
-## 3. Result & Business Impact
-Initial deployment resulted in a high volume of false positives related to standard Active Directory synchronization traffic. I utilized SPL to filter out known benign administrative activity.
+## Action
+To resolve this challenge, I designed and developed Circle 10 focusing on minimalist modernism and strict operational security:
 
-By tuning the correlation rules, I achieved an **85% reduction in alert fatigue**, allowing the hypothetical SOC team to focus on actual anomalous behavior. Furthermore, the segmentation reduced the potential attack surface by segregating critical databases into private subnets.
+**1. Optimized Frontend Engineering:** I built the application UI utilizing Tailwind CSS and embedded inline SVGs instead of external image files. This drastically reduced the application's weight and HTTP request overhead, resulting in near-instantaneous load times even on edge networks.
 
-## 4. Challenges & Lessons Learned
-* **Challenge:** Initially, the Windows endpoints failed to forward logs due to a misconfigured security group blocking port 9997.
-* **Solution:** I utilized VPC Flow Logs to trace the dropped packets, identified the misconfiguration in my Terraform script, and updated the state to allow inbound traffic from the production subnet to the Splunk indexer.
-* **Takeaway:** Always verify network ACLs and Security Groups iteratively when deploying logging infrastructure across segmented subnets.
+**2. Backend Simplification & Security:** The initial build utilized Firebase, providing hands-on experience with API keys, Object-Oriented Programming, and database security principles. Acknowledging the risks of database misconfigurations (often seen in prominent app data breaches), I strategically migrated the entire stack to a static architecture hosted on GitHub, eliminating backend attack vectors entirely.
 
----
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/circle10-static-repo.png" alt="Screenshot of the GitHub repository showing the static architecture files" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: The static repository architecture on GitHub, demonstrating the elimination of vulnerable backend databases.</figcaption>
+</figure>
 
-### Artifacts & References
-* [GitHub Repository: Terraform Deployment Scripts](#)
-* [GitHub Repository: Ansible Playbooks for Splunk UF](#)
-* [Splunk Official Documentation on TLS](#)
+**3. Dynamic Content Engine:** I implemented a robust, decoupled data management system using Vanilla JavaScript and Marked.js. The SPA dynamically fetches and renders content directly from local .md (Markdown) and .json files. This allows instructors to push new weekly transcripts or test pools into the \`/local/data/\` directory effortlessly, requiring zero changes to the core HTML engine.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/circle10-data-structure.png" alt="Folder structure showing decoupled data management with local Markdown and JSON files" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: The decoupled data management structure, showing how local Markdown and JSON files are used to dynamically render course content.</figcaption>
+</figure>
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/circle10-test-flow.jpg" alt="Three mobile screens showing the Test Configuration Page, active test screen with a timer, and final Test Score Screen" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 5 (from left to right): 1. The Test Configuration Page allowing students to tailor their assessment format, from a quick Mini Quiz to a full Exam or an unlimited Surfing Mode. 2. A clean, distraction-free test screen interface focusing entirely on the current question alongside a built-in timer. 3. The final Test Score Screen delivering instant performance metrics, including percentage scores, correct answers tally, and total time taken.</figcaption>
+</figure>
+
+## Result
+The Circle10 Study App was successfully deployed and rapidly adopted by the AltSchool Africa Cybersecurity Cohort. As of December 2025, Google Analytics integration confirmed that the platform has reliably served 133 unique users across 9 different countries. The migration to a statically hosted, dynamically rendered markdown engine proved exceptionally stable, achieving the goal of providing a decentralized, low-bandwidth educational tool with zero maintenance overhead.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/circle10-performance-decks.jpg" alt="Three mobile screens showing the Your Performance Page, Decks Lobby, and Miscellaneous Lobby" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 6 (from left to right): 1. The Your Performance Page showing students the details of their test performance, providing an opportunity for review. 2. The Decks Lobby where users can select the class decks sorted by Cybersecurity modules. 3. The Miscellaneous Lobby where students can access documented steps for Cybersecurity labs, guides for project execution, and other helpful school and learning materials.</figcaption>
+</figure>
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/circle10-google-analytics.png" alt="Google Analytics dashboard confirming active platform adoption and usage across multiple international regions" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 7: Google Analytics dashboard confirming active platform adoption and usage across multiple international regions.</figcaption>
+</figure>
+
+## Security Considerations & Strengths
+As a project built for cybersecurity students, the application's architecture was intentionally designed to minimize its attack surface and protect user privacy:
+
+* **Static Application Architecture (No Backend):** By hosting the application on GitHub Pages as a static site, Circle10 entirely eliminates server-side vulnerabilities such as SQL Injection (SQLi), Server-Side Request Forgery (SSRF), and Remote Code Execution (RCE).
+* **Elimination of Database Exposure:** Migrating away from Firebase removed the risk of NoSQL injection and cloud database misconfigurations (e.g., open security rules), which are common vectors for data breaches.
+* **Privacy by Design (Zero PII):** The application requires no user accounts, passwords, or authentication. Quiz scores and session states are handled entirely in memory (client-side) and are intentionally ephemeral. This means there is absolutely no Personally Identifiable Information (PII) to be stolen or leaked.
+* **Mitigated XSS Risks:** While the app parses Markdown into HTML using marked.js, it only fetches trusted static files (.md and .json) controlled directly by the repository maintainer. Because there is no user-generated content or input forms being rendered back to the screen, the risk of Cross-Site Scripting (XSS) is effectively nullified.
+
+## Business Value & Organizational Benefits
+Architecting a lightweight, decentralized platform like Circle10 offers immense value across the educational and corporate spectrum:
+
+* **For Learners & Students:** Provides equitable access to critical study materials, completely removing bandwidth and hardware limitations. The mobile-first design ensures learning can happen anywhere, at any time.
+* **For Instructors & Content Creators:** The decoupled Markdown/JSON architecture means educators do not need to understand code to update the platform. They simply drop text files into a repository, drastically reducing the friction of content delivery.
+* **For Institutions & Businesses:** * *Zero Operational Overhead:* Hosting via static pages eliminates server costs, database maintenance, and the need for complex load balancing.
+  * *Minimized Attack Surface:* By eliminating a traditional database and backend server, the application's attack surface is nearly non-existent, protecting the institution from costly data breaches and DDoS disruptions.
+  * *Scalable Knowledge Distribution:* This architectural model can be immediately repurposed by corporate HR or Security teams to distribute internal training, security policies, and incident response playbooks to global employees flawlessly.
                 `
-            },
-            {
-                id: 2,
-                title: 'Zero Trust AWS Architecture',
-                category: 'Cloud Computing',
-                excerpt: 'Designed and implemented a secure, highly available VPC architecture using Terraform with strict IAM policies.',
-                tags: ['AWS', 'Terraform', 'IAM', 'Zero Trust'],
-                icon: 'cloud',
-                iconColor: 'text-blue-400',
-                date: 'August 2025',
-                content: '### Executive Summary \n This project outlines the automated deployment of a secure AWS architecture using Infrastructure as Code (Terraform). \n\n *Full write-up coming soon...*'
-            },
-            {
-                id: 3,
-                title: 'Automated Malware Analysis Sandbox',
-                category: 'Cybersecurity',
-                excerpt: 'Built a Cuckoo Sandbox environment on Proxmox to safely detonate and analyze suspicious executables.',
-                tags: ['Malware Analysis', 'Proxmox', 'Python'],
-                icon: 'lock',
-                iconColor: 'text-red-400',
-                date: 'June 2025',
-                content: '### Executive Summary \n Established an isolated virtualization environment to safely detonate potential malware samples and extract IOCs (Indicators of Compromise). \n\n *Full write-up coming soon...*'
-            },
-            {
-                id: 4,
-                title: 'BGP Routing & OSPF Configuration',
-                category: 'Networking',
-                excerpt: 'Configured complex routing protocols across multiple virtualized Cisco routers in GNS3.',
-                tags: ['Cisco', 'BGP', 'OSPF', 'GNS3'],
-                icon: 'network',
-                iconColor: 'text-purple-400',
-                date: 'April 2025',
-                content: '### Executive Summary \n Configured enterprise-grade routing protocols in a simulated network topology. \n\n *Full write-up coming soon...*'
             }
         ];
 
@@ -1800,7 +1906,7 @@ By tuning the correlation rules, I achieved an **85% reduction in alert fatigue*
         let activeCategory = 'All';
 
         // --- ROUTING & ACTIONS ---
-        const views = ['profile-view', 'projects-view', 'skills-view', 'tag-view', 'project-view', 'certifications-view', 'resume-view', 'about-view', 'contact-view'];
+        const views = ['profile-view', 'projects-view', 'skills-view', 'tag-view', 'project-view', 'certifications-view', 'resume-view', 'about-view', 'contact-view', 'documentation-view'];
 
         // Listen for history changes (browser back/forward buttons)
         window.addEventListener('hashchange', handleRouting);
@@ -1935,9 +2041,15 @@ By tuning the correlation rules, I achieved an **85% reduction in alert fatigue*
         // --- RENDER FUNCTIONS ---
         function renderView(targetViewId) {
             views.forEach(viewId => {
-                document.getElementById(viewId).classList.replace('block', 'hidden');
+                const element = document.getElementById(viewId);
+                if (element) {
+                    element.classList.replace('block', 'hidden');
+                }
             });
-            document.getElementById(targetViewId).classList.replace('hidden', 'block');
+            const targetElement = document.getElementById(targetViewId);
+            if (targetElement) {
+                targetElement.classList.replace('hidden', 'block');
+            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -1955,6 +2067,7 @@ By tuning the correlation rules, I achieved an **85% reduction in alert fatigue*
         function startTypewriter() {
             const text = " Jeffrey O";
             const element = document.getElementById('typewriter-text');
+            if (!element) return;
             let i = 0;
             let isDeleting = false;
             
@@ -2046,6 +2159,7 @@ By tuning the correlation rules, I achieved an **85% reduction in alert fatigue*
 
         function renderFilters() {
             const container = document.getElementById('filters');
+            if (!container) return;
             container.innerHTML = categories.map(cat => `
                 <button
                     onclick="setCategory('${cat}')"
@@ -2095,6 +2209,7 @@ By tuning the correlation rules, I achieved an **85% reduction in alert fatigue*
 
         function renderProjects() {
             const grid = document.getElementById('project-grid');
+            if (!grid) return;
             const filteredProjects = activeCategory === 'All' 
                 ? projects 
                 : projects.filter(p => p.category === activeCategory);
