@@ -702,7 +702,7 @@
                 <header id="project-header" class="mb-12 border-b border-slate-800 pb-8"></header>
 
                 <!-- Markdown Content parsed and injected here -->
-                <div id="markdown-content" class="prose prose-invert prose-emerald max-w-none"></div>
+                <div id="markdown-content" class="prose prose-invert prose-emerald max-w-none pb-20"></div>
             </article>
         </div>
 
@@ -787,7 +787,7 @@ The resulting architecture provided a highly resilient, enterprise-grade fintech
 * **Guaranteed High Availability:** The ingenious cloud failover mechanism mitigates the risk of localized physical damage or hardware failure.
 * **Thwarted Advanced Threats:** Strict tiering limits the blast radius of any potential APTs. MITM attacks are neutralized via enforced VPN tunnels and HSTS.
 * **Ensured Compliance Readiness:** The implementation of HSMs, air-gapped backups, and end-to-end encryption aligns the system with strict financial regulatory standards like **PCI-DSS** and **NDPR**.
-                `
+`
             },
             {
                 id: 6,
@@ -865,11 +865,18 @@ The simulation was highly successful. The Lambda Kill-Switch worked flawlessly�
 2. **Cost-Effective Security:** Leveraging serverless, native tools provides enterprise-grade monitoring without the hefty licensing fees of third-party SIEM platforms.
 3. **Proactive Insider Threat Mitigation:** Honeytokens serve as high-fidelity alerts with virtually zero false positives, eliminating "alert fatigue."
 4. **Simplified Compliance:** Satisfied PCI DSS v4.0 Requirement 10.4.1 and demonstrated high-maturity adherence to the NIST Cybersecurity Framework (Continuous Response).
-                `
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/Cloud Security—Building a Security Monitoring System in AWS.pdf" download="Cloud Security—Building a Security Monitoring System in AWS.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Full Report
+    </a>
+</div>
+`
             },
             {
                 id: 7,
-                title: 'Continuous Compliance: Change Management',
+                title: 'Continuous Compliance and Change Management',
                 category: 'Cloud Computing',
                 excerpt: 'Implemented an automated change management and continuous compliance alerting system in AWS using AWS Config and Amazon SNS.',
                 tags: ['AWS Config', 'Compliance', 'Amazon SNS', 'Automation', 'Cloud Security'],
@@ -967,7 +974,14 @@ The implementation successfully created a zero-touch, automated compliance guard
 3. **Reduced Manual Overhead:** Eliminates the need for security teams to manually parse through infrastructure settings. Automation handles the monitoring, freeing up engineering hours for higher-level tasks.
 4. **Rapid Incident Response (MTTR):** By delivering real-time alerts directly to the responsible parties' inboxes, the Mean Time To Resolution (MTTR) for critical vulnerabilities is drastically reduced.
 5. **Enforced Change Management:** Ensures that all infrastructure changes are tracked and evaluated against company policies, preventing unauthorized or "shadow IT" modifications from going unnoticed.
-                `
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/Continuous Compliance & Change Management in AWS.pdf" download="Continuous Compliance & Change Management in AWS.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Full Report
+    </a>
+</div>
+`
             },
             {
                 id: 8,
@@ -1006,7 +1020,7 @@ To engineer this solution, I executed a structured deployment and configuration 
 
 <figure class="my-8 not-prose">
     <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
-        <img src="./images/wazuh-ova-download.png" alt="Downloading the Wazuh OVA package from the official repository" class="w-full rounded-lg object-contain">
+        <img src="./images/wazuh-ova-download.jpg" alt="Downloading the Wazuh OVA package from the official repository" class="w-full rounded-lg object-contain">
     </div>
     <figcaption class="text-center text-sm text-slate-500">Figure 1: Sourcing the verified Wazuh Open Virtual Appliance (OVA) package.</figcaption>
 </figure>
@@ -1015,7 +1029,7 @@ To engineer this solution, I executed a structured deployment and configuration 
 
 <figure class="my-8 not-prose">
     <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
-        <img src="./images/vmware-nat-config.png" alt="Configuring a custom NAT subnet in VMware Workstation Virtual Network Editor" class="w-full rounded-lg object-contain">
+        <img src="./images/vmware-nat-config.jpg" alt="Configuring a custom NAT subnet in VMware Workstation Virtual Network Editor" class="w-full rounded-lg object-contain">
     </div>
     <figcaption class="text-center text-sm text-slate-500">Figure 2: Architecting the virtualized NAT network environment for secure server isolation.</figcaption>
 </figure>
@@ -1024,7 +1038,7 @@ To engineer this solution, I executed a structured deployment and configuration 
 
 <figure class="my-8 not-prose">
     <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
-        <img src="./images/wazuh-vm-provisioning.png" alt="Importing and configuring the Wazuh VM settings in VMware" class="w-full rounded-lg object-contain">
+        <img src="./images/wazuh-vm-provisioning.jpg" alt="Importing and configuring the Wazuh VM settings in VMware" class="w-full rounded-lg object-contain">
     </div>
     <figcaption class="text-center text-sm text-slate-500">Figure 3: Provisioning the Wazuh server within the VMware hypervisor.</figcaption>
 </figure>
@@ -1033,7 +1047,7 @@ To engineer this solution, I executed a structured deployment and configuration 
 
 <figure class="my-8 not-prose">
     <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
-        <img src="./images/wazuh-terminal-ip.png" alt="Running the 'ip a' command in the Wazuh server terminal to verify DHCP lease" class="w-full rounded-lg object-contain">
+        <img src="./images/wazuh-terminal-ip.jpg" alt="Running the 'ip a' command in the Wazuh server terminal to verify DHCP lease" class="w-full rounded-lg object-contain">
     </div>
     <figcaption class="text-center text-sm text-slate-500">Figure 4: Querying the server terminal to verify internal network address allocation.</figcaption>
 </figure>
@@ -1045,7 +1059,7 @@ The deployment was a complete success. The Wazuh central server is now fully ope
 
 <figure class="my-8 not-prose">
     <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
-        <img src="./images/wazuh-dashboard-login.png" alt="The main Wazuh SIEM/XDR dashboard after successful authentication" class="w-full rounded-lg object-contain">
+        <img src="./images/wazuh-dashboard-login.jpg" alt="The main Wazuh SIEM/XDR dashboard after successful authentication" class="w-full rounded-lg object-contain">
     </div>
     <figcaption class="text-center text-sm text-slate-500">Figure 5: Successful authentication into the Wazuh SIEM/XDR central administrative dashboard.</figcaption>
 </figure>
@@ -1057,7 +1071,14 @@ Implementing a robust SIEM/XDR platform like Wazuh provides immense strategic va
 * **Regulatory Compliance Support:** Automated log retention, file integrity monitoring, and configuration assessments heavily support compliance with industry standards such as PCI DSS, HIPAA, GDPR, and ISO 27001.
 * **Cost-Effective Scalability:** Utilizing open-source enterprise-grade software minimizes licensing overhead. The localized testing methodology ensures that when scaling to production, configurations are proven, reducing costly deployment errors.
 * **Unified Security Posture:** By consolidating cloud security, endpoint protection, and network monitoring into a single pane of glass, organizations eliminate security silos and streamline their Security Operations Center (SOC) workflows.
-                `
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/Wazuh Manager Virtual Lab Setup.pdf" download="Wazuh Manager Virtual Lab Setup.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Full Report
+    </a>
+</div>
+`
             },
             {
                 id: 9,
@@ -1140,7 +1161,14 @@ Deploying and managing endpoint agents effectively brings immediate, tangible be
 * **Rapid Threat Detection & Containment:** With agents continuously forwarding logs and system state changes, organizations can identify anomalous behavior, unauthorized access, or malware execution the moment it happens on the endpoint.
 * **Automated Auditing & Compliance:** The agents enable continuous file integrity monitoring (FIM) and Security Configuration Assessments (SCA), automating the grueling process of ensuring all endpoints comply with internal policies and external regulatory frameworks (like GDPR, HIPAA, or SOC 2).
 * **Scalable Security Operations:** The scripted deployment methods (using Bash and PowerShell) demonstrated in this project represent highly scalable processes that can be easily adapted into enterprise mass-deployment tools (like SCCM, Ansible, or Group Policy) for thousands of devices.
-                `
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/Wazuh Manager Virtual Lab Setup.pdf" download="Wazuh Manager Virtual Lab Setup.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Full Report
+    </a>
+</div>
+`
             },
             {
                 id: 10,
@@ -1207,7 +1235,7 @@ To implement and validate the FIM architecture, I executed a controlled testing 
 
 <figure class="my-8 not-prose">
     <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
-        <img src="./images/wazuh-p3-rule550.png" alt="Wazuh security events dashboard showing Rule ID 550 alerts for integrity checksum changes on both OS environments" class="w-full rounded-lg object-contain">
+        <img src="./images/wazuh-p3-rule550.jpg" alt="Wazuh security events dashboard showing Rule ID 550 alerts for integrity checksum changes on both OS environments" class="w-full rounded-lg object-contain">
     </div>
     <figcaption class="text-center text-sm text-slate-500">Figure 4: Successful detection and alerting of unauthorized file modifications (Rule ID 550) across both OS environments.</figcaption>
 </figure>
@@ -1231,7 +1259,14 @@ Implementing precise File Integrity Monitoring provides organizations with criti
 * **Stringent Regulatory Compliance:** Frameworks such as PCI DSS (Requirement 11.5), HIPAA, and GDPR explicitly mandate the deployment of change-detection mechanisms to alert personnel to unauthorized modifications of critical system files, configuration files, or content files.
 * **Insider Threat Mitigation:** FIM creates an immutable audit trail. If an authenticated user or malicious insider attempts to alter logs, steal data, or sabotage configurations, the SIEM immediately flags the exact time, file path, and nature of the change.
 * **Zero-Trust Validation:** By continuously verifying the cryptographic hashes of core system files against known-good baselines, organizations ensure that their infrastructure has not been silently compromised by persistent threats or rootkits.
-                `
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/Wazuh Manager Virtual Lab Setup.pdf" download="Wazuh Manager Virtual Lab Setup.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Full Report
+    </a>
+</div>
+`
             },
             {
                 id: 11,
@@ -1321,7 +1356,14 @@ Implementing an enterprise-grade Next-Generation Firewall provides critical adva
 * **Granular Traffic Visibility & Control:** Deep packet inspection (DPI) and web filtering provide security teams with absolute visibility into application usage, allowing for the enforcement of strict corporate policies and the prevention of data exfiltration.
 * **Zero-Day Threat Prevention:** Integration with advanced sandboxing technology automatically quarantines and analyzes suspicious files, isolating unknown malware and zero-day ransomware variants before they can execute.
 * **Secure Network Segmentation:** Dual-homed and multi-zoned network architectures (like the one engineered in this project) securely isolate sensitive internal assets, serving as the foundational building block for a Zero-Trust security model.
-                `
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/Sophos Next-Gen Firewall—Installation, Setup & Security Policy Configuration.pdf" download="Sophos Next-Gen Firewall—Installation, Setup & Security Policy Configuration.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Full Report
+    </a>
+</div>
+`
             },
             {
                 id: 12,
@@ -1395,7 +1437,14 @@ Configuring a robust NAT Gateway through an NGFW like Sophos provides organizati
 * **Centralized Security Choke Point:** Forcing all internal devices to route through a single gateway ensures that 100% of outbound and inbound traffic is subjected to deep packet inspection, web filtering, and malware scanning.
 * **IPv4 Address Conservation:** Businesses can host hundreds of internal workstations and servers using a single public IP address, saving significant costs on public IP allocation from ISPs.
 * **Controlled External Access:** By managing outbound access at the gateway level, administrators can easily restrict specific internal subnets or devices from accessing the internet, preventing data exfiltration from highly sensitive servers.
-                `
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/Sophos Next-Gen Firewall—Installation, Setup & Security Policy Configuration.pdf" download="Sophos Next-Gen Firewall—Installation, Setup & Security Policy Configuration.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Full Report
+    </a>
+</div>
+`
             },
             {
                 id: 13,
@@ -1476,7 +1525,14 @@ Implementing dynamic Content Filtering via an NGFW like Sophos yields significan
 * **Bandwidth Optimization:** By blocking high-bandwidth categories like streaming media or peer-to-peer (P2P) file sharing, organizations can reclaim critical network bandwidth for legitimate business applications.
 * **Proactive Threat Mitigation:** Beyond productivity, URL filtering acts as a critical security layer by categorically blocking known malicious domains, phishing sites, and command-and-control (C2) servers before a user can ever reach them.
 * **Legal Liability Reduction:** Filtering prevents users from accessing or downloading illicit, pirated, or illegal content on company networks, thereby shielding the organization from potential legal exposure and compliance violations.
-                `
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/Sophos Next-Gen Firewall—Installation, Setup & Security Policy Configuration.pdf" download="Sophos Next-Gen Firewall—Installation, Setup & Security Policy Configuration.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Full Report
+    </a>
+</div>
+`
             },
             {
                 id: 14,
@@ -1551,7 +1607,14 @@ Implementing explicit Denial-of-Service protection at the firewall level provide
 * **Smokescreen Attack Prevention:** Cybercriminals often use DoS attacks to distract security teams while simultaneously executing data breaches or ransomware payloads. Automated DoS mitigation frees security personnel to focus on sophisticated threats.
 * **Resource Optimization:** Filtering out millions of junk packets at the edge prevents internal infrastructure (routers, load balancers, and application servers) from wasting valuable compute cycles and memory processing illegitimate requests.
 * **Financial Protection:** For e-commerce and SaaS platforms, mitigating downtime directly prevents the catastrophic loss of revenue and brand reputation associated with service outages.
-                `
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/Sophos Next-Gen Firewall—Installation, Setup & Security Policy Configuration.pdf" download="Sophos Next-Gen Firewall—Installation, Setup & Security Policy Configuration.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Full Report
+    </a>
+</div>
+`
             },
             {
                 id: 15,
@@ -1608,7 +1671,7 @@ To construct this versatile virtual infrastructure, I executed a systematic prov
 </figure>
 
 ## Result
-The virtual lab deployment was a complete success. The VMware hypervisor efficiently manages the compute resources, and all three primary virtual machines (Parrot Security, Windows Server 2022, and Windows 11) were successfully installed, booted, and configured. This highly versatile, isolated sandbox now serves as the operational staging ground for all subsequent advanced network deployments, firewall configurations, and endpoint monitoring (SIEM/XDR) projects.
+The virtual lab deployment was a complete success. The VMware hypervisor efficiently manages the compute resources, and all three primary virtual machines (Parrot Security, Windows Server 2022, and Windows 11) were successfully installed, booted, and configured. This highly versatile, isolated sandbox now serves as the operational staging ground for all subsequent advanced network deployments, firewall configurations, and endpoint monitoring (SIEM/XDR projects.
 
 ## Business Value & Organizational Benefits
 Architecting a robust, in-house virtual lab provides organizations and engineering teams with immense strategic value:
@@ -1617,7 +1680,14 @@ Architecting a robust, in-house virtual lab provides organizations and engineeri
 * **Cost-Effective Infrastructure:** Virtualization drastically reduces capital expenditure (CapEx). Instead of purchasing physical servers and switches for testing, organizations can simulate entire corporate networks on a single high-performance host machine.
 * **Rapid Prototyping & Revertibility:** Hypervisor snapshot technology allows engineers to take a "picture" of a system's state before a major change. If a configuration breaks, the system can be rolled back to a perfect working state in seconds, accelerating the development lifecycle.
 * **Continuous Training & Development:** A dedicated virtual lab provides an ever-ready, safe playground for IT and security personnel to upskill, practice incident response, and familiarize themselves with new operating systems and defensive platforms.
-                `
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/Virtual Lab—Setup & Configuration.pdf" download="Virtual Lab—Setup & Configuration.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Full Report
+    </a>
+</div>
+`
             },
             {
                 id: 16,
@@ -1691,11 +1761,18 @@ Conducting rigorous vulnerability assessments on Active Directory environments p
 * **Realistic Security Baselines:** Testing against an actual, functional Domain Controller provides much higher fidelity and actionable intelligence than relying solely on theoretical, automated vulnerability scans.
 * **Privilege Escalation Defense:** By simulating brute-force password attacks, organizations can actively test the efficacy of their password complexity policies and account lockout thresholds.
 * **Compliance & Trust:** For MSSPs servicing financial and fintech clients, demonstrating the ability to securely configure, test, and audit Active Directory environments is essential for meeting strict regulatory requirements (such as PCI-DSS and ISO 27001).
-                `
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/Virtual Lab—Vulnerability Assessment.pdf" download="Virtual Lab—Vulnerability Assessment.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Full Report
+    </a>
+</div>
+`
             },
             {
                 id: 17,
-                title: 'Networking Simulation (Cisco Packet Tracer)',
+                title: 'Cisco Packet Tracer: Networking Simulation',
                 category: 'Networking',
                 excerpt: 'Designed and implemented a secure, segmented small enterprise network using Cisco Packet Tracer with inter-VLAN routing and strict ACLs.',
                 tags: ['Cisco', 'Packet Tracer', 'VLAN', 'ACL', 'Networking'],
@@ -1788,14 +1865,21 @@ Implementing structured network segmentation and Access Control Lists provides f
 * **Enforcement of Least Privilege:** ACLs allow administrators to granularly define access based on departmental roles. Users only have network access to the resources absolutely necessary for their jobs, significantly reducing the risk of unauthorized data access or insider threats.
 * **Improved Network Performance:** VLANs break up large broadcast domains into smaller, more efficient segments. This reduces unnecessary network congestion and improves overall performance for critical applications.
 * **Simplified Compliance:** Logical segmentation and strict access controls are often mandatory requirements for compliance frameworks (such as PCI-DSS, which requires isolating cardholder data environments). This architecture provides a clear boundary for auditing and compliance verification.
-                `
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/Cisco Packet Tracer—Networking Simulation.pdf" download="Cisco Packet Tracer—Networking Simulation.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Full Report
+    </a>
+</div>
+`
             },
             {
                 id: 18,
-                title: 'App Development: Circle10 Study App',
+                title: 'Circle10 Study App: Web App Architecture, Design & Development',
                 category: 'IT',
                 excerpt: 'Engineered a highly optimized, mobile-first web application designed to empower Cybersecurity students through a decentralized, lightweight SPA.',
-                tags: ['Web App', 'JavaScript', 'SPA', 'Tailwind', 'Frontend'],
+                tags: ['Cybersecurity Learning', 'EdTech', 'Web App', 'HTML', 'JavaScript', 'Tailwind CSS', 'UI/UX'],
                 icon: 'smartphone',
                 iconColor: 'text-purple-400',
                 date: 'November 2025',
@@ -1898,7 +1982,14 @@ Architecting a lightweight, decentralized platform like Circle10 offers immense 
 * **For Institutions & Businesses:** * *Zero Operational Overhead:* Hosting via static pages eliminates server costs, database maintenance, and the need for complex load balancing.
   * *Minimized Attack Surface:* By eliminating a traditional database and backend server, the application's attack surface is nearly non-existent, protecting the institution from costly data breaches and DDoS disruptions.
   * *Scalable Knowledge Distribution:* This architectural model can be immediately repurposed by corporate HR or Security teams to distribute internal training, security policies, and incident response playbooks to global employees flawlessly.
-                `
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/Circle10 Study App—Web App Architecture, Design & Development.pdf" download="Circle10 Study App—Web App Architecture, Design & Development.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Full Report
+    </a>
+</div>
+`
             }
         ];
 
