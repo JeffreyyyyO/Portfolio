@@ -961,7 +961,7 @@ Enabled AWS Config to record all resource configurations within the region. I pr
 
 <figure class="my-8 not-prose">
     <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
-        <img src="./documents/aws-config-setup.jpg" alt="AWS Config Settings" class="w-full rounded-lg object-contain">
+        <img src="./images/aws-config-setup.jpg" alt="AWS Config Settings" class="w-full rounded-lg object-contain">
     </div>
     <figcaption class="text-center text-sm text-slate-500">Figure 1: AWS Config Settings - AWS Config configuration showing the recording strategy and the designated S3 bucket used as the delivery channel.</figcaption>
 </figure>
@@ -971,7 +971,7 @@ Created an SNS Standard Topic named \`SecurityAlertsTopic\` and configured an em
 
 <figure class="my-8 not-prose">
     <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
-        <img src="./documents/sns-topic-subscription.jpg" alt="SNS Topic and Subscription" class="w-full rounded-lg object-contain">
+        <img src="./images/sns-topic-subscription.jpg" alt="SNS Topic and Subscription" class="w-full rounded-lg object-contain">
     </div>
     <figcaption class="text-center text-sm text-slate-500">Figure 2: SNS Topic and Subscription - Amazon SNS dashboard displaying the active 'SecurityAlertsTopic' and the confirmed email subscription endpoint.</figcaption>
 </figure>
@@ -981,7 +981,7 @@ Deployed the AWS Managed Rule \`s3-bucket-public-read-prohibited\` within AWS Co
 
 <figure class="my-8 not-prose">
     <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
-        <img src="./documents/aws-config-rule.png" alt="AWS Managed Rule Configuration" class="w-full rounded-lg object-contain">
+        <img src="./images/aws-config-rule.png" alt="AWS Managed Rule Configuration" class="w-full rounded-lg object-contain">
     </div>
     <figcaption class="text-center text-sm text-slate-500">Figure 3: AWS Managed Rule Configuration - Adding the 's3-bucket-public-read-prohibited' managed rule to evaluate continuous S3 bucket compliance.</figcaption>
 </figure>
@@ -993,8 +993,8 @@ Deployed the AWS Managed Rule \`s3-bucket-public-read-prohibited\` within AWS Co
 
 <figure class="my-8 not-prose">
     <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3 flex flex-col gap-4">
-        <img src="./documents/config-noncompliant-dashboard.png" alt="AWS Config Dashboard - Noncompliant" class="w-full rounded-lg object-contain border border-slate-700/50">
-        <img src="./documents/sns-noncompliant-email-alert.png" alt="Real-time SNS Email Alert (Noncompliant)" class="w-full rounded-lg object-contain border border-slate-700/50">
+        <img src="./images/config-noncompliant-dashboard.png" alt="AWS Config Dashboard - Noncompliant" class="w-full rounded-lg object-contain border border-slate-700/50">
+        <img src="./images/sns-noncompliant-email-alert.png" alt="Real-time SNS Email Alert (Noncompliant)" class="w-full rounded-lg object-contain border border-slate-700/50">
     </div>
     <figcaption class="text-center text-sm text-slate-500">Figure 4 & 5: AWS Config detecting the Noncompliant bucket, and the resulting real-time automated email alert warning of the exposure.</figcaption>
 </figure>
@@ -1003,7 +1003,7 @@ Deployed the AWS Managed Rule \`s3-bucket-public-read-prohibited\` within AWS Co
 
 <figure class="my-8 not-prose">
     <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
-        <img src="./config-resource-timeline.png" alt="AWS Config Resource Timeline" class="w-full rounded-lg object-contain">
+        <img src="./images/config-resource-timeline.png" alt="AWS Config Resource Timeline" class="w-full rounded-lg object-contain">
     </div>
     <figcaption class="text-center text-sm text-slate-500">Figure 6: AWS Config Resource Timeline detailing the exact configuration change and CloudTrail events that led to the noncompliance status.</figcaption>
 </figure>
@@ -1012,7 +1012,7 @@ Deployed the AWS Managed Rule \`s3-bucket-public-read-prohibited\` within AWS Co
 
 <figure class="my-8 not-prose">
     <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
-        <img src="./sns-compliant-email-alert.png" alt="Real-time SNS Email Alert (Compliant)" class="w-full rounded-lg object-contain">
+        <img src="./images/sns-compliant-email-alert.png" alt="Real-time SNS Email Alert (Compliant)" class="w-full rounded-lg object-contain">
     </div>
     <figcaption class="text-center text-sm text-slate-500">Figure 7: Real-time SNS Email Alert (Compliant) confirming the resource configuration has been successfully restored to a Compliant state.</figcaption>
 </figure>
