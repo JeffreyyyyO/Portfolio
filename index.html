@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZWMYHL9RS7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ZWMYHL9RS7');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeffrey O's Cybersecurity Portfolio</title>
@@ -707,37 +718,273 @@
 
         <!-- RESUME VIEW -->
         <div id="resume-view" class="hidden animate-in fade-in duration-500">
-            <section class="py-10">
+            <section class="py-10 max-w-5xl mx-auto">
                 <button onclick="switchView('profile-view')" class="flex items-center text-slate-400 hover:text-emerald-400 transition-colors mb-8 group">
                     <i data-lucide="arrow-left" class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform"></i>
                     Back to Home
                 </button>
-                <div class="mb-10">
-                    <h2 class="text-3xl font-bold text-slate-100 flex items-center gap-3 mb-4 font-google">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-slate-100 flex items-center gap-3 mb-2 font-google">
                         <i data-lucide="file-text" class="w-8 h-8 text-emerald-500"></i>
                         Résumé
                     </h2>
-                    <p class="text-slate-400">Download a copy of my most up-to-date professional résumé.</p>
+                    <p class="text-slate-400">My complete work history, education, and technical background.</p>
                 </div>
 
-                <div class="max-w-md">
-                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300 flex flex-col group">
-                        <div class="flex items-start justify-between mb-4">
-                            <div class="p-3 bg-slate-800 rounded-lg group-hover:scale-110 transition-transform">
-                                <i data-lucide="file-badge" class="w-6 h-6 text-emerald-400"></i>
+                <!-- Structured Resume Body -->
+                <div class="bg-slate-900 border border-slate-800 p-6 md:p-12 rounded-xl shadow-lg mb-12">
+                    
+                    <!-- Header -->
+                    <div class="border-b border-slate-800 pb-8 mb-8 text-center sm:text-left">
+                        <h1 class="text-4xl md:text-5xl font-bold text-slate-100 font-google mb-2">Jeffrey Obi</h1>
+                        <p class="text-xl text-emerald-400 mb-5 font-mono">Cybersecurity Analyst</p>
+                        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-sm text-slate-400">
+                            <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-4 h-4"></i> Lagos, Nigeria</span>
+                            <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-4 h-4"></i> (+234) 805 757 6345</span>
+                            <a href="mailto:jeffrey.o.obi@gmail.com" class="flex items-center gap-1.5 hover:text-emerald-400 transition-colors"><i data-lucide="mail" class="w-4 h-4"></i> jeffrey.o.obi@gmail.com</a>
+                            <a href="https://www.linkedin.com/in/jeffreyoo/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:text-emerald-400 transition-colors"><i data-lucide="linkedin" class="w-4 h-4"></i> linkedin.com/in/jeffreyoo</a>
+                        </div>
+                    </div>
+
+                    <!-- Summary -->
+                    <div class="mb-10">
+                        <p class="text-slate-300 leading-relaxed text-lg">
+                            Entry-level Cybersecurity Analyst with hands-on experience building and securing simulated enterprise environments using SIEM (Wazuh), AWS cloud monitoring, and endpoint security tools. Transitioning from a background in systems design and compliance, with a focus on threat detection, network security, and incident analysis while backed by robust homelab experience and industry-standard certifications (CompTIA Security+, ISC2 CC).
+                        </p>
+                    </div>
+
+                    <!-- Competencies & Tools -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                        <div>
+                            <h3 class="text-xl font-bold text-emerald-500 mb-4 font-google uppercase tracking-wider text-sm border-b border-slate-800 pb-2">Core Competencies</h3>
+                            <ul class="space-y-3 text-slate-300 text-sm leading-relaxed">
+                                <li><strong class="text-slate-100">Security & Monitoring:</strong> SIEM (Wazuh), EDR/XDR (Sophos Central), IDS/IPS, File Integrity Monitoring (FIM), Zero-Trust Architecture.</li>
+                                <li><strong class="text-slate-100">Cloud Security:</strong> AWS (EC2, CloudTrail, CloudWatch, AWS Config, SNS, S3 Security, IAM, Lambda).</li>
+                                <li><strong class="text-slate-100">Network Security:</strong> Network Architecture (Packet Tracer), VLANs, ACLs, Firewall/WAF configurations, VPN, DMZ.</li>
+                                <li><strong class="text-slate-100">Threat Intelligence & Analysis:</strong> Packet Analysis (Wireshark, tcpdump), Phishing Analysis, Malware Tools (VirusTotal, CyberChef), OSINT.</li>
+                                <li><strong class="text-slate-100">Infrastructure & OS:</strong> Linux (Kali, Parrot, Ubuntu), Windows Server 2022, Virtualization (VMware, VirtualBox), Cryptography (PKI, OpenSSL).</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-emerald-500 mb-4 font-google uppercase tracking-wider text-sm border-b border-slate-800 pb-2">Tools</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-md text-xs font-medium text-slate-300">Linux OS (Kali, Parrot, Ubuntu)</span>
+                                <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-md text-xs font-medium text-slate-300">VMware & VirtualBox</span>
+                                <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-md text-xs font-medium text-slate-300">Sophos Firewall</span>
+                                <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-md text-xs font-medium text-slate-300">Sophos EDR/XDR</span>
+                                <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-md text-xs font-medium text-slate-300">Wazuh</span>
+                                <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-md text-xs font-medium text-slate-300">AWS Cloud Services</span>
+                                <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-md text-xs font-medium text-slate-300">Cisco Packet Tracer</span>
+                                <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-md text-xs font-medium text-slate-300">Wireshark</span>
+                                <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-md text-xs font-medium text-slate-300">Tcpdump</span>
+                                <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-md text-xs font-medium text-slate-300">Thunderbird</span>
+                                <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-md text-xs font-medium text-slate-300">Python</span>
                             </div>
                         </div>
-                        <h3 class="text-xl font-semibold text-slate-100 mb-2 group-hover:text-emerald-400 transition-colors">
-                            Cybersecurity Résumé
-                        </h3>
-                        <p class="text-slate-400 mb-8">
-                            Download the résumé here to review my complete work history, education, and technical background.
+                    </div>
+
+                    <!-- Cybersecurity Projects -->
+                    <div class="mb-10">
+                        <h3 class="text-xl font-bold text-emerald-500 mb-6 font-google uppercase tracking-wider text-sm border-b border-slate-800 pb-2">Cybersecurity Projects (Homelab Experience)</h3>
+                        
+                        <div class="space-y-6">
+                            <!-- Project Category -->
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-100 mb-2">Enterprise Security Architecture & Cloud Monitoring</h4>
+                                <ul class="list-none space-y-3 text-sm text-slate-300">
+                                    <li class="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-emerald-500 before:rounded-full">
+                                        <strong class="text-slate-200">Zero-Trust Network Design:</strong> Designed a simulated multi-tier enterprise network architecture, implementing security devices, along with a cloud failover system.
+                                    </li>
+                                    <li class="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-emerald-500 before:rounded-full">
+                                        <strong class="text-slate-200">AWS Security Automation:</strong> Built and configured a continuous compliance and monitoring pipeline in order to detect unauthorized access to sensitive resources and configured real-time email alerts which triggered upon simulated misconfigurations in under 30 seconds, all using AWS services.
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Project Category -->
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-100 mb-2">SIEM Deployment & Endpoint Protection</h4>
+                                <ul class="list-none space-y-3 text-sm text-slate-300">
+                                    <li class="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-emerald-500 before:rounded-full">
+                                        <strong class="text-slate-200">Wazuh Integration:</strong> Deployed Wazuh servers across cloud (AWS EC2) and local virtual machines (VMware). Configured endpoint agents to ensure policy compliance and logging and alerting.
+                                    </li>
+                                    <li class="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-emerald-500 before:rounded-full">
+                                        <strong class="text-slate-200">Sophos Central Management:</strong> Deployed a firewall virtual machine and secured gateways within an isolated lab environment. Configured Sophos Endpoint for Active Detection and Response (EDR), implementing firewall rules and web filtering policies.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Project Category -->
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-100 mb-2">Network Traffic Analysis & Threat Investigation</h4>
+                                <ul class="list-none space-y-3 text-sm text-slate-300">
+                                    <li class="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-emerald-500 before:rounded-full">
+                                        <strong class="text-slate-200">Packet & Traffic Analysis:</strong> Utilized Wireshark and tcpdump to analyze HTTP/HTTPS and TCP connections, filtering packet data to successfully detect simulated DDoS attack signatures.
+                                    </li>
+                                    <li class="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-emerald-500 before:rounded-full">
+                                        <strong class="text-slate-200">Phishing & Malware Analysis:</strong> Conducted comprehensive analysis of malicious emails targeting organizational infrastructure. Utilized Thunderbird, CyberChef, VirusTotal, and python scripts to identify indicators of compromise (IOCs).
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Project Category -->
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-100 mb-2">Secure Network Design & Cryptography</h4>
+                                <ul class="list-none space-y-3 text-sm text-slate-300">
+                                    <li class="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-emerald-500 before:rounded-full">
+                                        <strong class="text-slate-200">Enterprise Network Configuration:</strong> Designed enterprise network topologies using Cisco Packet Tracer. Configured switches and routers, implemented secure remote access, established intra/inter-VLAN routing, and applied ACLs for strict communication permissions.
+                                    </li>
+                                    <li class="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-emerald-500 before:rounded-full">
+                                        <strong class="text-slate-200">Cryptographic Implementation:</strong> Simulated symmetric and asymmetric encryption within a Linux environment. Deployed a Public Key Infrastructure (PKI) and generated secure digital signatures.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professional Experience -->
+                    <div class="mb-10">
+                        <h3 class="text-xl font-bold text-emerald-500 mb-6 font-google uppercase tracking-wider text-sm border-b border-slate-800 pb-2">Professional Experience</h3>
+                        
+                        <div class="space-y-8">
+                            <!-- Job 1 -->
+                            <div class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-0 before:w-px before:bg-slate-800">
+                                <span class="absolute left-[-4px] top-2 w-2 h-2 rounded-full bg-emerald-500"></span>
+                                <div class="flex flex-col md:flex-row md:items-start justify-between mb-2 gap-1">
+                                    <h4 class="text-lg font-bold text-slate-100">Cybersecurity Professional (Freelance)</h4>
+                                    <span class="text-sm font-mono text-emerald-400 shrink-0">June 2025 - Present</span>
+                                </div>
+                                <p class="text-slate-400 text-sm font-medium mb-3">Independent Cybersecurity Projects, Nigeria</p>
+                                <ul class="list-none space-y-2 text-sm text-slate-300">
+                                    <li class="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-slate-500 before:rounded-full"><strong class="text-slate-200">Application Security & Development:</strong> Built and managed a web-based cybersecurity study tool using HTML, Firebase, and APIs.</li>
+                                    <li class="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-slate-500 before:rounded-full"><strong class="text-slate-200">Network Infrastructure:</strong> Designed and deployed segmented home and small-office networks with VLAN isolation and secure access controls.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Job 2 -->
+                            <div class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-0 before:w-px before:bg-slate-800">
+                                <span class="absolute left-[-4px] top-2 w-2 h-2 rounded-full bg-slate-600"></span>
+                                <div class="flex flex-col md:flex-row md:items-start justify-between mb-2 gap-1">
+                                    <h4 class="text-lg font-bold text-slate-100">Designer</h4>
+                                    <span class="text-sm font-mono text-slate-500 shrink-0">April 2024 - Present</span>
+                                </div>
+                                <p class="text-slate-400 text-sm font-medium mb-3">Dakboss Construction Ltd, Lekki Phase I, Lagos</p>
+                                <ul class="list-none space-y-2 text-sm text-slate-300">
+                                    <li class="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-slate-500 before:rounded-full"><strong class="text-slate-200">Dynamic Technical Direction:</strong> Translated client requirements into detailed technical blueprints, dynamically adjusting system designs to account for resource limitations, vendor capabilities, and regulatory standards.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Job 3 -->
+                            <div class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-0 before:w-px before:bg-slate-800">
+                                <span class="absolute left-[-4px] top-2 w-2 h-2 rounded-full bg-slate-600"></span>
+                                <div class="flex flex-col md:flex-row md:items-start justify-between mb-2 gap-1">
+                                    <h4 class="text-lg font-bold text-slate-100">Technical Designer</h4>
+                                    <span class="text-sm font-mono text-slate-500 shrink-0">June 2019 - September 2022</span>
+                                </div>
+                                <p class="text-slate-400 text-sm font-medium mb-3">Greenville Liquefied Natural Gas Co. Ltd, Victoria Island, Lagos</p>
+                                <ul class="list-none space-y-2 text-sm text-slate-300">
+                                    <li class="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-slate-500 before:rounded-full"><strong class="text-slate-200">Systems Engineering & Compliance:</strong> Supported 45 large-scale infrastructure projects with a focus on systems design and compliance. Ensured adherence to regulatory standards, safety protocols, and risk mitigation practices.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Job 4 -->
+                            <div class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-0 before:w-px before:bg-slate-800">
+                                <span class="absolute left-[-4px] top-2 w-2 h-2 rounded-full bg-slate-600"></span>
+                                <div class="flex flex-col md:flex-row md:items-start justify-between mb-2 gap-1">
+                                    <h4 class="text-lg font-bold text-slate-100">Compliance Officer</h4>
+                                    <span class="text-sm font-mono text-slate-500 shrink-0">February 2019 - June 2019</span>
+                                </div>
+                                <p class="text-slate-400 text-sm font-medium mb-3">Joe Faraday Limited, Banana Island, Lagos</p>
+                                <ul class="list-none space-y-2 text-sm text-slate-300">
+                                    <li class="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-slate-500 before:rounded-full"><strong class="text-slate-200">Policy Auditing:</strong> Audited 6 production sites to ensure rigorous compliance with internal execution policies, significantly reducing operational and non-compliance risks.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Job 5 -->
+                            <div class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-px before:bg-transparent">
+                                <span class="absolute left-[-4px] top-2 w-2 h-2 rounded-full bg-slate-600"></span>
+                                <div class="flex flex-col md:flex-row md:items-start justify-between mb-2 gap-1">
+                                    <h4 class="text-lg font-bold text-slate-100">Assistant Technical Designer</h4>
+                                    <span class="text-sm font-mono text-slate-500 shrink-0">December 2013 - July 2015</span>
+                                </div>
+                                <p class="text-slate-400 text-sm font-medium mb-3">T.E.A.M (Nigeria) Ltd, Garki, Abuja</p>
+                                <ul class="list-none space-y-2 text-sm text-slate-300">
+                                    <li class="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-slate-500 before:rounded-full"><strong class="text-slate-200">Infrastructure Design & Administration:</strong> Assisted in infrastructure design and execution for engineering projects. Ensured alignment between technical specifications and implementation.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certs & Education (2 Columns on large screens) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Certifications -->
+                        <div>
+                            <h3 class="text-xl font-bold text-emerald-500 mb-6 font-google uppercase tracking-wider text-sm border-b border-slate-800 pb-2">Certifications</h3>
+                            <ul class="space-y-4 text-sm">
+                                <li class="flex justify-between items-start gap-4">
+                                    <span class="font-bold text-slate-200">CompTIA Security+</span>
+                                    <span class="text-slate-500 shrink-0 font-mono text-xs mt-1">March 2026</span>
+                                </li>
+                                <li class="flex justify-between items-start gap-4">
+                                    <span class="font-bold text-slate-200">ISC2 Certified in Cybersecurity</span>
+                                    <span class="text-slate-500 shrink-0 font-mono text-xs mt-1">October 2025</span>
+                                </li>
+                                <li class="flex justify-between items-start gap-4">
+                                    <span class="font-bold text-slate-200">Google Cybersecurity Professional</span>
+                                    <span class="text-slate-500 shrink-0 font-mono text-xs mt-1">September 2025</span>
+                                </li>
+                                <li class="flex justify-between items-start gap-4">
+                                    <span class="font-bold text-slate-200">Fortinet Certified Fundamentals</span>
+                                    <span class="text-slate-500 shrink-0 font-mono text-xs mt-1">November 2025</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Education -->
+                        <div>
+                            <h3 class="text-xl font-bold text-emerald-500 mb-6 font-google uppercase tracking-wider text-sm border-b border-slate-800 pb-2">Education</h3>
+                            <div class="space-y-5 text-sm">
+                                <div>
+                                    <h4 class="font-bold text-slate-200 leading-tight">Diploma in Cybersecurity</h4>
+                                    <div class="flex justify-between items-start gap-2 mt-1">
+                                        <span class="text-slate-400">AltSchool Africa, Nigeria</span>
+                                        <span class="text-slate-500 shrink-0 font-mono text-xs mt-0.5">July 2025 - June 2026</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-200 leading-tight">Master of Science in Architecture</h4>
+                                    <div class="flex justify-between items-start gap-2 mt-1">
+                                        <span class="text-slate-400">Covenant University, Nigeria</span>
+                                        <span class="text-slate-500 shrink-0 font-mono text-xs mt-0.5">Aug 2016 - July 2018</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-200 leading-tight">Bachelor of Science in Architecture</h4>
+                                    <div class="flex justify-between items-start gap-2 mt-1">
+                                        <span class="text-slate-400">KNUST, Ghana</span>
+                                        <span class="text-slate-500 shrink-0 font-mono text-xs mt-0.5">Aug 2008 - Dec 2012</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- End of structured resume -->
+
+                <!-- DOWNLOAD BUTTON BELOW RESUME -->
+                <div class="text-center max-w-lg mx-auto">
+                    <div class="p-6 bg-slate-900 border border-slate-800 rounded-xl hover:border-emerald-500/50 transition-all duration-300">
+                        <i data-lucide="file-badge" class="w-10 h-10 text-emerald-400 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-semibold text-slate-100 mb-2">Download Official PDF</h3>
+                        <p class="text-slate-400 text-sm mb-6">
+                            Get a formatted, print-ready version of my résumé for your records or applicant tracking systems.
                         </p>
-                        <a href="./documents/Jeffrey O (Résumé).pdf" download="Jeffrey O (Résumé).pdf" class="mt-auto flex items-center justify-center px-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors w-full gap-2">
-                            <i data-lucide="download" class="w-5 h-5"></i> Download PDF
+                        <a href="./documents/Jeffrey O (Résumé).pdf" download="Jeffrey O (Résumé).pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2 w-full sm:w-auto">
+                            <i data-lucide="download" class="w-5 h-5"></i> Download Résumé PDF
                         </a>
                     </div>
                 </div>
+
             </section>
         </div>
 
@@ -879,164 +1126,83 @@ Implementing a rigorously structured AWS IAM framework provides organizations wi
                 id: 2,
                 title: 'AWS KMS: Encryption & Monitoring',
                 category: 'Cloud Security',
-                excerpt: 'Demonstrates the basic steps required to get started with AWS KMS, creating keys, assigning permissions, encrypting data, and monitoring usage with CloudTrail.',
+                excerpt: 'Showcases how to secure sensitive corporate data in AWS by building an automated encryption system using KMS and configuring continuous monitoring with CloudTrail.',
                 tags: ['Cloud Security', 'Confidentiality', 'AWS', 'KMS', 'Encryption', 'CloudTrail', 'S3'],
                 icon: 'lock',
                 iconColor: 'text-blue-400',
                 date: 'May 2026',
                 content: `
 <div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
-    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Lab overview</h3>
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
     <p class="text-slate-300 leading-relaxed mb-0">
-    This lab introduces you to AWS Key Management Service (AWS KMS). The lab demonstrates the basic steps required to get started with AWS KMS, creating keys, assigning management and usage permissions for the keys, encrypting data and monitoring the access and usage of keys.
+    This project showcases how to secure sensitive corporate data in the cloud (Amazon Web Services). Using AWS security tools, I built a system that automatically encrypts files so they cannot be read even if hackers gain access to the storage environment. Additionally, I set up a continuous monitoring system that records exactly who accesses this secured data and when. This demonstrates a mature approach to cloud security, proving the ability to not only lock down sensitive information but also maintain the strict tracking and accountability required by modern data privacy laws.
     </p>
 </div>
 
-## Objectives
-By the end of this lab, you should be able to do the following:
-* Create an Encryption Key
-* Create an Amazon Simple Storage Service (Amazon S3) bucket with AWS CloudTrail logging functions
-* Encrypt data stored in an Amazon S3 bucket using an encryption key
-* Monitor encryption key usage using CloudTrail
-* Manage encryption keys for users and roles
+## Core Technologies
+* **Cloud Platform:** Amazon Web Services (AWS)
+* **Cryptographic Service:** AWS Key Management Service (KMS) (Backed by Hardware Security Modules - HSMs)
+* **Storage:** Amazon S3 (Simple Storage Service)
+* **Auditing & Governance:** AWS CloudTrail
+* **Security Concepts:** Data at Rest Encryption, Cryptographic Access Control, API Monitoring, Dynamic Revocation
 
-## Services used in this lab
+## Situation
+Securing sensitive data in the cloud requires more than just perimeter defenses and password management; data must be encrypted at rest so that even if the storage layer is compromised, the actual files remain unreadable. Furthermore, strict regulatory frameworks (such as HIPAA, GDPR, and PCI-DSS) demand that organizations know exactly who accessed decrypted data and when. Relying on default, unmonitored cloud storage leaves businesses vulnerable to silent data exfiltration and compliance violations. A centralized, auditable cryptographic framework was required to ensure absolute data confidentiality and operational transparency.
 
-**AWS Key Management Service (KMS)**
-AWS Key Management Service (KMS) is a managed service that makes it easy for you to create and control the encryption keys used to encrypt your data, and uses Hardware Security Modules (HSMs) to protect the security of your keys. AWS Key Management Service is integrated with several other AWS services to help you protect the data you store with these services. AWS Key Management Service is also integrated with AWS CloudTrail to provide you with logs of all key usage to help meet your regulatory and compliance needs.
-
-**AWS CloudTrail**
-AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. With CloudTrail, you can log, continuously monitor, and retain account activity related to actions across your AWS infrastructure. CloudTrail provides event history of your AWS account activity, including actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services. This event history simplifies security analysis, resource change tracking, and troubleshooting.
-
-**Amazon S3**
-Companies today need the ability to simply and securely collect, store, and analyze their data at a massive scale. Amazon S3 is object storage built to store and retrieve any amount of data from anywhere - web sites and mobile apps, corporate applications, and data from IoT sensors or devices. It is designed to deliver 99.999999999% durability, and stores data for millions of applications used by market leaders in every industry. S3 provides comprehensive security and compliance capabilities that meet even the most stringent regulatory requirements. It gives customers flexibility in the way they manage data for cost optimization, access control, and compliance. S3 is the only cloud storage solution with query-in-place functionality, allowing you to run powerful analytics directly on your data at rest in S3. And Amazon S3 is the most supported storage platform available, with the largest ecosystem of ISV solutions and systems integrator partners.
+## Task
+The objective was to architect an end-to-end encryption and monitoring pipeline. This involved generating a custom encryption key within AWS KMS, defining strict administrative and usage permissions for that key, and utilizing it to encrypt objects uploaded to an Amazon S3 bucket. Once the data was secured, the final task was to configure AWS CloudTrail to capture all account API activity, locate the specific cryptographic events in the log files, and demonstrate the ability to instantly revoke a user's access to the encryption key.
 
 ## Action
+To engineer this secure encryption and auditing framework, I executed the following protocol:
 
-### Task 1: Create your KMS master key
-In this task you create a KMS master key. A KMS master key enables you to easily encrypt your data across AWS services and within your own applications.
+**1. Key Generation & Policy Definition:** Navigating the AWS KMS console, I provisioned a new symmetric Customer Managed Key (myFirstKey). During creation, I established clear boundaries by separating Key Administrators from Key Users, granting specific IAM roles explicit permission to utilize the key for cryptographic operations.
 
-1. At the top of the page, in the unified search bar, search for and choose **Key Management Service**.
-2. In the Key Management Service page, choose **Create a key**.
-3. On the Configure key page, select **Symmetric**.
-4. Choose **Next**.
-5. On the Add labels page, configure:
-   * **Alias:** <code>myFirstKey</code>
-   * **Description - optional:** <code>KMS Key for S3 data</code>
-   It is a good practice to describe what services the encryption key is associated with.
-6. Choose **Next**.
-7. On the Define key administrative permissions page, select the user or role you're signed into the Console with. The user is displayed at the top of the page, to the right of the AWS region. It starts with the characters <code>AWSLabsUser-</code>. You can also enter <code>AWSLabsUser-</code> in the search field to find and select the user.
-   Key Administrators are users or roles that manage access to the encryption key.
-8. Choose **Next**.
-9. On the Define key usage permissions page, select the user or role you're signed into the Console with. This is the same user you selected in the previous step. Key Users are the users or roles that use the key to encrypt and decrypt data.
-10. Choose **Next**.
-11. In the Review page, take a brief moment to review the parameters of the KMS configuration.
-12. Choose **Finish**.
-13. In the Customer managed keys page, the new key - <code>myFirstKey</code> is listed. Copy the Key ID value to a text editor. The value is located under the Key ID column.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/aws-kms-figure-1.png" alt="Provisioning a Customer Managed Key (CMK) and establishing strict usage permissions within the AWS KMS console." class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Provisioning a Customer Managed Key (CMK) and establishing strict usage permissions within the AWS KMS console.</figcaption>
+</figure>
 
-*Later in the lab, you use the Key ID value when reviewing the activity log for this KMS key.*
+**2. Audit Pipeline Configuration (CloudTrail):** To ensure total visibility, I configured an AWS CloudTrail trail to monitor and log all API activity across the AWS account. I designated a secure, separate Amazon S3 bucket as the destination for these immutable event logs, establishing a continuous governance pipeline.
 
-**Task complete:** You have successfully created a KMS master key.
+**3. S3 Data Encryption:** I navigated to the target Amazon S3 bucket and uploaded a sample object (an image file). During the upload process, I explicitly configured the object to be encrypted at rest utilizing the custom KMS key (myFirstKey) generated in step one.
 
-### Task 2: Configure CloudTrail to store logs in a new S3 bucket
-In this task you configure CloudTrail to store log files in a new S3 bucket.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/aws-kms-figure-2.png" alt="Securing data at rest by enforcing Server-Side Encryption with the newly created AWS KMS key on uploaded S3 objects." class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Securing data at rest by enforcing Server-Side Encryption with the newly created AWS KMS key on uploaded S3 objects.</figcaption>
+</figure>
 
-1. At the top of the page, in the unified search bar, search for and choose **CloudTrail**.
-2. In the left navigation pane, choose **Trails**.
-3. Choose **Create trail**.
-4. In the Choose trail attributes page, configure:
-   * **Trail name:** <code>myTrail</code>
-   * **Trail log bucket and folder:** <code>mycloudtrailbucketNUMBER</code> (Replace NUMBER with a random number.)
-   * De-select **Enabled for Log file SSE-KMS encryption**.
-5. Choose **Next**.
-6. On the Choose log events page, configure:
-   * Select **Management events**
-   * Select **Data events**
-   * Select **Insights events**
-7. In the Data events section, choose **Switch to basic event selectors** Then choose **Continue**.
-8. In the Insights events section, select **Select API call rate** and **Select API error rate**.
-9. Choose **Next**.
-10. In the Review and create page, take a brief moment to review the parameters of the Trail configuration.
-11. Choose **Create trail**.
+**4. Cryptographic Auditing & Log Analysis:** With the data encrypted and accessed, I navigated to the CloudTrail log bucket. I parsed through the generated, timestamped JSON log files to successfully locate the exact Encrypt and Decrypt API calls, verifying the specific identity and time associated with the key's usage.
 
-*The trail is created even though it is not listed due to permission controls - in the lab environment.*
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/aws-kms-figure-3.png" alt="Auditing AWS CloudTrail logs to verify the exact timestamp and IAM identity responsible for utilizing the KMS key." class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Auditing AWS CloudTrail logs to verify the exact timestamp and IAM identity responsible for utilizing the KMS key.</figcaption>
+</figure>
 
-**Task complete:** You have successfully configured CloudTrail.
+**5. Dynamic Access Revocation:** Returning to the AWS KMS dashboard, I simulated a security response scenario. I modified the KMS key's policy to remove a specific user from the "Key users" list, instantly revoking their ability to decrypt the S3 data. I then restored their access to demonstrate the granular, real-time control provided by KMS.
 
-### Task 3: Upload an image to your S3 bucket and encrypt it
-In this task, you upload an image file to your S3 bucket and encrypt it using the encryption key (<code>myFirstKey</code>) you created earlier.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/aws-kms-figure-4.png" alt="Demonstrating dynamic access revocation by stripping a user's permissions directly at the cryptographic key level." class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Demonstrating dynamic access revocation by stripping a user's permissions directly at the cryptographic key level.</figcaption>
+</figure>
 
-1. At the top of the page, in the unified search bar, search for and choose **S3**.
-2. Choose <code>mycloudtrailbucket*</code>.
-3. From the Objects tab, choose **Upload**.
-4. Choose **Add files**.
-5. Browse to and select an image file on your computer.
-6. At the bottom of the screen, expand **Properties**.
-7. In the Server-side encryption settings section, select **Specify an encryption key**.
-8. For Encryption settings, select **Override bucket settings for default encryption**.
-9. For Encryption type, select **Server-side encryption with AWS Key Management Service keys (SSE-KMS)**.
-10. For AWS KMS key, select **Choose from your AWS KMS keys**.
-11. From the Available AWS KMS keys drop down menu, select <code>myFirstKey</code>.
-12. Scroll to the bottom of the screen, then choose **Upload**.
-13. In the Upload: status page, a message shows the image was successfully uploaded. Choose **Close**.
-14. In the <code>mycloudtrailbucket*</code> page, choose the **Objects** tab.
-15. From the row that lists the image you uploaded, record the **Last modified timestamp** to a text editor.
+## Result
+The encryption and monitoring architecture was successfully implemented and validated. The uploaded S3 data was securely encrypted at rest using the custom KMS key. More importantly, the CloudTrail integration successfully captured all cryptographic API events, proving that every encryption and decryption action was immutably recorded. The dynamic revocation test highlighted a powerful security mechanism: by simply revoking access to the KMS key, a user instantly loses access to the decrypted data, even if they still possess theoretical read access to the S3 bucket itself.
 
-**Task complete:** You have successfully uploaded an image to S3, and encrypted it as well.
+## Business Value & Organizational Benefits
+Implementing centralized encryption via AWS KMS coupled with CloudTrail auditing provides immense strategic value to an enterprise:
 
-### Task 4: Access the encrypted image
-In this task, you try to access the encrypted image through both the AWS Management Console, and the S3 link.
-
-1. In the Objects tab, select the image name and then choose **Open**. The image opens in a new tab/window.
-   *Amazon S3 and AWS KMS perform the following actions when you request that your data be decrypted: Amazon S3 sends the encrypted data key to AWS KMS, AWS KMS decrypts the key by using the appropriate master key and sends the plaintext key back to Amazon S3, Amazon S3 decrypts the ciphertext and removes the plaintext data key from memory as soon as possible.*
-2. Close the window/tab that displays your image.
-3. With the image selected, choose **Copy URL**, and paste the URL to a text editor.
-4. Paste the S3 Object URL that you copied into a new browser/window. Press **Enter**.
-5. **What does the page show?** It shows Access Denied. This is because, by default public access is not allowed.
-6. Return to the AWS Management Console.
-7. In the <code>mycloudtrailbucket*</code> page, choose the **Permissions** tab.
-8. In the Block public access (bucket settings) section, choose **Edit**.
-9. De-select **Block all public access**.
-10. Choose **Save changes** then: Enter <code>confirm</code>. Choose **Confirm**.
-11. Scroll to the Object Ownership section, choose **Edit**.
-12. Select **ACLs enabled**.
-13. For Enabling ACLs turns off the bucket owner enforced setting for Object Ownership, select - **I acknowledge that ACLs will be restored**.
-14. Choose **Save changes**.
-15. In the Object tab, select your image.
-16. Choose **Actions**. From the drop-down menu, select **Make public using ACL**.
-17. Choose **Make public**.
-18. In the Make public: status page, a message shows the access change was successful. Choose **Close**.
-19. Navigate to the browser tab/window with the S3 Object URL. Refresh the tab/window.
-20. **What do you see?** Because the image is encrypted, you are not able to view it using the public link. You should see a message saying Requests specifying Server Side Encryption with AWS KMS managed keys require AWS Signature Version 4.
-
-*If you are uploading or accessing objects encrypted by SSE-KMS, you need to use AWS Signature Version 4 for added security.*
-
-**Task complete:** You have attempted to access the S3 object through both the AWS Management Console, and the S3 link.
-
-### Task 5: Monitor KMS activity using Cloud Trail logs
-In this task, you access CloudTrail log files and review logs related to your encryption operations.
-
-1. In the <code>mycloudtrailbucket*</code> page, choose the **Objects** tab.
-2. Drill-down through the <code>AWSLogs/</code> folders till you get to a folder that contains log file(s).
-3. Select the log file that has the closest time after the Last modified of the image you uploaded. Choose **Open**.
-4. Search for the following in your log file: The encryption Key ID that you copied to your text editor and the name of the file that you uploaded.
-
-**Task complete:** You have monitored KMS activity using CloudTrail logs.
-
-### Task 6: Manage encryption keys
-In this task you manage encryption keys for users and roles.
-
-1. Navigate to the browser tab/window S3 service.
-2. At the top of the page, in the unified search bar, search for and choose **Key Management Service**.
-3. In the left navigation panel, choose **Customer managed keys**.
-4. Choose <code>myFirstKey</code>.
-5. In the Key users section, select the user or role that you are signed in with.
-6. Choose **Remove**. Immediately, the user's permission to use this key is removed.
-7. In the Key users section, choose **Add** then: Search and select the user or role that you are signed in with. Choose **Add**. Immediately, the user's permission to use this key is restored.
-
-*This shows how you can control which IAM users or roles can use KMS Keys that you create. The same process can be used to control which IAM users can manage KMS keys.*
-
-**Task complete:** You have managed encryption keys user permissions.
+* **Cryptoshredding & Instant Revocation:** If an employee leaves or an account is compromised, administrators can instantly revoke access to the KMS key. Without the key, the data in S3 immediately becomes mathematically unreadable (cryptoshredding), halting data breaches in real-time.
+* **Simplified Regulatory Compliance:** The continuous tracking of KMS API calls via CloudTrail provides security teams and auditors with an immutable, easily queried ledger of exactly who accessed sensitive data and when, streamlining SOC 2, HIPAA, and GDPR audits.
+* **Granular Data Access Control:** KMS policies allow security engineers to separate storage administrators from data readers. An IT engineer can manage the S3 bucket's infrastructure without ever possessing the KMS keys required to actually read the sensitive data inside it.
+* **Centralized Cryptographic Management:** Instead of managing scattered encryption keys across various applications and databases, AWS KMS provides a single, highly secure (HSM-backed) dashboard to rotate, manage, and audit all corporate encryption keys efficiently.
 `
             },
             {
