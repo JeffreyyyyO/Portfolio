@@ -169,7 +169,7 @@
                             </button>
                             <button onclick="switchView('resume-view')" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-lg transition-colors flex items-center gap-2 border border-slate-700">
                                 <i data-lucide="file-text" class="w-4 h-4"></i>
-                                Resume
+                                Résumé
                             </button>
                             <button onclick="switchView('certifications-view')" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-lg transition-colors flex items-center gap-2 border border-slate-700">
                                 <i data-lucide="award" class="w-4 h-4"></i>
@@ -425,7 +425,7 @@
                         <i data-lucide="mail" class="w-8 h-8 text-emerald-500"></i>
                         Contact Me
                     </h2>
-                    <p class="text-slate-400">Get in touch to discuss opportunities, architectures, and security solutions.</p>
+                    <p class="text-slate-400">Get in touch to discuss projects, security solutions and opportunities.</p>
                 </div>
 
                 <div class="max-w-2xl">
@@ -791,11 +791,256 @@
     <!-- Application Logic -->
     <script>
         // --- DATA REGISTRY & MARKDOWN CONTENT ---
-        const categories = ['All', 'Cybersecurity', 'Cloud Computing', 'Networking', 'IT'];
+        const categories = ['All', 'Cybersecurity', 'Cloud Security', 'Networking', 'IT'];
         
         const projects = [
             {
-                id: 5,
+                id: 1,
+                title: 'AWS IAM: Role-Based Access Control Implementation',
+                category: 'Cloud Security',
+                excerpt: 'Architectural design and practical implementation of secure access controls within an AWS cloud environment using IAM and RBAC.',
+                tags: ['Cloud Security', 'Access Control', 'AWS', 'IAM', 'RBAC'],
+                icon: 'key',
+                iconColor: 'text-yellow-500',
+                date: 'May 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This project demonstrates the architectural design and practical implementation of secure access controls within an Amazon Web Services (AWS) cloud environment. Utilizing AWS Identity and Access Management (IAM), the project focuses on transitioning a cloud infrastructure from a vulnerable, flat permission model to a highly secure, logically segmented framework. By configuring users, groups, and JSON-based permission policies, this project proves the ability to enforce the Principle of Least Privilege, ensuring that identities only have access to the specific EC2 computing instances and S3 storage resources required for their roles.
+    </p>
+</div>
+
+## Core Technologies
+* **Cloud Platform:** Amazon Web Services (AWS)
+* **Security Service:** AWS Identity and Access Management (IAM)
+* **Target Infrastructure:** Amazon EC2 (Elastic Compute Cloud), Amazon S3 (Simple Storage Service)
+* **Security Concepts:** Role-Based Access Control (RBAC), Principle of Least Privilege, JSON Policy Authoring
+* **Authentication:** Customized IAM Sign-in URLs, Multi-Factor Authentication (MFA) Readiness
+
+## Situation
+As businesses move their valuable data and daily operations to the cloud, keeping them secure is a top priority. Giving every employee or developer full administrative access—essentially handing out a "master key" to the company's digital infrastructure—creates a massive security risk. If even one of those accounts is compromised, a hacker could steal sensitive data, take over operations, or delete critical systems entirely. To prevent this, there was a need for a secure and organized system to ensure that team members only have access to the specific tools and information they need to do their jobs, effectively limiting the potential damage from both outside attacks and internal errors.
+
+## Task
+The objective was to design and enforce a strict Role-Based Access Control (RBAC) model using AWS IAM. This involved auditing pre-created users and groups, thoroughly inspecting their attached IAM policies, and assigning users to specific groups based on a simulated real-world corporate structure. Once configured, the critical final task was to actively test the boundary of these policies by attempting authorized and unauthorized actions against live AWS services (EC2 and S3) to confirm the security guardrails.
+
+## Action
+To secure the AWS environment, I executed a strict identity management and validation protocol:
+
+**1. Identity & Policy Auditing:** I navigated the AWS Management Console to inspect the existing IAM architecture. I conducted a thorough audit of the pre-created IAM Groups and analyzed the attached JSON policies to understand the exact scope of permissions (Allow/Deny statements, Actions, and specified Resources) granted to each role.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/aws-iam-figure-1.png" alt="Screenshot of AWS Management Console showing the auditing of IAM Groups and analysis of JSON permission policies." class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Auditing IAM Groups and analyzing JSON permission policies within the AWS Management Console.</figcaption>
+</figure>
+
+**2. Role-Based Access Implementation:** Following a real-world enterprise scenario, I mapped individual IAM users to specific functional groups (e.g., Development, Read-Only Support, Administration). This ensured that each identity inherited only the permissions absolutely necessary to perform their job, strictly adhering to the Principle of Least Privilege.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/aws-iam-figure-2.png" alt="Screenshot showing the implementation of Role-Based Access Control (RBAC) mapping users to functional groups." class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Implementing Role-Based Access Control (RBAC) by mapping individual users to restricted functional groups.</figcaption>
+</figure>
+
+**3. Secure Authentication Routing:** Instead of utilizing the highly privileged root account login, I located and configured the custom IAM sign-in URL specific to the AWS account alias. I used this dedicated portal to authenticate as the newly configured, restricted IAM users to prepare for policy testing.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/aws-iam-figure-3.png" alt="Screenshot of the customized AWS IAM sign-in page used to securely authenticate restricted users." class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Utilizing the customized AWS IAM sign-in URL to securely authenticate as restricted users.</figcaption>
+</figure>
+
+**4. Policy Enforcement & Penetration Testing:** I conducted active authorization tests to validate the policy constraints. Operating as a restricted user, I navigated to the EC2 and S3 dashboards. I attempted to perform actions outside my permission scope—such as attempting to stop a running EC2 instance or access a restricted S3 bucket—to verify that the AWS policy engine successfully blocked the unauthorized requests.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/aws-iam-figure-4.png" alt="Screenshot of an Access Denied error in AWS, explicitly denying an unauthorized attempt to stop an EC2 instance or access S3." class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Validating policy enforcement: The AWS engine explicitly denies unauthorized attempts to stop an EC2 instance or access restricted S3 buckets.</figcaption>
+</figure>
+
+## Result
+The implementation of the IAM framework was a complete success. The AWS environment was successfully transitioned to a secure, compartmentalized identity model. During the active testing phase, the IAM policies functioned exactly as engineered: authorized users could seamlessly view their designated resources, while unauthorized actions (like a read-only user attempting to terminate a server) were immediately intercepted and blocked with "Access Denied" errors. This successfully validated the network's resilience against privilege escalation and unauthorized resource manipulation.
+
+## Business Value & Organizational Benefits
+Implementing a rigorously structured AWS IAM framework provides organizations with indispensable cloud security and operational benefits:
+
+* **Eradication of Root Account Risk:** By enforcing the use of restricted IAM users for daily operations, organizations protect their root account credentials, eliminating the risk of a single point of total compromise.
+* **Blast Radius Containment:** The Principle of Least Privilege ensures that if an employee's credentials are stolen, the attacker is strictly confined to the limited permissions of that specific role, preventing them from destroying the entire cloud infrastructure.
+* **Simplified Compliance Auditing:** A well-structured IAM environment makes it trivial to prove compliance to auditors (for SOC 2, HIPAA, PCI-DSS). The organization can definitively show exactly who has access to sensitive data and critical systems at any given time.
+* **Scalable Workforce Management:** Utilizing a Group-based policy architecture allows IT and Security teams to securely onboard hundreds of new employees or contractors in minutes, simply by adding them to the correct group, drastically reducing administrative overhead and configuration errors.
+`
+            },
+            {
+                id: 2,
+                title: 'AWS KMS: Encryption & Monitoring',
+                category: 'Cloud Security',
+                excerpt: 'Demonstrates the basic steps required to get started with AWS KMS, creating keys, assigning permissions, encrypting data, and monitoring usage with CloudTrail.',
+                tags: ['Cloud Security', 'Confidentiality', 'AWS', 'KMS', 'Encryption', 'CloudTrail', 'S3'],
+                icon: 'lock',
+                iconColor: 'text-blue-400',
+                date: 'May 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Lab overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This lab introduces you to AWS Key Management Service (AWS KMS). The lab demonstrates the basic steps required to get started with AWS KMS, creating keys, assigning management and usage permissions for the keys, encrypting data and monitoring the access and usage of keys.
+    </p>
+</div>
+
+## Objectives
+By the end of this lab, you should be able to do the following:
+* Create an Encryption Key
+* Create an Amazon Simple Storage Service (Amazon S3) bucket with AWS CloudTrail logging functions
+* Encrypt data stored in an Amazon S3 bucket using an encryption key
+* Monitor encryption key usage using CloudTrail
+* Manage encryption keys for users and roles
+
+## Services used in this lab
+
+**AWS Key Management Service (KMS)**
+AWS Key Management Service (KMS) is a managed service that makes it easy for you to create and control the encryption keys used to encrypt your data, and uses Hardware Security Modules (HSMs) to protect the security of your keys. AWS Key Management Service is integrated with several other AWS services to help you protect the data you store with these services. AWS Key Management Service is also integrated with AWS CloudTrail to provide you with logs of all key usage to help meet your regulatory and compliance needs.
+
+**AWS CloudTrail**
+AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. With CloudTrail, you can log, continuously monitor, and retain account activity related to actions across your AWS infrastructure. CloudTrail provides event history of your AWS account activity, including actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services. This event history simplifies security analysis, resource change tracking, and troubleshooting.
+
+**Amazon S3**
+Companies today need the ability to simply and securely collect, store, and analyze their data at a massive scale. Amazon S3 is object storage built to store and retrieve any amount of data from anywhere - web sites and mobile apps, corporate applications, and data from IoT sensors or devices. It is designed to deliver 99.999999999% durability, and stores data for millions of applications used by market leaders in every industry. S3 provides comprehensive security and compliance capabilities that meet even the most stringent regulatory requirements. It gives customers flexibility in the way they manage data for cost optimization, access control, and compliance. S3 is the only cloud storage solution with query-in-place functionality, allowing you to run powerful analytics directly on your data at rest in S3. And Amazon S3 is the most supported storage platform available, with the largest ecosystem of ISV solutions and systems integrator partners.
+
+## Action
+
+### Task 1: Create your KMS master key
+In this task you create a KMS master key. A KMS master key enables you to easily encrypt your data across AWS services and within your own applications.
+
+1. At the top of the page, in the unified search bar, search for and choose **Key Management Service**.
+2. In the Key Management Service page, choose **Create a key**.
+3. On the Configure key page, select **Symmetric**.
+4. Choose **Next**.
+5. On the Add labels page, configure:
+   * **Alias:** <code>myFirstKey</code>
+   * **Description - optional:** <code>KMS Key for S3 data</code>
+   It is a good practice to describe what services the encryption key is associated with.
+6. Choose **Next**.
+7. On the Define key administrative permissions page, select the user or role you're signed into the Console with. The user is displayed at the top of the page, to the right of the AWS region. It starts with the characters <code>AWSLabsUser-</code>. You can also enter <code>AWSLabsUser-</code> in the search field to find and select the user.
+   Key Administrators are users or roles that manage access to the encryption key.
+8. Choose **Next**.
+9. On the Define key usage permissions page, select the user or role you're signed into the Console with. This is the same user you selected in the previous step. Key Users are the users or roles that use the key to encrypt and decrypt data.
+10. Choose **Next**.
+11. In the Review page, take a brief moment to review the parameters of the KMS configuration.
+12. Choose **Finish**.
+13. In the Customer managed keys page, the new key - <code>myFirstKey</code> is listed. Copy the Key ID value to a text editor. The value is located under the Key ID column.
+
+*Later in the lab, you use the Key ID value when reviewing the activity log for this KMS key.*
+
+**Task complete:** You have successfully created a KMS master key.
+
+### Task 2: Configure CloudTrail to store logs in a new S3 bucket
+In this task you configure CloudTrail to store log files in a new S3 bucket.
+
+1. At the top of the page, in the unified search bar, search for and choose **CloudTrail**.
+2. In the left navigation pane, choose **Trails**.
+3. Choose **Create trail**.
+4. In the Choose trail attributes page, configure:
+   * **Trail name:** <code>myTrail</code>
+   * **Trail log bucket and folder:** <code>mycloudtrailbucketNUMBER</code> (Replace NUMBER with a random number.)
+   * De-select **Enabled for Log file SSE-KMS encryption**.
+5. Choose **Next**.
+6. On the Choose log events page, configure:
+   * Select **Management events**
+   * Select **Data events**
+   * Select **Insights events**
+7. In the Data events section, choose **Switch to basic event selectors** Then choose **Continue**.
+8. In the Insights events section, select **Select API call rate** and **Select API error rate**.
+9. Choose **Next**.
+10. In the Review and create page, take a brief moment to review the parameters of the Trail configuration.
+11. Choose **Create trail**.
+
+*The trail is created even though it is not listed due to permission controls - in the lab environment.*
+
+**Task complete:** You have successfully configured CloudTrail.
+
+### Task 3: Upload an image to your S3 bucket and encrypt it
+In this task, you upload an image file to your S3 bucket and encrypt it using the encryption key (<code>myFirstKey</code>) you created earlier.
+
+1. At the top of the page, in the unified search bar, search for and choose **S3**.
+2. Choose <code>mycloudtrailbucket*</code>.
+3. From the Objects tab, choose **Upload**.
+4. Choose **Add files**.
+5. Browse to and select an image file on your computer.
+6. At the bottom of the screen, expand **Properties**.
+7. In the Server-side encryption settings section, select **Specify an encryption key**.
+8. For Encryption settings, select **Override bucket settings for default encryption**.
+9. For Encryption type, select **Server-side encryption with AWS Key Management Service keys (SSE-KMS)**.
+10. For AWS KMS key, select **Choose from your AWS KMS keys**.
+11. From the Available AWS KMS keys drop down menu, select <code>myFirstKey</code>.
+12. Scroll to the bottom of the screen, then choose **Upload**.
+13. In the Upload: status page, a message shows the image was successfully uploaded. Choose **Close**.
+14. In the <code>mycloudtrailbucket*</code> page, choose the **Objects** tab.
+15. From the row that lists the image you uploaded, record the **Last modified timestamp** to a text editor.
+
+**Task complete:** You have successfully uploaded an image to S3, and encrypted it as well.
+
+### Task 4: Access the encrypted image
+In this task, you try to access the encrypted image through both the AWS Management Console, and the S3 link.
+
+1. In the Objects tab, select the image name and then choose **Open**. The image opens in a new tab/window.
+   *Amazon S3 and AWS KMS perform the following actions when you request that your data be decrypted: Amazon S3 sends the encrypted data key to AWS KMS, AWS KMS decrypts the key by using the appropriate master key and sends the plaintext key back to Amazon S3, Amazon S3 decrypts the ciphertext and removes the plaintext data key from memory as soon as possible.*
+2. Close the window/tab that displays your image.
+3. With the image selected, choose **Copy URL**, and paste the URL to a text editor.
+4. Paste the S3 Object URL that you copied into a new browser/window. Press **Enter**.
+5. **What does the page show?** It shows Access Denied. This is because, by default public access is not allowed.
+6. Return to the AWS Management Console.
+7. In the <code>mycloudtrailbucket*</code> page, choose the **Permissions** tab.
+8. In the Block public access (bucket settings) section, choose **Edit**.
+9. De-select **Block all public access**.
+10. Choose **Save changes** then: Enter <code>confirm</code>. Choose **Confirm**.
+11. Scroll to the Object Ownership section, choose **Edit**.
+12. Select **ACLs enabled**.
+13. For Enabling ACLs turns off the bucket owner enforced setting for Object Ownership, select - **I acknowledge that ACLs will be restored**.
+14. Choose **Save changes**.
+15. In the Object tab, select your image.
+16. Choose **Actions**. From the drop-down menu, select **Make public using ACL**.
+17. Choose **Make public**.
+18. In the Make public: status page, a message shows the access change was successful. Choose **Close**.
+19. Navigate to the browser tab/window with the S3 Object URL. Refresh the tab/window.
+20. **What do you see?** Because the image is encrypted, you are not able to view it using the public link. You should see a message saying Requests specifying Server Side Encryption with AWS KMS managed keys require AWS Signature Version 4.
+
+*If you are uploading or accessing objects encrypted by SSE-KMS, you need to use AWS Signature Version 4 for added security.*
+
+**Task complete:** You have attempted to access the S3 object through both the AWS Management Console, and the S3 link.
+
+### Task 5: Monitor KMS activity using Cloud Trail logs
+In this task, you access CloudTrail log files and review logs related to your encryption operations.
+
+1. In the <code>mycloudtrailbucket*</code> page, choose the **Objects** tab.
+2. Drill-down through the <code>AWSLogs/</code> folders till you get to a folder that contains log file(s).
+3. Select the log file that has the closest time after the Last modified of the image you uploaded. Choose **Open**.
+4. Search for the following in your log file: The encryption Key ID that you copied to your text editor and the name of the file that you uploaded.
+
+**Task complete:** You have monitored KMS activity using CloudTrail logs.
+
+### Task 6: Manage encryption keys
+In this task you manage encryption keys for users and roles.
+
+1. Navigate to the browser tab/window S3 service.
+2. At the top of the page, in the unified search bar, search for and choose **Key Management Service**.
+3. In the left navigation panel, choose **Customer managed keys**.
+4. Choose <code>myFirstKey</code>.
+5. In the Key users section, select the user or role that you are signed in with.
+6. Choose **Remove**. Immediately, the user's permission to use this key is removed.
+7. In the Key users section, choose **Add** then: Search and select the user or role that you are signed in with. Choose **Add**. Immediately, the user's permission to use this key is restored.
+
+*This shows how you can control which IAM users or roles can use KMS Keys that you create. The same process can be used to control which IAM users can manage KMS keys.*
+
+**Task complete:** You have managed encryption keys user permissions.
+`
+            },
+            {
+                id: 3,
                 title: 'PayLink Africa Security Architecture',
                 category: 'Cybersecurity',
                 excerpt: 'Designed a highly available, SABSA-aligned secure system architecture for a fintech platform, featuring automated cloud failover and PCI-DSS compliance.',
@@ -860,9 +1105,9 @@ The resulting architecture provided a highly resilient, enterprise-grade fintech
 `
             },
             {
-                id: 6,
+                id: 4,
                 title: 'Automated Security Monitoring & Active Defense System',
-                category: 'Cloud Computing',
+                category: 'Cloud Security',
                 excerpt: 'Engineered a serverless AWS active defense pipeline using EventBridge and Lambda to automatically neutralize compromised IAM credentials in real-time.',
                 tags: ['AWS', 'Automation', 'Python', 'IAM', 'Active Defense'],
                 icon: 'zap',
@@ -945,9 +1190,9 @@ The simulation was highly successful. The Lambda Kill-Switch worked flawlessly�
 `
             },
             {
-                id: 7,
+                id: 5,
                 title: 'Continuous Compliance and Change Management',
-                category: 'Cloud Computing',
+                category: 'Cloud Security',
                 excerpt: 'Implemented an automated change management and continuous compliance alerting system in AWS using AWS Config and Amazon SNS.',
                 tags: ['AWS Config', 'Compliance', 'Amazon SNS', 'Automation', 'Cloud Security'],
                 icon: 'check-circle',
@@ -1054,7 +1299,7 @@ The implementation successfully created a zero-touch, automated compliance guard
 `
             },
             {
-                id: 8,
+                id: 6,
                 title: 'Wazuh Endpoint Security (Phase 1): Server Installation, Configuration & Setup',
                 category: 'Cybersecurity',
                 excerpt: 'Deployed the foundational phase of a comprehensive threat detection system using Wazuh SIEM/XDR within an isolated, customized virtual network.',
@@ -1151,7 +1396,7 @@ Implementing a robust SIEM/XDR platform like Wazuh provides immense strategic va
 `
             },
             {
-                id: 9,
+                id: 7,
                 title: 'Wazuh Endpoint Security (Phase 2): Agent Deployment on Endpoints',
                 category: 'Cybersecurity',
                 excerpt: 'Seamlessly connected, configured, and registered Wazuh security agents on Linux and Windows virtual environments for centralized SIEM/XDR monitoring.',
@@ -1241,7 +1486,7 @@ Deploying and managing endpoint agents effectively brings immediate, tangible be
 `
             },
             {
-                id: 10,
+                id: 8,
                 title: 'Wazuh Endpoint Security (Phase 3): File Integrity Monitoring (FIM)',
                 category: 'Cybersecurity',
                 excerpt: 'Configured and rigorously tested Wazuh\'s File Integrity Monitoring (FIM) capabilities across Linux and Windows to detect unauthorized file modifications and deletions.',
@@ -1339,7 +1584,7 @@ Implementing precise File Integrity Monitoring provides organizations with criti
 `
             },
             {
-                id: 11,
+                id: 9,
                 title: 'Sophos Firewall: Installation, Configuration & Setup',
                 category: 'Networking',
                 excerpt: 'Engineered a robust network perimeter defense by deploying and configuring a Sophos Next-Generation Firewall (NGFW) within a dual-homed virtualized lab environment.',
@@ -1436,7 +1681,7 @@ Implementing an enterprise-grade Next-Generation Firewall provides critical adva
 `
             },
             {
-                id: 12,
+                id: 10,
                 title: 'Sophos Firewall: NAT Gateway',
                 category: 'Networking',
                 excerpt: 'Configured the Sophos Next-Generation Firewall as a NAT Gateway to secure outbound internet access for an isolated internal LAN while masking private IPs.',
@@ -1517,7 +1762,7 @@ Configuring a robust NAT Gateway through an NGFW like Sophos provides organizati
 `
             },
             {
-                id: 13,
+                id: 11,
                 title: 'Sophos Firewall: Content Filtering',
                 category: 'Networking',
                 excerpt: 'Implemented advanced web protection and dynamic content filtering using Sophos NGFW to automatically block unauthorized web categories and enforce Acceptable Use Policies.',
@@ -1605,7 +1850,7 @@ Implementing dynamic Content Filtering via an NGFW like Sophos yields significan
 `
             },
             {
-                id: 14,
+                id: 12,
                 title: 'Sophos Firewall: Denial of Service Protection',
                 category: 'Networking',
                 excerpt: 'Implemented Intrusion Prevention System (IPS) and DoS protection policies on a Sophos NGFW to automatically mitigate aggressive SYN and ICMP flood attacks.',
@@ -1687,7 +1932,7 @@ Implementing explicit Denial-of-Service protection at the firewall level provide
 `
             },
             {
-                id: 15,
+                id: 13,
                 title: 'Virtual Lab: Setup & Configuration',
                 category: 'IT',
                 excerpt: 'Established a foundational, multi-node virtual infrastructure using VMware Workstation to safely simulate and test enterprise network topologies and security policies.',
@@ -1760,7 +2005,7 @@ Architecting a robust, in-house virtual lab provides organizations and engineeri
 `
             },
             {
-                id: 16,
+                id: 14,
                 title: 'Virtual Lab: Vulnerability Assessment',
                 category: 'Cybersecurity',
                 excerpt: 'Conducted a comprehensive vulnerability assessment of a simulated corporate Active Directory environment using offensive security tools to enumerate and exploit default configurations.',
@@ -1841,7 +2086,7 @@ Conducting rigorous vulnerability assessments on Active Directory environments p
 `
             },
             {
-                id: 17,
+                id: 15,
                 title: 'Cisco Packet Tracer: Networking Simulation',
                 category: 'Networking',
                 excerpt: 'Designed and implemented a secure, segmented small enterprise network using Cisco Packet Tracer with inter-VLAN routing and strict ACLs.',
@@ -1945,7 +2190,7 @@ Implementing structured network segmentation and Access Control Lists provides f
 `
             },
             {
-                id: 18,
+                id: 16,
                 title: 'Circle10 Study App: Web App Architecture, Design & Development',
                 category: 'IT',
                 excerpt: 'Engineered a highly optimized, mobile-first web application designed to empower Cybersecurity students through a decentralized, lightweight SPA.',
@@ -2351,11 +2596,11 @@ Architecting a lightweight, decentralized platform like Circle10 offers immense 
                     <h3 class="text-xl font-semibold text-slate-100 mb-3 group-hover:text-emerald-400 transition-colors">
                         ${project.title}
                     </h3>
-                    <p class="text-slate-400 mb-6 flex-grow">
+                    <p class="text-slate-400 text-sm mb-6 line-clamp-3">
                         ${project.excerpt}
                     </p>
                     <div class="flex flex-wrap gap-2 mb-6">
-                        ${project.tags.map(tag => `
+                        ${project.tags.slice(0, 3).map(tag => `
                             <button onclick="event.stopPropagation(); openTag('${tag}')" class="px-2.5 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700 hover:border-emerald-500 hover:text-emerald-400 transition-colors cursor-pointer z-10 relative">
                                 #${tag}
                             </button>
