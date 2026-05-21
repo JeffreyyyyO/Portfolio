@@ -394,6 +394,25 @@
                             <i data-lucide="download" class="w-5 h-5"></i> Download Lab Report
                         </a>
                     </div>
+
+                    <!-- Documentation Entry: AWS WireGuard VPN -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300 flex flex-col group">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3 bg-slate-800 rounded-lg group-hover:scale-110 transition-transform">
+                                <i data-lucide="globe" class="w-6 h-6 text-blue-400"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500">May 2026</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-100 mb-2 group-hover:text-emerald-400 transition-colors">
+                            Building a Cloud-Hosted VPN with WireGuard and AWS
+                        </h3>
+                        <p class="text-slate-400 text-sm mb-8 leading-relaxed">
+                            A comprehensive guide demonstrating the end-to-end deployment of a fast, highly secure, and self-managed Virtual Private Network (VPN) utilizing the WireGuard protocol hosted on AWS.
+                        </p>
+                        <a href="./documents/Building a Cloud-Hosted VPN with WireGuard and AWS.pdf" download="Building a Cloud-Hosted VPN with WireGuard and AWS.pdf" class="mt-auto flex items-center justify-center px-4 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors w-full gap-2">
+                            <i data-lucide="download" class="w-5 h-5"></i> Download Lab Report
+                        </a>
+                    </div>
                 </div>
             </section>
         </div>
@@ -753,7 +772,8 @@
                     <!-- Summary -->
                     <div class="mb-10">
                         <h3 class="text-xl font-bold text-emerald-500 mb-6 font-google uppercase tracking-wider text-sm border-b border-slate-800 pb-2">Professional Summary</h3>
-                        <p class="text-slate-300 leading-relaxed text-sm">
+
+                        <p class="text-slate-300 leading-relaxed text-md">
                             Entry-level Cybersecurity Analyst with hands-on experience building and securing simulated enterprise environments using SIEM (Wazuh), AWS cloud monitoring, and endpoint security tools. Transitioning from a background in systems design and compliance, with a focus on threat detection, network security, and incident analysis while backed by robust homelab experience and industry-standard certifications (CompTIA Security+, ISC2 CC).
                         </p>
                     </div>
@@ -2476,6 +2496,95 @@ Architecting a lightweight, decentralized platform like Circle10 offers immense 
     </a>
 </div>
 `
+            },
+            {
+                id: 17,
+                title: 'Building a Cloud-Hosted VPN with WireGuard and AWS',
+                category: 'Cloud Security',
+                excerpt: 'Deployed a fast, highly secure, and self-managed Virtual Private Network (VPN) utilizing the WireGuard protocol hosted on Amazon Web Services (AWS).',
+                tags: ['AWS', 'VPN', 'WireGuard', 'Cloud Security', 'Linux'],
+                icon: 'globe',
+                iconColor: 'text-blue-500',
+                date: 'May 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This project demonstrates the end-to-end deployment of a fast, highly secure, and self-managed Virtual Private Network (VPN) utilizing the WireGuard protocol hosted on Amazon Web Services (AWS). Moving away from legacy, resource-heavy VPN solutions, this project leverages WireGuard's lean, auditable codebase and state-of-the-art cryptography to establish encrypted tunnels for remote internet access. By successfully configuring the cloud infrastructure, Linux network routing, and multi-device client endpoints, this project highlights a strong, practical proficiency in cloud networking and secure systems administration.
+    </p>
+</div>
+
+## Core Technologies
+* **Cloud Platform:** Amazon Web Services (AWS - EC2, VPC, Security Groups, Elastic IPs)
+* **VPN Protocol:** WireGuard
+* **Server Operating System:** Linux (Ubuntu)
+* **Networking & Routing:** iptables, Network Address Translation (NAT), IPv4 Forwarding
+* **Scripting & Administration:** Bash, Systemd (systemctl)
+* **Client Endpoints:** Windows 10/11, Android OS
+
+## Situation
+Accessing the internet across public or untrusted Wi-Fi networks exposes users and corporate employees to significant risks, including Man-In-The-Middle (MITM) attacks and data interception. Additionally, utilizing commercial third-party VPNs often introduces privacy concerns regarding data logging and shared IP blacklisting. To guarantee absolute data privacy, circumvent local network restrictions, and secure remote traffic, there was a critical need for a fully controlled, self-managed encrypted gateway.
+
+## Task
+The objective was to provision a cloud-based infrastructure and configure it as a dedicated VPN server. This required deploying an AWS EC2 instance, architecting the necessary firewall rules, installing and securely configuring the WireGuard protocol, and establishing proper network address translation (NAT). The final task was to securely connect multiple external devices (a Windows workstation and an Android smartphone) to the server via cryptographic handshakes, successfully masking their public web traffic.
+
+## Action
+To engineer this secure cloud gateway, I executed a structured deployment across four main phases:
+
+**1. Cloud Infrastructure Provisioning:** I deployed an Ubuntu EC2 instance on AWS and attached a static Elastic IP to ensure a persistent connection address. I enforced the principle of least privilege by configuring the AWS Security Group to strictly allow only SSH (TCP 22) for administration and WireGuard traffic (Custom UDP 51820).
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/aws-wireguard-figure-1.jpg" alt="AWS Management Console displaying the EC2 instance provisioning and the strict Security Group inbound rules." class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: AWS Management Console displaying the EC2 instance provisioning and the strict Security Group inbound rules.</figcaption>
+</figure>
+
+**2. WireGuard Server Configuration & Cryptography:** Operating via the Linux CLI, I installed the WireGuard package and generated the server's public and private cryptographic key pairs. I authored the primary \`wg0.conf\` configuration file, establishing the server's internal virtual IP address (10.0.0.1/24) and defining its listening port.
+
+**3. Linux Network Routing (NAT):** A VPN server must bridge the virtual tunnel to the actual internet. To achieve this, I modified the Linux kernel parameters (\`/etc/sysctl.conf\`) to enable IPv4 forwarding. I then engineered iptables rules to enforce Network Address Translation (NAT), allowing incoming client traffic to seamlessly route out to the public internet through the AWS network interface.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/aws-wireguard-figure-2.jpg" alt="Linux terminal displaying the configuration of IPv4 forwarding and the implementation of iptables NAT routing rules." class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Linux terminal displaying the configuration of IPv4 forwarding and the implementation of iptables NAT routing rules.</figcaption>
+</figure>
+
+**4. Multi-Platform Client Peer Networking:** I generated unique cryptographic key pairs for both a Windows client and an Android smartphone. I created specific client configuration files (\`wg-client1.conf\`, \`wg-client2.conf\`) that mapped all outbound traffic (\`0.0.0.0/0\`) to the server's public key and Elastic IP. I securely imported these configurations to the client devices and initiated the connection.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/aws-wireguard-figure-3.jpg" alt="WireGuard client applications on Windows and Android successfully importing the configuration and initiating the secure handshake." class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: WireGuard client applications on Windows and Android successfully importing the configuration and initiating the secure handshake.</figcaption>
+</figure>
+
+## Result
+The self-hosted WireGuard VPN was successfully deployed and rigorously validated. Both the Windows and Android endpoints securely connected to the AWS EC2 server. Diagnostic testing confirmed that the clients' internet traffic was successfully encrypted and routed through the cloud—visiting whatismyip.com on the client devices displayed the AWS Elastic IP, verifying that their physical locations and local IPs were entirely masked. Furthermore, terminal verification (\`sudo wg show\`) confirmed active, encrypted data transfer between the server and the authenticated peers.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/aws-wireguard-figure-4.jpg" alt="Validation of the secure tunnel, showing the AWS Elastic IP masking the client's physical network address alongside active terminal handshakes." class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Validation of the secure tunnel, showing the AWS Elastic IP masking the client's physical network address alongside active terminal handshakes.</figcaption>
+</figure>
+
+## Business Value & Organizational Benefits
+Deploying a self-managed, modern VPN architecture like WireGuard offers substantial advantages for modern organizations:
+
+* **Enhanced Remote Workforce Security:** Provides a secure, encrypted tunnel for remote or traveling employees, ensuring that sensitive corporate data cannot be intercepted even when accessed over public, untrusted networks (like cafes or airports).
+* **Data Sovereignty & Privacy:** By hosting the infrastructure internally (or on a controlled cloud), the organization eliminates reliance on third-party commercial VPN providers, guaranteeing that no hidden data logging or traffic analysis occurs.
+* **Superior Performance & Low Latency:** Unlike legacy VPN protocols (like IPsec or OpenVPN), WireGuard's extremely lean codebase runs inside the Linux kernel, offering dramatically faster connection times, higher throughput, and reduced battery drain on mobile endpoints.
+* **Cost-Effective Scalability:** A centralized WireGuard server running on a lightweight cloud instance represents a fraction of the cost of licensing heavy, proprietary corporate VPN hardware and software appliances.
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/Building a Cloud-Hosted VPN with WireGuard and AWS.pdf" download="Building a Cloud-Hosted VPN with WireGuard and AWS.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Full Report
+    </a>
+</div>
+`
             }
         ];
 
@@ -2551,11 +2660,28 @@ Architecting a lightweight, decentralized platform like Circle10 offers immense 
             }
         }
 
+        // Helper function to reliably sort projects by Date (Month YYYY) and then by ID
+        function sortProjectsDesc(a, b) {
+            const months = { 'January':0, 'February':1, 'March':2, 'April':3, 'May':4, 'June':5, 'July':6, 'August':7, 'September':8, 'October':9, 'November':10, 'December':11 };
+            
+            const parseDate = (dateStr) => {
+                const parts = dateStr.split(' ');
+                if(parts.length !== 2) return 0;
+                // Convert to a precise timestamp using year and month index
+                return new Date(parseInt(parts[1]), months[parts[0]]).getTime();
+            };
+
+            const dateDiff = parseDate(b.date) - parseDate(a.date);
+            
+            // If they are in the exact same month/year, sort by ID descending (newest first)
+            return dateDiff !== 0 ? dateDiff : b.id - a.id;
+        }
+
         function renderTag(tag) {
             // Find projects with the selected tag and sort in reverse chronological order
             const taggedProjects = projects
                 .filter(p => p.tags.includes(tag))
-                .sort((a, b) => new Date(b.date) - new Date(a.date));
+                .sort(sortProjectsDesc);
 
             // Set dynamic header
             document.getElementById('tag-header').innerHTML = `
@@ -2695,7 +2821,7 @@ Architecting a lightweight, decentralized platform like Circle10 offers immense 
                 "Encryption & Cryptography",
                 "Zero Trust Architecture",
                 "Identity & Access Management",
-                "Container Security",
+                "Firewalls",
                 "AI-Driven Security",
                 "Threat Intelligence",
                 "Risk Assessment & Management",
@@ -2787,9 +2913,12 @@ Architecting a lightweight, decentralized platform like Circle10 offers immense 
         function renderProjects() {
             const grid = document.getElementById('project-grid');
             if (!grid) return;
-            const filteredProjects = activeCategory === 'All' 
-                ? projects 
-                : projects.filter(p => p.category === activeCategory);
+            
+            // Filter and then dynamically sort by date (Newest to Oldest)
+            const filteredProjects = (activeCategory === 'All' 
+                ? [...projects] 
+                : projects.filter(p => p.category === activeCategory))
+                .sort(sortProjectsDesc);
 
             grid.innerHTML = generateProjectCardsHTML(filteredProjects);
             
