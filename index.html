@@ -2588,6 +2588,85 @@ Deploying a self-managed, modern VPN architecture like WireGuard offers substant
     </a>
 </div>
 `
+            },
+            {
+                id: 18,
+                title: 'Network Packet Capture Analysis with tcpdump',
+                category: 'Cybersecurity',
+                excerpt: 'Advanced network traffic analysis and threat hunting using strictly CLI tools to extract actionable Indicators of Compromise (IoCs) from a raw packet capture.',
+                tags: ['tcpdump', 'Networking', 'Threat Hunting', 'Linux', 'Packet Analysis', 'Forensics'],
+                icon: 'terminal',
+                iconColor: 'text-emerald-500',
+                date: 'May 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This project demonstrates advanced network traffic analysis and threat hunting using strictly command-line interface (CLI) tools. In many enterprise server environments, graphical packet analyzers (like Wireshark) are unavailable. This project showcases the ability to ingest a raw packet capture (.pcap) file, utilize Berkeley Packet Filter (BPF) syntax to isolate specific protocols, and perform deep packet inspection using tcpdump. By extracting application-layer data and parsing HTTP headers, this project successfully identified active malware communications and extracted actionable Indicators of Compromise (IoCs).
+    </p>
+</div>
+
+## Core Technologies
+* **Packet Analyzer:** tcpdump
+* **Operating System:** Linux (Ubuntu)
+* **Command Line Tools:** Bash, grep, string manipulation
+* **Network Protocols:** TCP/IP, ICMP, HTTP
+* **Security Concepts:** Deep Packet Inspection (DPI), Threat Intelligence, IoC Extraction, URL Defanging
+
+## Situation
+During a suspected network intrusion, security operations centers (SOCs) are often provided with raw network packet captures (.pcap files) exported from firewalls or headless Linux servers. In these critical incident response scenarios, analysts cannot always rely on heavy, graphical tools. They must be able to rapidly parse millions of packets directly from the terminal to determine the scope of the breach, identify the malware strain, and extract the malicious infrastructure addresses before the attacker can exfiltrate sensitive data.
+
+## Task
+The objective was to perform a comprehensive forensic analysis of a provided network capture file (\`tcpdump_challenge.pcap\`) entirely within the Ubuntu terminal. This required querying total packet counts, filtering out noise to isolate specific protocols (like ICMP and HTTP), and ultimately inspecting the plain-text payloads to hunt for anomalous User-Agents and malicious Command and Control (C2) domains connected to a suspected endpoint compromise.
+
+## Action
+To efficiently parse the capture and uncover the threat, I executed the investigation in three categorized phases:
+
+**1. Baseline Triage & Protocol Filtering:** I initiated the analysis by establishing a baseline of the network traffic. Utilizing tcpdump with DNS-resolution disabled (\`-n\`) for speed, I calculated the total packet volume and then applied BPF syntax to isolate and count specific protocols, such as ICMP traffic, to look for potential ping sweeps or network mapping.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/tcpdump-bpf-filtering.png" alt="Linux terminal showing tcpdump execution with BPF syntax for packet triage and protocol filtering." class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Executing baseline packet triage and protocol filtering using BPF syntax within the terminal.</figcaption>
+</figure>
+
+**2. Deep Packet Inspection & Payload Extraction:** After narrowing down the traffic to HTTP (Port 80), I utilized the \`-A\` flag in tcpdump to force the tool to print the packet payloads in human-readable ASCII. By piping this output into grep with context flags (\`-B2 -A 5\`), I was able to reconstruct fragmented HTTP GET requests and analyze the raw application-layer headers traversing the network.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/tcpdump-dpi-http.png" alt="Linux terminal displaying deep packet inspection of HTTP headers extracted from a pcap file using tcpdump and grep." class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Utilizing deep packet inspection to extract and read plain-text application layer data (HTTP headers).</figcaption>
+</figure>
+
+**3. Threat Identification & IoC Reconstruction:** During the payload analysis, I discovered an anomalous User-Agent string: \`TeslaBrowser/5.5\`. Cross-referencing this artifact with threat intelligence revealed it as a known signature for Lumma Stealer (LummaC2) malware. I then parsed the adjacent \`Host:\` and \`GET\` headers to reconstruct the exact malicious URL the infected endpoint was attempting to contact, carefully defanging the output (\`hxxp[://]t[.]me/+zz01921skaaa\`) for safe reporting.
+
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/tcpdump-lumma-stealer.png" alt="Terminal output showing the identified Lumma Stealer User-Agent and the defanged Command and Control URL." class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Uncovering the Lumma Stealer malware signature and extracting the defanged Command and Control (C2) URL.</figcaption>
+</figure>
+
+## Result
+The command-line packet analysis was a complete success. Without relying on any graphical interface, I rapidly processed the raw network capture, filtered out benign traffic, and successfully identified a severe malware infection (Lumma Stealer). By expertly chaining tcpdump and grep commands, I extracted the precise malicious URL the malware was using to communicate. This project proves a high degree of proficiency in low-level network analysis and the ability to perform rapid, effective incident response directly from a server terminal.
+
+## Business Value & Organizational Benefits
+Mastering CLI-based packet analysis provides significant operational advantages to security teams and organizations:
+
+* **Rapid Incident Response on Headless Servers:** Analysts can SSH into compromised Linux web servers or firewalls and immediately begin analyzing live or captured traffic without needing to export massive files to an external machine with a GUI.
+* **Automation & Scripting Readiness:** Because tcpdump operates entirely via the command line, the exact filtering and extraction techniques used in this project can be scripted. Organizations can automate threat hunting by writing bash scripts that continuously scan packet captures for known malicious User-Agents or IPs.
+* **Cost-Effective Forensics:** tcpdump is free, open-source, and pre-installed on almost all Unix-like systems. It requires zero licensing fees, reducing the overhead costs associated with heavy proprietary forensic software.
+* **Lower Resource Overhead:** Processing massive, multi-gigabyte .pcap files in GUI applications often crashes systems due to RAM exhaustion. Command-line tools parse data streams linearly and efficiently, allowing for the analysis of massive datasets on limited hardware.
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/tcpdump Packet Capture Analysis PF.pdf" download="tcpdump Packet Capture Analysis PF.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Full Report
+    </a>
+</div>
+`
             }
         ];
 
