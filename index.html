@@ -245,7 +245,7 @@
                     <p class="text-slate-400">Download reports detailing end-to-end security projects in design, deployment, testing, and threat analysis.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div id="documentation-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Documentation Entry: Circle10 App -->
                     <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300 flex flex-col group">
                         <div class="flex items-start justify-between mb-4">
@@ -2790,6 +2790,7 @@ Mastering CLI-based packet analysis provides significant operational advantages 
             renderFilters();
             renderProjects();
             lucide.createIcons(); // Initialize icons on first load
+            sortDocumentation();
             startTypewriter();
             startSkillCycler();
             
@@ -2797,6 +2798,34 @@ Mastering CLI-based packet analysis provides significant operational advantages 
             handleRouting();
         }
 
+        // Documentation page sorting function
+        function sortDocumentation() {
+            const grid = document.getElementById('documentation-grid');
+            if (!grid) return;
+        
+            // Convert the HTML collection of entries into an array
+            const entries = Array.from(grid.children);
+        
+            const months = { 'January':0, 'February':1, 'March':2, 'April':3, 'May':4, 'June':5, 'July':6, 'August':7, 'September':8, 'October':9, 'November':10, 'December':11 };
+        
+            // Sort the array by parsing the text inside the date span
+            entries.sort((a, b) => {
+                const dateAStr = a.querySelector('span.text-xs.font-mono').innerText.trim();
+                const dateBStr = b.querySelector('span.text-xs.font-mono').innerText.trim();
+        
+                const parseDate = (dateStr) => {
+                    const parts = dateStr.split(' ');
+                    if(parts.length !== 2) return 0;
+                    return new Date(parseInt(parts[1]), months[parts[0]]).getTime();
+                };
+        
+                return parseDate(dateBStr) - parseDate(dateAStr); // Descending (newest first)
+            });
+        
+            // Re-append the sorted elements back to the grid
+            entries.forEach(entry => grid.appendChild(entry));
+        }
+        
         function startTypewriter() {
             const text = " Jeffrey Obi";
             const element = document.getElementById('typewriter-text');
