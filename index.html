@@ -1001,6 +1001,15 @@
 
     </main>
 
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="block sm:hidden w-full px-6 pb-2">
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-slate-400 border-t border-slate-800 pt-6">
+            <button onclick="switchView('documentation-view')" class="hover:text-emerald-400 transition-colors font-medium">Documentation</button>
+            <button onclick="switchView('about-view')" class="hover:text-emerald-400 transition-colors font-medium">About Me</button>
+            <button onclick="switchView('contact-view')" class="hover:text-emerald-400 transition-colors font-medium">Contact Me</button>
+        </div>
+    </nav>
+    
     <!-- Footer -->
     <footer class="border-t border-slate-800 mt-10 py-8 text-center text-slate-500 text-sm">
         <div class="flex items-center justify-center gap-4 mb-4">
