@@ -3569,6 +3569,236 @@ Implementing stringent cryptographic boundaries virtually eliminates the threat 
     </a>
 </div>
 `
+            },
+            {
+                id: 30,
+                title: 'Globex Manufacturing Attack Part 1: Phishing Analysis',
+                category: 'Cybersecurity',
+                excerpt: 'Building a Unified Security Appliance: Part 12. This cybersecurity investigation deconstructed a targeted phishing attack that successfully compromised a corporate manufacturing environment.',
+                tags: ['NetworkSecurity', 'Phishing', 'Forensics'],
+                icon: 'search',
+                iconColor: 'text-rose-400',
+                date: 'July 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This cybersecurity investigation deconstructed a targeted phishing attack that successfully compromised a corporate manufacturing environment. The initiative involved forensic analysis of a malicious email file to uncover the attacker's methodology, identify the specific malware variant, and trace the origin of the threat. This process effectively mapped the initial infiltration vector, providing critical intelligence for the incident response team.
+    </p>
+</div>
+
+## Core Technologies
+* Ubuntu 24.04.4 (Virtual Machine)
+* VirtualBox (Type 2 Hypervisor)
+* emldump.py & eioc.py (CLI Extraction Tools)
+* pescanner & readpe (Executable Analysis)
+* Thunderbird & Sublime Text
+* OSINT Tools (VirusTotal, WHOIS, Wayback Machine)
+
+## 1. Situation
+An employee at Globex Manufacturing inadvertently opened an email attachment masquerading as a routine supplier quotation. Shortly after the interaction, the endpoint exhibited severe performance degradation and began transmitting unauthorized outbound traffic. The security operations center suspected an infection by the Agent Tesla malware, a persistent threat known for credential harvesting and data exfiltration. A comprehensive analysis of the original email artifact was urgently needed to confirm the infection and understand how the perimeter defenses were bypassed.
+
+## 2. Task
+It was required that the suspicious email artifact be forensically investigated in a controlled laboratory environment. The primary objective was to extract and analyze the email headers, inspect the deceptive body content, isolate the malicious payload, and gather actionable Indicators of Compromise (IOCs) to fuel the wider incident response effort.
+
+## 3. Action
+* **Header Metadata Extraction:** I analyzed the raw email headers to map the routing information and definitively identify the spoofed sender address attempting to mimic a legitimate Turkish manufacturing partner.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/sublime-email-header.png" alt="Sublime text interface showing the extracted metadata of the phishing email" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Sublime text interface showing the extracted metadata of the phishing email.</figcaption>
+</figure>
+
+* **Authentication Protocol Verification:** I evaluated the domain's security records, discovering that while the email failed SPF and DKIM authentication checks, the receiving server was misconfigured to allow the unverified message through the gateway.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/email-spf-dkim-fail.png" alt="Email header detailing the failed authentication results and spoofing indicators" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Email header detailing the failed authentication results and spoofing indicators.</figcaption>
+</figure>
+
+* **Social Engineering Assessment:** I reviewed the email body for linguistic anomalies and manipulation tactics, identifying a targeted pretexting strategy riddled with grammatical errors designed to bypass the victim's critical thinking.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/thunderbird-grammar-errors.png" alt="Thunderbird interface with the email's grammatical and syntax errors highlighted" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Thunderbird interface with the email's grammatical and syntax errors highlighted.</figcaption>
+</figure>
+
+* **Malicious Payload Isolation:** I extracted the attached archive file and discovered it intentionally utilized a UNIX-based format to bypass poorly configured legacy email scanners and conceal a hidden Windows executable.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/ubuntu-extracted-tar.png" alt="Ubuntu Files window showing the extracted executable content of the attached archive" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Ubuntu Files window showing the extracted executable content of the attached archive.</figcaption>
+</figure>
+
+* **File Entropy Analysis:** I executed a structural scan on the isolated executable file to measure its data randomness, revealing a highly suspicious entropy score that strongly indicated the presence of packed, hidden malware logic.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/linux-pescan-entropy.png" alt="Linux Terminal showing the high entropy results of the executable file" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 5: Linux Terminal showing the high entropy results of the executable file.</figcaption>
+</figure>
+
+* **Cryptographic Hash Verification:** I generated unique cryptographic hashes for the payload and cross-referenced them against global threat intelligence databases, definitively confirming the file as the Agent Tesla Trojan.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/virustotal-agent-tesla.png" alt="VirusTotal search confirming the attachment as malicious Agent Tesla malware" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 6: VirusTotal search confirming the attachment as malicious Agent Tesla malware.</figcaption>
+</figure>
+
+* **Infrastructure Tracing:** I conducted OSINT investigations using WHOIS lookups to trace the email's originating IP address, discovering the attack was launched from a compromised networking infrastructure server located in London.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/whois-ripe-database.png" alt="Linux Terminal showing results from a WHOIS lookup of the sender's originating IP address" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 7: Linux Terminal showing results from a WHOIS lookup of the sender's originating IP address.</figcaption>
+</figure>
+
+* **Threat Actor Profiling:** I investigated the spoofed domain and impersonated personnel using historical web archives and professional networking sites, confirming the attacker meticulously cloned a real corporate identity to build their trap.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wayback-machine-impersonation.png" alt="Historical archive capture of the impersonated corporate web page" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 8: Historical archive capture of the impersonated corporate web page.</figcaption>
+</figure>
+
+## 4. Result
+The phishing analysis was a complete success. The investigation conclusively proved that the email was a highly targeted spoofing attack delivering the Agent Tesla malware variant. By extracting the precise file hashes, malicious domains, and originating IP addresses, the investigation provided the exact tactical intelligence required to neutralize the threat and begin patching the vulnerable email gateway.
+
+## Frameworks & Standards
+* **MITRE ATT&CK:** Tactic TA0001 (Initial Access) was identified by analyzing the spearphishing attachment utilized to gain an initial foothold within the corporate network.
+* **NIST Cybersecurity Framework (CSF):** The "Respond" function (RS.AN-1) was achieved by forensically investigating a suspected incident to determine its exact impact and root cause.
+* **CIS Controls:** Control 9 (Email and Web Browser Protections) was supported by identifying critical misconfigurations in the DMARC and SPF filtering policies at the email gateway.
+* **Nigeria Cybercrime Act (2024):** Alignment with incident reporting mandates was achieved by formally documenting the cyberattack methodologies and extracting concrete threat actor identifiers.
+
+## Business Value & Organizational Benefits
+Rapidly deconstructing phishing vectors and identifying the specific malware payload could empower security teams to isolate infected machines before widespread lateral movement occurs. Furthermore, uncovering misconfigurations in the company's email filtering rules could prevent future spoofing attacks, potentially saving the organization significant capital by avoiding devastating ransomware deployments.
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/Globex Manufacturing Attack Part 1—Phishing Analysis.pdf" download="Globex Manufacturing Attack Part 1—Phishing Analysis.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Lab Report PDF
+    </a>
+</div>
+`
+            },
+            {
+                id: 31,
+                title: 'Globex Manufacturing Attack Part 2: Network Analysis',
+                category: 'Cybersecurity',
+                excerpt: 'Building a Unified Security Appliance: Part 13. Following a confirmed malware infection, this investigation mapped the complete network communication footprint of an active cyberattack.',
+                tags: ['NetworkSecurity', 'Wireshark', 'PCAP'],
+                icon: 'activity',
+                iconColor: 'text-indigo-400',
+                date: 'July 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    Following a confirmed malware infection, this investigation mapped the complete network communication footprint of an active cyberattack. By analyzing raw packet captures, the project successfully reconstructed the attacker's exfiltration channels and command-and-control interactions. This deep-dive network forensics provided absolute clarity on the scope of the data breach and the specific digital assets compromised by the threat actor.
+    </p>
+</div>
+
+## Core Technologies
+* Wireshark (Network Protocol Analyzer)
+* PCAP (Packet Capture Analysis)
+* FTP (File Transfer Protocol)
+* DNS Traffic Analysis
+
+## 1. Situation
+Following the initial AgentTesla phishing compromise at Globex Manufacturing, the infected host exhibited anomalous outbound network traffic. The security team needed to move beyond the email analysis to reconstruct the malware's actual network behavior. It was critical to understand exactly how the malware was communicating with its operators, what specific sensitive data was leaving the environment, and where that stolen data was being deposited.
+
+## 2. Task
+It was mandated that the captured network traffic file be forensically investigated to track the malware's execution chain. The primary objectives were to identify the internal infected host, trace the malicious DNS resolution queries, and fully reconstruct the unencrypted exfiltration sessions to catalog the stolen data.
+
+## 3. Action
+* **Infected Host Identification:** I analyzed endpoint statistics within the packet capture file, isolating the primary victim's internal IP address by identifying the origin point of the most prolific and anomalous traffic patterns.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wireshark-endpoints.png" alt="Wireshark interface highlighting the endpoint IP address generating the most traffic" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Wireshark interface highlighting the endpoint IP address generating the most traffic.</figcaption>
+</figure>
+
+* **Initial Beaconing Detection:** I identified the malware's first operational step by tracking a specific DNS query to a public API, proving the malware actively tested its external connectivity and collected the victim's public IP address.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wireshark-dns-api.png" alt="Wireshark interface showing the suspicious public API DNS query and response" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Wireshark interface showing the suspicious public API DNS query and response.</figcaption>
+</figure>
+
+* **Command and Control Tracking:** I traced the subsequent malicious DNS resolution requests, successfully pinpointing the specific domain and IP address of the attacker's external file server.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wireshark-dns-c2.png" alt="Wireshark interface detailing the malicious DNS request for the attacker's file server" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Wireshark interface detailing the malicious DNS request for the attacker's file server.</figcaption>
+</figure>
+
+* **Exfiltration Channel Reconstruction:** I intercepted the plaintext FTP login credentials transmitted over the network, revealing exactly how the malware authenticated itself to the attacker's drop server.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/unsecure-ftp-login.png" alt="The endpoint accessing the unsecure file server using intercepted credentials" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: The endpoint accessing the unsecure file server using intercepted credentials.</figcaption>
+</figure>
+
+* **Transfer Protocol Analysis:** I examined the malware's pre-exfiltration FTP commands to understand its tactical setup, noting its use of passive mode to intentionally bypass the infected endpoint's local firewall rules.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/ftp-passive-mode.png" alt="The endpoint sending structural setup commands to the unsecure file server" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 5: The endpoint sending structural setup commands to the unsecure file server.</figcaption>
+</figure>
+
+* **Data Payload Identification:** I monitored the sequential upload requests to catalog the exact file names and timestamps of the exfiltrated archives, identifying stolen browser history and keylogger data.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wireshark-stor-commands.png" alt="Wireshark interface summarizing all upload commands sent to the file server" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 6: Wireshark interface summarizing all upload commands sent to the file server.</figcaption>
+</figure>
+
+* **Compromised Asset Verification:** I recovered the plaintext contents of the initial transmission stream to conclusively prove that highly sensitive system information and specific user passwords had been stolen.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/intercepted-credentials.png" alt="Sensitive system information and credentials extracted from the intercepted transfer stream" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 7: Sensitive system information and credentials extracted from the intercepted transfer stream.</figcaption>
+</figure>
+
+* **Attack Timeline Synthesis:** I correlated all captured network events to build a precise, second-by-second timeline of the attack execution, from the initial DNS ping to the final connection termination.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/attack-execution-timeline.png" alt="Visual timeline reconstructing the key events in the attack execution chain" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 8: Visual timeline reconstructing the key events in the attack execution chain.</figcaption>
+</figure>
+
+## 4. Result
+The network investigation was highly successful. The analysis conclusively proved that the AgentTesla malware aggregated sensitive system data, browser histories, and keystroke logs, successfully exfiltrating them over an unencrypted FTP connection. By reconstructing the entire communication timeline and recovering the stolen credentials, the investigation provided the exact scope of the breach required for immediate remediation.
+
+## Frameworks & Standards
+* **MITRE ATT&CK:** Tactic TA0010 (Exfiltration) was identified by observing the malware transferring sensitive data to an external location over an alternative, unencrypted protocol.
+* **NIST Cybersecurity Framework (CSF):** The "Respond" function (RS.MA-2) was achieved by analyzing network traffic to determine the full scope of the compromise and the specific data sets exposed.
+* **CIS Controls:** Control 13 (Network Monitoring and Defense) was supported by utilizing packet capture tools to successfully hunt for and analyze malicious command-and-control traffic.
+* **Nigeria Data Protection Act (NDPA 2023):** Section 39 alignment (Security of Data) was achieved by rapidly identifying a personal data breach, empowering the organization to swiftly notify affected individuals and authorities.
+
+## Business Value & Organizational Benefits
+Pinpointing the exact compromised credentials and exfiltrated files allows incident response teams to rapidly rotate passwords and secure exposed accounts. This definitive network intelligence could avert devastating secondary breaches, potentially saving the organization hundreds of thousands of dollars in regulatory fines and lost intellectual property.
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="./documents/Globex Manufacturing Attack Part 2—Network Analysis.pdf" download="Globex Manufacturing Attack Part 2—Network Analysis.pdf" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="download" class="w-5 h-5"></i> Download Lab Report PDF
+    </a>
+</div>
+`
             }
         ];
 
