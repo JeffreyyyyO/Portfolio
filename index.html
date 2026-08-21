@@ -2624,6 +2624,951 @@ Mastering CLI-based packet analysis provides significant operational advantages 
     </a>
 </div>
 `
+            },
+            {
+                id: 19,
+                title: 'Building a Unified Security Appliance: Enterprise-Grade Perimeter Security & Private Cloud',
+                category: 'Cybersecurity',
+                excerpt: 'Building a Unified Security Appliance: Part 1. This project centralized disparate enterprise-grade cybersecurity services into a single, highly efficient physical node.',
+                tags: ['NetworkSecurity', 'pfSense', 'Proxmox', 'Zero Trust'],
+                icon: 'server',
+                iconColor: 'text-indigo-500',
+                date: 'July 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This project centralized disparate enterprise-grade cybersecurity services into a single, highly efficient physical node. The initiative consolidated perimeter defense, domain name system filtering, endpoint detection, and encrypted private cloud storage. By leveraging advanced virtualization, the deployment transformed a standard flat network into a resilient, zero-trust micro-segmented architecture.
+    </p>
+</div>
+
+## Core Technologies
+* Lenovo ThinkCentre M920x (Hardware Host)
+* Proxmox Virtual Environment (Type-1 Hypervisor)
+* pfSense CE (Firewall/Router)
+* AdGuard Home (DNS Filter)
+* Wazuh (SIEM & EDR)
+* Nextcloud (Private Cloud Storage)
+* Tailscale (Mesh VPN)
+* Prometheus & Grafana (Infrastructure Observability)
+* Suricata (Intrusion Detection & Prevention)
+* draw.io (Architecture Visualization)
+
+## 1. Situation
+Typical residential and small-to-medium business networks operate on flat topologies with basic hardware, leaving devices heavily exposed to both external intrusions and internal lateral movement. Procuring dedicated enterprise hardware firewalls and specialized security servers incurs prohibitive capital and operational expenses. A budget-friendly, consolidated approach was urgently needed to defend local endpoints without sacrificing corporate-level security postures.
+
+## 2. Task
+It was required that a compact, affordable hardware device be engineered into a comprehensive security appliance. Architectural authorization was secured to design a virtualized environment capable of hosting isolated network boundaries, continuous threat monitoring, and secure remote access services simultaneously.
+
+## 3. Action
+* **Architecture Blueprinting:** I mapped the complete physical and logical network topology using draw.io, establishing a clear visual blueprint to guide the complex deployment of virtualized security services.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/unified-appliance-architecture.png" alt="draw.io system architecture diagram mapping physical and logical flows" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: draw.io system architecture diagram mapping physical and logical flows.</figcaption>
+</figure>
+
+* **Hypervisor Provisioning:** I provisioned a bare-metal hypervisor to serve as the foundational virtualization layer, enabling precise resource allocation across multiple virtualized security systems.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/proxmox-ve-dashboard.png" alt="Proxmox VE host initialization and resource allocation dashboard" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Proxmox VE host initialization and resource allocation dashboard.</figcaption>
+</figure>
+
+* **Network Boundary Configuration:** I implemented the designed logical network flow, utilizing a managed switch to strictly separate untrusted ISP traffic from the internal secure environment.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/managed-switch-config.png" alt="Managed switch interface detailing strict traffic separation rules" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Managed switch interface detailing strict traffic separation rules.</figcaption>
+</figure>
+
+* **Edge Firewall Deployment:** I deployed a virtualized firewall at the network edge to manage address translation, filter malicious packets, and govern strict access boundaries.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/pfsense-wan-lan.png" alt="pfSense web configurator interface displaying active WAN and LAN interfaces" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: pfSense web configurator interface displaying active WAN and LAN interfaces.</figcaption>
+</figure>
+
+* **Security Service Consolidation:** I consolidated complementary threat mitigation tools—including a DNS sinkhole, a SIEM log provisioner, and an intrusion prevention engine—into isolated containers.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/proxmox-lxc-deployments.png" alt="Proxmox interface displaying the active virtual machines and LXC deployments" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 5: Proxmox interface displaying the active virtual machines and LXC deployments.</figcaption>
+</figure>
+
+## 4. Result
+The project was a complete success. Seven critical security services were seamlessly deployed onto a 1-litre PC appliance, successfully transforming an exposed network into a secure, segmented, zero-trust environment. As a unified solution, the deployment delivered continuous packet auditing, tunneled remote access, and network-wide log provisioning without relying on costly proprietary hardware.
+
+## Frameworks & Standards
+* **NIST Cybersecurity Framework (CSF):** The "Protect" and "Detect" functions were achieved by deploying an inline pfSense firewall alongside the Wazuh SIEM for continuous endpoint visibility.
+* **CIS Controls:** Control 13 (Network Monitoring and Defense) was achieved by integrating Suricata for deep packet inspection and network-based intrusion prevention.
+* **Zero Trust Architecture (ZTA):** Implicit trust was removed by segmenting network traffic and forcing strict authentication policies across all virtualized security modules.
+* **Data Protection Act (NDPA 2023):** Section 39 (Security of Data) alignment was achieved by hosting Nextcloud storage entirely on-premise behind strict firewall policies, ensuring localized data sovereignty.
+
+## Business Value & Organizational Benefits
+Consolidating multiple security disciplines into a single hardware footprint could achieve up to 70% in capital expenditure savings compared to purchasing standalone proprietary appliances. This architecture empowers organizations to rapidly deploy enterprise-grade defenses at remote or edge locations, potentially driving a significant reduction in operational downtime by catching anomalies early through integrated observability dashboards.
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="https://docs.google.com/document/d/1rKk4UFOzAnzP7z0lBFeltNz3El-NgSV_bMQoGRxqPyk/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="external-link" class="w-5 h-5"></i> View Full Report
+    </a>
+</div>
+`
+            },
+            {
+                id: 20,
+                title: 'Architecting a Micro-Segmented Virtual Environment via Proxmox and 802.1Q VLANs',
+                category: 'Networking',
+                excerpt: 'Building a Unified Security Appliance: Part 2. This deployment fundamentally redesigned a network\'s logical topology to prevent unauthorized lateral movement and enforce strict traffic inspection.',
+                tags: ['NetworkSecurity', 'VLAN', 'Proxmox', 'Segmentation'],
+                icon: 'network',
+                iconColor: 'text-purple-400',
+                date: 'July 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This deployment fundamentally redesigned a network's logical topology to prevent unauthorized lateral movement and enforce strict traffic inspection. The implementation leveraged virtualization and advanced switching to separate untrusted external data from protected internal assets. This created an isolated sanctuary for sensitive services and user endpoints.
+    </p>
+</div>
+
+## Core Technologies
+* MikroTik RB951Ui-2HnD (Managed Switch)
+* Linksys EA6100 (Wireless Access Point)
+* ZTE F670L (ISP Fiber Gateway)
+* Proxmox Virtual Environment
+* pfSense CE VM
+* 802.1Q VLAN Tagging Protocol
+
+## 1. Situation
+The existing network was governed entirely by an ISP-provided gateway that hardware-locked its bridging capabilities, forcing all connected devices into a single, flat broadcast domain. In this context, building a security appliance was hazardous; if any single consumer endpoint was compromised, the threat actor would have unrestricted lateral access to the entire network infrastructure.
+
+## 2. Task
+It was determined that strict virtual network boundaries must be established to bypass the ISP's hardware limitations. An architectural mandate was created to route all incoming public traffic exclusively through a virtualized firewall before allowing it to interact with the private local area network.
+
+## 3. Action
+* **DMZ Gateway Configuration:** I configured a Demilitarized Zone (DMZ) on the restricted ISP gateway to securely forward all unsolicited inbound internet traffic directly to the new firewall infrastructure.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/zte-dmz-config.png" alt="ISP gateway DHCP binding and DMZ target assignment" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: ISP gateway DHCP binding and DMZ target assignment.</figcaption>
+</figure>
+
+* **VLAN Tagging Engineering:** I engineered 802.1Q VLAN tagging on a dedicated managed switch to logically label incoming transit traffic and outgoing clean traffic.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/mikrotik-vlan-tagging.png" alt="WinBox interface displaying the 802.1Q VLAN tagging implementation" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: WinBox interface displaying the 802.1Q VLAN tagging implementation.</figcaption>
+</figure>
+
+* **Virtual Network Trunking:** I trunked these isolated virtual networks over a single physical ethernet cable, delivering multiple segregated communication paths directly into the hypervisor.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/proxmox-linux-bridge.png" alt="Proxmox network settings displaying the VLAN-aware Linux bridge" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Proxmox network settings displaying the VLAN-aware Linux bridge.</figcaption>
+</figure>
+
+* **Interface Integration & Routing Policy:** I integrated the tagged virtual interfaces into the edge firewall to aggressively govern the routing logic between the untrusted transit zone and the protected local zone.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/pfsense-interface-routing.png" alt="pfSense console prompt confirming WAN and LAN interface assignments" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: pfSense console prompt confirming WAN and LAN interface assignments.</figcaption>
+</figure>
+
+## 4. Result
+The network segmentation initiative was a complete success. The deployment effectively bypassed rigid ISP hardware constraints by utilizing a functional Double-NAT architecture, securely establishing a 192.168.10.X private subnet that was entirely isolated from the untrusted 192.168.1.X transit zone.
+
+## Frameworks & Standards
+* **ISO/IEC 27001:** Annex A.13.1.3 (Segregation in networks) was achieved by actively separating the internal private cloud infrastructure from the public-facing internet gateway.
+* **PCI-DSS:** Requirement 1 (Install and maintain network security controls) was achieved by implementing a firewall and routing traffic through isolated VLAN trunks.
+* **CIS Controls:** Control 12 (Network Infrastructure Management) was achieved by utilizing a managed switch to logically separate broadcast domains and prevent flat-network communication.
+* **Cybercrime Act 2024:** Alignment with proactive critical infrastructure protection was achieved by neutralizing potential lateral movement vectors via strict micro-segmentation.
+
+## Business Value & Organizational Benefits
+Implementing micro-segmentation drastically shrinks the internal attack surface, which could prevent a localized malware infection from triggering a company-wide breach. This logical isolation provides distinct, monitorable traffic chokepoints, potentially reducing incident response times and simplifying compliance audits by keeping sensitive data segments completely walled off from general user traffic.
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="https://docs.google.com/document/d/1rKk4UFOzAnzP7z0lBFeltNz3El-NgSV_bMQoGRxqPyk/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="external-link" class="w-5 h-5"></i> View Full Report
+    </a>
+</div>
+`
+            },
+            {
+                id: 21,
+                title: 'Engineering an Agentless SIEM Pipeline with Wazuh',
+                category: 'Cybersecurity',
+                excerpt: 'Building a Unified Security Appliance: Part 3. This project established a centralized logging and threat detection pipeline for an isolated private cloud environment.',
+                tags: ['NetworkSecurity', 'Wazuh', 'SIEM', 'Logging'],
+                icon: 'activity',
+                iconColor: 'text-orange-400',
+                date: 'July 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This project established a centralized logging and threat detection pipeline for an isolated private cloud environment. The deployment integrated a Security Information and Event Management (SIEM) platform to provide continuous monitoring and automated alerting across all network nodes. By implementing an agentless collection methodology for network devices alongside targeted endpoint agents, the architecture achieved comprehensive visibility without degrading host performance.
+    </p>
+</div>
+
+## Core Technologies
+* Wazuh (SIEM & EDR Platform)
+* Proxmox Virtual Environment
+* pfSense CE (Syslog Forwarding)
+* Ubuntu Server (LXC/VM Hosting)
+* Emerging Threats Rulesets
+
+## 1. Situation
+The unified security appliance operated multiple critical services, generating fragmented logs across the firewall, hypervisor, and various virtual machines. Without a centralized aggregation point, correlating security events or identifying persistent threats in real-time was nearly impossible. The organization required a lightweight, unified dashboard to audit system behaviors and detect malicious activities across the newly segmented local network.
+
+## 2. Task
+It was mandated that a centralized log management and threat detection system be deployed within the secure private subnet. Architectural approval was granted to configure syslog forwarding from the perimeter firewall and deploy monitoring agents on core endpoints to aggregate security intelligence securely.
+
+## 3. Action
+* **SIEM Server Provisioning:** I deployed the Wazuh central manager and indexer onto a dedicated virtual machine, allocating isolated compute resources to handle intense log processing without impacting other critical routing services.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-agentless-dashboard.png" alt="Wazuh central manager interface displaying aggregated security events" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Wazuh central manager interface displaying aggregated security events.</figcaption>
+</figure>
+
+* **Firewall Syslog Integration:** I configured the pfSense perimeter firewall to forward its system and firewall logs to the Wazuh indexer via a secure syslog pipeline, enabling agentless ingestion of external border traffic data.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/pfsense-syslog-forwarding.png" alt="pfSense remote logging settings pointing to the internal SIEM IP address" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: pfSense remote logging settings pointing to the internal SIEM IP address.</figcaption>
+</figure>
+
+* **Endpoint Agent Deployment:** I installed a lightweight Wazuh agent on the primary administrator workstation to monitor file integrity, system calls, and local vulnerability states.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-active-agents.png" alt="Wazuh interface enumerating connected and active endpoint agents" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Wazuh interface enumerating connected and active endpoint agents.</figcaption>
+</figure>
+
+* **Custom Decoder Engineering:** I engineered custom decoders and alert rules to parse the specific log formats generated by the virtualized routing infrastructure, ensuring accurate categorization of blocked threat actors.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-custom-decoder.png" alt="Custom XML rule configuration for identifying brute-force attempts on the perimeter" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Custom XML rule configuration for identifying brute-force attempts on the perimeter.</figcaption>
+</figure>
+
+## 4. Result
+The centralized monitoring pipeline was successfully established. The system seamlessly aggregated thousands of disparate events into a single pane of glass, achieving comprehensive visibility over firewall drops, hypervisor authentications, and endpoint system changes. This deployment directly resolved the fragmented logging issue, enabling proactive threat hunting within the micro-segmented network architecture.
+
+## Frameworks & Standards
+* **NIST Cybersecurity Framework (CSF):** The "Detect" function (DE.AE-3) was achieved by centralizing event logs and configuring automated alerts for anomalous network activity.
+* **ISO/IEC 27001:** Annex A.12.4.1 (Event logging) was achieved by configuring continuous syslog forwarding and deploying endpoint monitoring agents across the infrastructure.
+* **MITRE ATT&CK:** Tactic TA0008 (Lateral Movement) detection was achieved by correlating internal network connections across the newly deployed VLAN boundaries within the SIEM.
+* **Nigeria Data Protection Act (NDPA 2023):** Section 39 alignment (Security of Data) was achieved by monitoring access logs to the internal private cloud, ensuring that unauthorized data interactions were immediately flagged.
+
+## Business Value & Organizational Benefits
+Implementing a centralized SIEM pipeline could significantly reduce the Mean Time to Detect (MTTD) security incidents, potentially lowering incident response costs by up to 40%. This proactive visibility ensures that malicious lateral movement is intercepted before sensitive databases are breached, safeguarding organizational reputation and avoiding costly compliance penalties.
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="https://docs.google.com/document/d/1rKk4UFOzAnzP7z0lBFeltNz3El-NgSV_bMQoGRxqPyk/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="external-link" class="w-5 h-5"></i> View Full Report
+    </a>
+</div>
+`
+            },
+            {
+                id: 22,
+                title: 'Deploying & Tuning Suricata IPS for Deep Packet Inspection',
+                category: 'Cybersecurity',
+                excerpt: 'Building a Unified Security Appliance: Part 4. This initiative reinforced the network perimeter by deploying a robust Deep Packet Inspection (DPI) engine inline with the edge gateway.',
+                tags: ['NetworkSecurity', 'Suricata', 'IPS', 'pfSense'],
+                icon: 'shield-alert',
+                iconColor: 'text-rose-500',
+                date: 'July 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This initiative reinforced the network perimeter by deploying a robust Deep Packet Inspection (DPI) engine inline with the edge gateway. The project transitioned the network from simple port-based filtering to advanced signature-based threat mitigation. By meticulously tuning rule sets, the implementation actively blocked malicious payloads while maintaining optimal network throughput.
+    </p>
+</div>
+
+## Core Technologies
+* Suricata (IDS/IPS Engine)
+* pfSense CE Gateway
+* Proxmox Virtual Environment
+* Emerging Threats (ET) Open Ruleset
+* PCRE (Perl Compatible Regular Expressions) for Rule Parsing
+
+## 1. Situation
+The existing perimeter defense relied exclusively on a stateful firewall, which only assessed traffic based on ports and IP addresses. This left the internal environment vulnerable to sophisticated application-layer attacks and encrypted payload obfuscation. A mechanism to peer deeply into the traversing data packets and proactively drop known malicious signatures was required to fortify the micro-segmented architecture.
+
+## 2. Task
+It was determined that an Intrusion Prevention System (IPS) must be implemented directly on the virtualized perimeter gateway. It was required that the engine be configured for inline packet dropping and that the rule sets be aggressively tuned to minimize false positives against legitimate private cloud traffic.
+
+## 3. Action
+* **IPS Engine Integration:** I installed the Suricata package directly onto the pfSense firewall, binding the inspection engine to the primary WAN interface to intercept all inbound and outbound internet traffic.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/pfsense-suricata-service.png" alt="pfSense package manager displaying the active Suricata IPS service" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: pfSense package manager displaying the active Suricata IPS service.</figcaption>
+</figure>
+
+* **Signature Ruleset Implementation:** I subscribed the engine to the Emerging Threats (ET) Open ruleset, establishing a dynamic baseline of known malicious IP addresses, malware signatures, and exploit patterns.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/suricata-et-rules.png" alt="Suricata configuration interface confirming automatic rule synchronization" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Suricata configuration interface confirming automatic rule synchronization.</figcaption>
+</figure>
+
+* **Inline Prevention Configuration:** I configured the system to operate in inline mode, transitioning the engine from passive detection to active intrusion prevention to immediately drop hostile packets.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/suricata-inline-block.png" alt="Interface configuration showing Suricata set to actively block offending IPs" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Interface configuration showing Suricata set to actively block offending IPs.</figcaption>
+</figure>
+
+* **False Positive Tuning:** I performed extensive log analysis to identify legitimate traffic that triggered alerts, manually suppressing overly aggressive rules to prevent the disruption of internal encrypted backups and standard web traffic.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/suricata-alerts-tuning.png" alt="Suricata alert log displaying identified threats and custom rule suppressions" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Suricata alert log displaying identified threats and custom rule suppressions.</figcaption>
+</figure>
+
+## 4. Result
+The Deep Packet Inspection deployment was highly successful. Suricata actively analyzed traversing packets against thousands of threat signatures, effectively dropping malicious payloads before they reached the internal virtual networks. By carefully tuning the rulesets, the solution mitigated application-layer risks without degrading the performance or latency of the unified security appliance.
+
+## Frameworks & Standards
+* **NIST Cybersecurity Framework (CSF):** The "Protect" function (PR.PT-4) was achieved by deploying an inline IPS to actively prevent malicious communications from entering the network.
+* **CIS Controls:** Control 13 (Network Monitoring and Defense) was achieved by utilizing Suricata to perform deep packet inspection and filter out known bad signatures.
+* **PCI-DSS:** Requirement 11.4 (Intrusion detection/prevention techniques) was achieved by placing Suricata at the perimeter to monitor and block malicious traffic targeting internal assets.
+* **Nigeria Cybercrime Act (2024):** Alignment with proactive defense against cyber threats was achieved by automatically dropping known malware delivery mechanisms at the network edge.
+
+## Business Value & Organizational Benefits
+Deploying an inline IPS drastically reduces the risk of malware infections and ransomware delivery, which could prevent catastrophic data loss and associated operational downtime. This automated threat mitigation heavily reduces the manual workload on security operations teams, allowing them to focus on strategic business initiatives rather than manually blocking low-level network noise.
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="https://docs.google.com/document/d/1rKk4UFOzAnzP7z0lBFeltNz3El-NgSV_bMQoGRxqPyk/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="external-link" class="w-5 h-5"></i> View Full Report
+    </a>
+</div>
+`
+            },
+            {
+                id: 23,
+                title: 'Enforcing Zero-Trust Access via Tailscale Mesh VPN',
+                category: 'Networking',
+                excerpt: 'Building a Unified Security Appliance: Part 5. This deployment replaced legacy port-forwarding practices with a modern, identity-driven remote access solution.',
+                tags: ['NetworkSecurity', 'Tailscale', 'Zero Trust'],
+                icon: 'lock',
+                iconColor: 'text-blue-500',
+                date: 'July 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This deployment replaced legacy port-forwarding practices with a modern, identity-driven remote access solution. By implementing a WireGuard-backed mesh VPN, the architecture securely exposed internal private cloud services and administrative interfaces strictly to authenticated devices. This initiative successfully transformed traditional perimeter-based remote access into a resilient, Zero Trust Network Access (ZTNA) model.
+    </p>
+</div>
+
+## Core Technologies
+* Tailscale (Mesh VPN)
+* WireGuard VPN Protocol
+* pfSense CE (Routing)
+* Ubuntu Server (Subnet Router)
+* Windows 10 & Android Endpoints
+
+## 1. Situation
+To manage the security appliance and access the internal network from the public internet, deploying a standard WireGuard VPN was not viable. This was because the ISP hardware-locked their provided router and refused to allow Bridge mode. The double-NAT architecture became unavoidable as a direct consequence. Consequently, a highly secure, encrypted method capable of NAT traversal to tunnel into the 192.168.10.X private subnet was required without modifying the firewall's inbound rule set.
+
+## 2. Task
+It was mandated that a secure, outbound-only remote access solution be engineered to protect the private cloud infrastructure. Architectural authorization was secured to deploy a mesh VPN overlay that relies on cryptographic device identities rather than vulnerable static IP bindings.
+
+## 3. Action
+* **Mesh Network Provisioning:** I provisioned a Tailscale mesh network architecture, leveraging its coordination server to securely negotiate direct, encrypted WireGuard tunnels between distributed endpoints.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/tailscale-admin-console.png" alt="Tailscale admin console displaying the active mesh network and connected nodes" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Tailscale admin console displaying the active mesh network and connected nodes.</figcaption>
+</figure>
+
+* **Subnet Router Configuration:** I configured a dedicated internal node to act as a subnet router, securely advertising the localized 192.168.10.X private routes to external authenticated clients.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/subnet-router-advertisement.png" alt="Terminal output confirming the successful advertisement of the private subnet" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Terminal output confirming the successful advertisement of the private subnet.</figcaption>
+</figure>
+
+* **Endpoint Client Deployment:** I deployed lightweight VPN clients to the primary Windows administrator workstation and a mobile Android endpoint, assigning them static 100.Χ.Υ.Z overlay IP addresses for consistent, encrypted communication.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/windows-endpoint-vpn.png" alt="Windows endpoint confirming successful connection and IP assignment on the 100.X.Y.Z subnet" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Windows endpoint confirming successful connection and IP assignment on the 100.X.Y.Z subnet.</figcaption>
+</figure>
+
+* **Access Control Implementation:** I implemented strict Access Control Lists (ACLs) within the mesh network's administration console to restrict lateral movement, ensuring that only specific devices possessed authorization to reach critical hypervisor and firewall management interfaces.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/tailscale-acl-config.png" alt="Tailscale JSON configuration detailing strict network access restrictions" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Tailscale JSON configuration detailing strict network access restrictions.</figcaption>
+</figure>
+
+## 4. Result
+The remote access deployment was a resounding success. The unified security appliance and its nested services were securely made available to the authorized Windows and Android endpoints from anywhere in the world. By utilizing outbound NAT traversal, the project achieved robust Zero Trust access while maintaining a completely closed, stealthy inbound perimeter.
+
+## Frameworks & Standards
+* **Zero Trust Architecture (ZTA):** Implicit trust was entirely removed by demanding cryptographic device authentication and authorization before granting access to internal routes.
+* **NIST Cybersecurity Framework (CSF):** The "Protect" function (PR.AC-3) was achieved by strictly managing remote access through secure, authenticated mesh tunnels.
+* **CIS Controls:** Control 4 (Secure Configuration of Enterprise Assets) was achieved by utilizing WireGuard-based encryption for all administrative data in transit.
+* **Nigeria Data Protection Act (NDPA 2023):** Section 39 (Security of Data) alignment was achieved by enforcing end-to-end encryption for any remote interactions with the privately hosted cloud storage.
+
+## Business Value & Organizational Benefits
+Implementing a mesh VPN overlay eliminates the need for exposing vulnerable edge services, radically lowering the probability of internet-borne ransomware attacks. Furthermore, circumventing the need for costly enterprise VPN concentrators or dedicated leased lines could generate immediate operational cost savings while drastically simplifying the onboarding process for remote personnel.
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="https://docs.google.com/document/d/1rKk4UFOzAnzP7z0lBFeltNz3El-NgSV_bMQoGRxqPyk/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="external-link" class="w-5 h-5"></i> View Full Report
+    </a>
+</div>
+`
+            },
+            {
+                id: 24,
+                title: 'Infrastructure Observability with Prometheus & Grafana',
+                category: 'IT',
+                excerpt: 'Building a Unified Security Appliance: Part 6. This project established a comprehensive telemetry pipeline to visualize the health and performance of the consolidated security appliance.',
+                tags: ['NetworkSecurity', 'Prometheus', 'Grafana'],
+                icon: 'line-chart',
+                iconColor: 'text-orange-400',
+                date: 'July 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This project established a comprehensive telemetry pipeline to visualize the health and performance of the consolidated security appliance. By deploying a time-series database and advanced visualization dashboards, the architecture continuously scraped hardware metrics from the underlying bare-metal host and its nested virtual machines. This transitioned system maintenance from a reactive state to a proactive, data-driven operation.
+    </p>
+</div>
+
+## Core Technologies
+* Prometheus (Time-Series Database)
+* Grafana (Data Visualization)
+* Proxmox Virtual Environment
+* Node Exporter
+* Ubuntu Server (LXC Deployment)
+
+## 1. Situation
+Consolidating seven distinct enterprise security services onto a single 1-litre Lenovo ThinkCentre M920x hardware host maximized efficiency but significantly increased the risk of sudden resource exhaustion. Without real-time visibility into CPU utilization, RAM consumption, and storage I/O, diagnosing performance bottlenecks or predicting hardware limits within the hypervisor was a tedious, manual process.
+
+## 2. Task
+It was required that a centralized infrastructure observability platform be engineered within the private cloud boundaries. An architectural mandate was created to continuously aggregate telemetry data from the physical host and all virtualized instances to actively monitor the operational limits of the security appliance.
+
+## 3. Action
+* **Observability Stack Deployment:** I deployed Prometheus and Grafana within dedicated, isolated Linux containers, carefully allocating minimal compute resources to ensure the monitoring stack did not negatively impact the host's performance.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/proxmox-telemetry-containers.png" alt="Proxmox interface displaying the isolated telemetry containers" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Proxmox interface displaying the isolated telemetry containers.</figcaption>
+</figure>
+
+* **Metric Exporter Integration:** I installed Prometheus Node Exporters across the Proxmox host and critical virtual machines to continuously expose hardware utilization data on a localized HTTP endpoint.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/node-exporter-service.png" alt="Terminal interface confirming the active status of the Node Exporter service" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Terminal interface confirming the active status of the Node Exporter service.</figcaption>
+</figure>
+
+* **Telemetry Pipeline Configuration:** I configured Prometheus scrape jobs to systematically poll the internal 192.168.10.X network targets, pulling real-time performance metrics into the centralized time-series database.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/prometheus-target-dashboard.png" alt="Prometheus target dashboard confirming successful metric scraping from all nodes" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Prometheus target dashboard confirming successful metric scraping from all nodes.</figcaption>
+</figure>
+
+* **Dashboard Visualization Design:** I engineered highly customized Grafana dashboards to translate raw time-series data into intuitive, single-pane-of-glass visual representations of the security appliance's immediate health.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/grafana-health-dashboard.png" alt="Grafana dashboard visualizing host CPU, memory utilization, and storage capacity in real-time" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Grafana dashboard visualizing host CPU, memory utilization, and storage capacity in real-time.</figcaption>
+</figure>
+
+## 4. Result
+The infrastructure observability initiative was a complete success. The deployment achieved continuous, real-time telemetry across the entire micro form-factor (MFF) PC environment. The administrator gained the immediate ability to visualize resource spikes, ensuring that the heavy workloads of the virtual machines did not starve critical networking or storage operations.
+
+## Frameworks & Standards
+* **NIST Cybersecurity Framework (CSF):** The "Detect" function (DE.CM-7) was achieved by implementing continuous monitoring of the IT systems to rapidly identify resource-based anomalous behavior.
+* **CIS Controls:** Control 13 (Network Monitoring) was achieved by retaining historical performance baselines to detect unusual CPU or memory consumption indicative of compromised processes.
+* **ISO/IEC 27001:** Annex A.12.4.1 (Event logging and monitoring) was achieved by continuously aggregating and visualizing operational telemetry from the underlying hypervisor.
+* **Nigeria Cybercrime Act (2024):** Alignment with proactive critical infrastructure protection was achieved by maintaining continuous oversight of the security boundaries, ensuring high availability of the deployed defenses.
+
+## Business Value & Organizational Benefits
+Proactive infrastructure monitoring enables IT departments to accurately predict capacity limits, potentially reducing unscheduled downtime by up to 30% through the early detection of resource bottlenecks. Visualizing these metrics ensures that hardware procurement and scaling decisions are driven by concrete, actionable data rather than costly guesswork.
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="https://docs.google.com/document/d/1rKk4UFOzAnzP7z0lBFeltNz3El-NgSV_bMQoGRxqPyk/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="external-link" class="w-5 h-5"></i> View Full Report
+    </a>
+</div>
+`
+            },
+            {
+                id: 25,
+                title: 'Architecting Data Sovereignty — Self-Hosted Cloud with 3-2-1 Encrypted Backups',
+                category: 'Cloud Computing',
+                excerpt: 'Building a Unified Security Appliance: Part 7. This project established a localized, enterprise-grade file synchronization platform to guarantee data sovereignty.',
+                tags: ['NetworkSecurity', 'Nextcloud', 'Cloud Security'],
+                icon: 'cloud',
+                iconColor: 'text-cyan-400',
+                date: 'July 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This project established a localized, enterprise-grade file synchronization platform to guarantee data sovereignty. By deploying a private cloud container within the security appliance, the architecture replaced reliance on third-party public cloud providers for primary storage. The initiative integrated automated, encrypted offsite synchronization, successfully achieving a robust 3-2-1 backup strategy while enforcing multi-factor authentication and data-at-rest encryption.
+    </p>
+</div>
+
+## Core Technologies
+* Nextcloud (Enterprise Cloud Sync)
+* Ubuntu Server LXC
+* Proxmox VE
+* rclone (Transport Engine)
+* Google Cloud API (OAuth 2.0)
+* Authy (TOTP MFA)
+* AES-256 Encryption
+
+## 1. Situation
+Relying entirely on commercial public cloud providers for sensitive data storage strips an organization of true data sovereignty and exposes files to third-party breaches. Within the new security appliance architecture, users required a method to store, sync, and access files seamlessly without permanently consuming local endpoint disk space. Additionally, storing data strictly on a single localized hypervisor disk created a single point of failure, necessitating a highly resilient backup mechanism.
+
+## 2. Task
+It was determined that a self-hosted enterprise cloud solution must be deployed within the protected virtual LAN. Architectural authorization was secured to engineer a "virtual drive" experience for endpoint clients, enforce strict cryptographic access controls, and automate a nightly encrypted sync to an offsite cloud repository.
+
+## 3. Action
+* **Private Cloud Provisioning:** I deployed the Nextcloud application within an isolated Linux container on the protected VLAN, ensuring the service remained entirely behind the virtualized firewall.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/nextcloud-initial-config.png" alt="Nextcloud initial web configuration and administrator account creation" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Nextcloud initial web configuration and administrator account creation.</figcaption>
+</figure>
+
+* **Virtual Drive Integration:** I integrated the official desktop synchronization client on the primary workstation, mapping a virtual drive that fetched local files on-demand without exhausting local storage capacity.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/desktop-virtual-drive.png" alt="Desktop client configuration utilizing the virtual files support feature" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Desktop client configuration utilizing the virtual files support feature.</figcaption>
+</figure>
+
+* **Offsite Backup Automation:** I engineered an automated, nightly rclone synchronization pipeline utilizing custom Google Cloud OAuth credentials to bypass API rate limits and mirror the data to an offsite location.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/google-cloud-api-rclone.png" alt="Google Cloud API configuration for automated rclone authentication" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Google Cloud API configuration for automated rclone authentication.</figcaption>
+</figure>
+
+* **Multi-Factor Authentication Setup:** I enforced a strict Time-Based One-Time Password (TOTP) requirement across all user accounts, linking the authentication flow to a secure, cloud-backed mobile application (Authy).
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/nextcloud-mfa-totp.png" alt="Nextcloud administration panel displaying enforced two-factor authentication" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Nextcloud administration panel displaying enforced two-factor authentication.</figcaption>
+</figure>
+
+* **Data Encryption Implementation:** I activated native server-side encryption to cryptographically secure all uploaded files at rest on the underlying Proxmox storage volumes.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/nextcloud-server-encryption.png" alt="Nextcloud security settings confirming the activation of server-side encryption" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 5: Nextcloud security settings confirming the activation of server-side encryption.</figcaption>
+</figure>
+
+## 4. Result
+The private cloud deployment was highly successful. Endpoint users gained seamless "virtual drive" access to their files over a locally enforced HTTPS connection, while the organization reclaimed absolute control over its data. By successfully executing the automated rclone pipeline, the architecture achieved a resilient 3-2-1 backup posture, directly mitigating the risk of localized hardware failure.
+
+## Frameworks & Standards
+* **ISO/IEC 27001:** Annex A.8.1.2 (Information classification and handling) was achieved by establishing a self-hosted environment to strictly govern where and how sensitive files are stored.
+* **NIST Cybersecurity Framework (CSF):** The "Protect" function (PR.DS-1) was achieved by enabling AES-256 server-side encryption to protect data at rest on the hypervisor.
+* **CIS Controls:** Control 11 (Data Recovery) was achieved by automating a nightly rclone sync to an offsite Google Drive repository, establishing a robust backup pipeline.
+* **Nigeria Data Protection Act (NDPA 2023):** Section 39 alignment (Security of Data) was achieved by enforcing multi-factor authentication (MFA) to prevent unauthorized access to personal data volumes.
+
+## Business Value & Organizational Benefits
+Implementing a self-hosted cloud with automated offsite synchronization could eliminate monthly enterprise storage subscription fees, driving immediate operational cost reductions. By ensuring data sovereignty and enforcing strong MFA, the organization could significantly lower its compliance risk profile and prevent devastating regulatory fines associated with unauthorized data exposure.
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="https://docs.google.com/document/d/1rKk4UFOzAnzP7z0lBFeltNz3El-NgSV_bMQoGRxqPyk/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="external-link" class="w-5 h-5"></i> View Full Report
+    </a>
+</div>
+`
+            },
+            {
+                id: 26,
+                title: 'Implementing Secure DNS Filtering & Privacy with AdGuard',
+                category: 'Networking',
+                excerpt: 'Building a Unified Security Appliance: Part 8. This deployment engineered a centralized Domain Name System (DNS) filtering module to protect the network from malicious domains and invasive tracking.',
+                tags: ['NetworkSecurity', 'AdGuard', 'DNS'],
+                icon: 'shield',
+                iconColor: 'text-red-500',
+                date: 'July 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This deployment engineered a centralized Domain Name System (DNS) filtering module to protect the network from malicious domains and invasive tracking. By integrating a dedicated DNS sinkhole within the private cloud boundaries, the system intercepted and sanitized all outbound resolution requests. The architecture successfully enhanced user privacy through encrypted upstream queries while drastically reducing localized network noise.
+    </p>
+</div>
+
+## Core Technologies
+* AdGuard Home (DNS Sinkhole)
+* Ubuntu Server LXC
+* Proxmox VE
+* DNS-over-HTTPS (DOH) Protocol
+* Quad9 & Cloudflare (Upstream Resolvers)
+
+## 1. Situation
+The network previously relied on default ISP DNS servers, which transmitted all browsing requests in plain text and provided zero defense against known malware domains or aggressive telemetry trackers. Allowing endpoints to query the public internet directly exposed the micro-segmented network to malicious payload delivery and eroded user privacy. A mechanism was required to centrally filter DNS requests and encrypt the outbound resolution traffic.
+
+## 2. Task
+An architectural mandate was created to deploy an internal DNS resolution server tailored for privacy and threat mitigation. It was required that the service intercept all internal network queries, drop connections to known malicious entities, and securely tunnel the sanitized requests to trusted upstream providers.
+
+## 3. Action
+* **Sinkhole Containerization:** I deployed the AdGuard Home service inside a dedicated, lightweight container within the secure network segment, bypassing default system port conflicts to bind it strictly to the internal virtual interface.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/adguard-container-install.png" alt="Terminal interface confirming the successful containerization and installation of AdGuard Home" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Terminal interface confirming the successful containerization and installation of AdGuard Home.</figcaption>
+</figure>
+
+* **Upstream Encryption Routing:** I configured the application to route all sanitized external queries through encrypted DNS-over-HTTPS (DoH) tunnels, utilizing high-security upstream providers like Quad9.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/adguard-doh-upstream.png" alt="AdGuard configuration interface detailing the active DoH upstream resolvers" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: AdGuard configuration interface detailing the active DoH upstream resolvers.</figcaption>
+</figure>
+
+* **DHCP Server Integration:** I modified the edge firewall's DHCP configuration to forcefully broadcast the new local DNS server IP to all connecting endpoints, ensuring network-wide adoption.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/pfsense-dhcp-dns.png" alt="pfSense DHCP settings pointing clients to the internal AdGuard IP address" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: pfSense DHCP settings pointing clients to the internal AdGuard IP address.</figcaption>
+</figure>
+
+* **Access Control Restriction:** I implemented strict access control lists within the DNS resolver settings, explicitly defining authorized subnets to prevent the service from being abused as an open resolver.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/adguard-access-control.png" alt="Access settings restricting DNS resolution exclusively to the internal 192.168.10.0/24 subnet" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Access settings restricting DNS resolution exclusively to the internal 192.168.10.0/24 subnet.</figcaption>
+</figure>
+
+* **Query Rate Limiting:** I applied strict rate-limiting parameters to the resolution engine to protect the local infrastructure from internal denial-of-service floods originating from compromised endpoints.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/adguard-rate-limiting.png" alt="DNS server configuration displaying the active rate limits per client" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 5: DNS server configuration displaying the active rate limits per client.</figcaption>
+</figure>
+
+## 4. Result
+The secure DNS filtering initiative was a complete success. The deployment seamlessly intercepted thousands of daily queries, actively dropping connections to invasive trackers and malware hosts before they could execute. By successfully tunneling traffic through DoH, the solution effectively blinded the ISP to the network's browsing habits and fortified the appliance's zero-trust perimeter.
+
+## Frameworks & Standards
+* **NIST Cybersecurity Framework (CSF):** The "Protect" function (PR.PT-4) was achieved by utilizing a DNS sinkhole to block outbound connections to known malicious command-and-control servers.
+* **CIS Controls:** Control 9 (Email and Web Browser Protections) was achieved by centralizing DNS filtering to universally block web-based tracking and malicious domains across all endpoints.
+* **PCI-DSS:** Requirement 1 (Install and maintain network security controls) was achieved by encrypting outbound DNS traffic to prevent eavesdropping on the public internet.
+* **Nigeria Cybercrime Act (2024):** Alignment with proactive defense mandates was achieved by automating the interception and neutralization of cyber threat delivery systems at the DNS level.
+
+## Business Value & Organizational Benefits
+Deploying a network-wide DNS sinkhole drastically reduces the attack surface by neutralizing phishing links and malware delivery domains at the resolution stage, potentially decreasing successful endpoint infections by up to 50%. Furthermore, blocking bandwidth-heavy advertisements and telemetry trackers could reclaim significant network throughput, improving overall application performance for critical business operations.
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="https://docs.google.com/document/d/1rKk4UFOzAnzP7z0lBFeltNz3El-NgSV_bMQoGRxqPyk/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="external-link" class="w-5 h-5"></i> View Full Report
+    </a>
+</div>
+`
+            },
+            {
+                id: 27,
+                title: 'Root Cause Analysis: Diagnosing and Mitigating DPI-Induced Network Outages',
+                category: 'Networking',
+                excerpt: 'Building a Unified Security Appliance: Part 9. This operational exercise involved identifying and resolving critical network interruptions caused by the initial implementation of deep packet inspection.',
+                tags: ['NetworkSecurity', 'pfSense', 'Suricata'],
+                icon: 'activity',
+                iconColor: 'text-red-500',
+                date: 'July 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This operational exercise involved identifying and resolving critical network interruptions caused by the initial implementation of deep packet inspection. By conducting a systematic root cause analysis, the conflict between virtualized hardware acceleration and inline packet filtering was identified. The subsequent mitigation strategy restored full network availability without compromising the integrity of the active intrusion prevention system.
+    </p>
+</div>
+
+## Core Technologies
+* pfSense CE (Firewall/Router)
+* Suricata (IDS/IPS Engine)
+* Proxmox Virtual Environment
+* VirtIO Network Drivers
+* System Logs (filterlog)
+
+## 1. Situation
+Immediately following the activation of the Suricata Deep Packet Inspection (DPI) engine on the perimeter firewall, the network experienced severe latency spikes and intermittent total connectivity loss. The virtualized gateway struggled to process routing requests, and internal endpoints were frequently unable to reach the public internet. A rapid diagnostic response was required to determine why the introduction of the IPS module was crashing the virtualized network interfaces.
+
+## 2. Task
+It was mandated that the source of the network instability be identified through log analysis and systematic testing. Architectural approval was granted to modify the hypervisor-to-firewall networking parameters to stabilize the packet inspection pipeline while keeping the Suricata engine actively blocking malicious payloads.
+
+## 3. Action
+* **Symptom Isolation:** I isolated the failure domain by selectively disabling security modules, confirming that the network only dropped packets when Suricata was operating in active "Inline" blocking mode.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/suricata-inline-unstable.png" alt="Initial configuration showing the unstable Inline mode configuration" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Initial configuration showing the unstable Inline mode configuration.</figcaption>
+</figure>
+
+* **Log Correlation:** I cross-referenced the pfSense system logs with the hypervisor's performance metrics, identifying a fatal conflict where the Proxmox VirtIO network drivers were dropping frames attempting to pass through the Netmap API used by Suricata's Inline mode.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/pfsense-netmap-errors.png" alt="System logs displaying interface drops and Netmap API errors" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: System logs displaying interface drops and Netmap API errors.</figcaption>
+</figure>
+
+* **Hardware Offloading Disablement:** I intervened at the firewall's core networking layer, manually disabling hardware checksum offloading, TCP segmentation offloading, and large receive offloading to prevent the virtualized NICs from attempting to process packets before Suricata could inspect them.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/pfsense-hardware-offloading.png" alt="Configuration interface showing disabled hardware offloading parameters" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Configuration interface showing disabled hardware offloading parameters.</figcaption>
+</figure>
+
+* **Mode Transition:** I transitioned the Suricata blocking mechanism from the experimental "Inline" mode to the highly stable "Legacy" mode, successfully instructing the engine to utilize the firewall's native packet filter (pf) to drop malicious connections rather than intercepting them directly via Netmap.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/suricata-legacy-mode.png" alt="Final configuration displaying the stable Legacy blocking mode" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Final configuration displaying the stable Legacy blocking mode.</figcaption>
+</figure>
+
+## 4. Result
+The mitigation strategy was a complete success. Disabling the conflicting hardware offloading features and shifting the IPS to Legacy mode immediately resolved the packet drops and restored full network throughput. The architecture maintained its deep packet inspection capabilities, actively dropping threats without inducing further network outages.
+
+## Frameworks & Standards
+* **ITIL/ISO 20000:** Incident Management processes were followed by systematically identifying the root cause of a service interruption and implementing a permanent workaround.
+* **NIST Cybersecurity Framework (CSF):** The "Respond" function (RS.MI-1) was achieved by executing a structured mitigation plan to resolve a critical flaw in the security infrastructure.
+* **CIS Controls:** Control 13 (Network Monitoring and Defense) was maintained by successfully stabilizing the IPS engine, ensuring continuous threat detection at the perimeter.
+* **Nigeria Cybercrime Act (2024):** Alignment with critical infrastructure resilience was demonstrated by rapidly restoring the availability of the primary gateway while preserving its defensive capabilities.
+
+## Business Value & Organizational Benefits
+Conducting rapid and accurate root cause analysis minimizes Mean Time to Resolution (MTTR), which could potentially save an organization thousands of dollars per hour in lost productivity during an outage. By successfully stabilizing complex security tools within a virtualized environment, IT teams can confidently deploy advanced threat protection without fearing catastrophic impacts on core business operations.
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="https://docs.google.com/document/d/1rKk4UFOzAnzP7z0lBFeltNz3El-NgSV_bMQoGRxqPyk/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="external-link" class="w-5 h-5"></i> View Full Report
+    </a>
+</div>
+`
+            },
+            {
+                id: 28,
+                title: 'Bare-Metal Virtualization: Optimizing Proxmox VE for Edge Security',
+                category: 'IT',
+                excerpt: 'Building a Unified Security Appliance: Part 10. This deployment established a highly optimized, bare-metal virtualization platform to host an entire suite of enterprise security services on a single small form-factor node.',
+                tags: ['NetworkSecurity', 'Proxmox', 'Virtualization'],
+                icon: 'cpu',
+                iconColor: 'text-slate-400',
+                date: 'July 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This deployment established a highly optimized, bare-metal virtualization platform to host an entire suite of enterprise security services on a single small form-factor node. By meticulously configuring the Type-1 hypervisor's resource allocation and networking bridges, the architecture maximized the compute efficiency of the edge device. This initiative successfully transformed a compact PC into a resilient, multi-tenant security appliance.
+    </p>
+</div>
+
+## Core Technologies
+* Proxmox Virtual Environment (Type-1 Hypervisor)
+* Lenovo ThinkCentre M920x (Hardware Host)
+* Linux Containers (LXC)
+* KVM (Kernel-based Virtual Machine)
+* 802.1Q VLAN Tagging (Linux Bridge)
+
+## 1. Situation
+Deploying dedicated physical hardware for every necessary security function—firewall, DNS, VPN, EDR, and SIEM—was financially prohibitive and physically impractical for an edge deployment. A strategy was required to consolidate these diverse operating systems and applications onto a single hardware node. However, without careful hypervisor optimization, running intense security workloads simultaneously risks severe resource contention and system crashes.
+
+## 2. Task
+It was required that a robust virtualization layer be engineered directly onto the hardware host. An architectural mandate was established to segment computing resources precisely, ensuring that heavy SIEM indexers did not starve critical routing processes, and that the internal virtual network could securely route 802.1Q VLAN tags.
+
+## 3. Action
+* **Hardware Passthrough Enablement:** I optimized the host's BIOS by explicitly enabling Intel VT-x and VT-d (IOMMU), allowing the hypervisor to efficiently assign direct hardware resources to nested virtual machines.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/lenovo-bios-virtualization.png" alt="BIOS interface confirming the activation of hardware virtualization features" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: BIOS interface confirming the activation of hardware virtualization features.</figcaption>
+</figure>
+
+* **Repository Hardening & Patching:** I stripped the default enterprise repositories from the Proxmox installation, linking the system to the community-supported update branches to ensure continuous delivery of security patches without licensing conflicts.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/proxmox-repo-update.png" alt="Terminal output confirming the successful update of the hypervisor packages" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Terminal output confirming the successful update of the hypervisor packages.</figcaption>
+</figure>
+
+* **VLAN-Aware Bridge Engineering:** I engineered a virtual Linux Bridge (vmbro) and explicitly flagged it as "VLAN-aware," enabling the hypervisor to read the 802.1Q tags from the physical switch and securely distribute the isolated traffic to the correct virtual machines.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/proxmox-vlan-bridge.png" alt="Proxmox network settings displaying the VLAN-aware configuration" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Proxmox network settings displaying the VLAN-aware configuration.</figcaption>
+</figure>
+
+* **Resource Micro-Segmentation:** I strategically allocated compute resources, deploying lightweight services (DNS, VPN, Monitoring) as highly efficient, unprivileged Linux Containers (LXC), while reserving heavy, isolated Virtual Machines (KVM) exclusively for the firewall and SIEM indexer.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/proxmox-resource-segmentation.png" alt="Proxmox dashboard detailing CPU and RAM utilization across distinct nodes" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Proxmox dashboard detailing CPU and RAM utilization across distinct nodes.</figcaption>
+</figure>
+
+## 4. Result
+The bare-metal virtualization initiative was highly successful. The Proxmox environment seamlessly managed seven distinct, intensive security workloads on a single piece of hardware without encountering resource exhaustion. By successfully implementing the VLAN-aware bridge, the hypervisor maintained strict logical separation between the untrusted transit network and the protected private cloud.
+
+## Frameworks & Standards
+* **NIST Cybersecurity Framework (CSF):** The "Protect" function (PR.DS-7) was achieved by utilizing virtualization to logically separate computing environments, limiting the blast radius of a potential compromise.
+* **CIS Controls:** Control 4 (Secure Configuration of Enterprise Assets) was achieved by hardening the hypervisor repositories and ensuring the host system received regular security patches.
+* **ISO/IEC 27001:** Annex A.13.1.3 (Segregation in networks) was achieved by engineering a VLAN-aware virtual bridge to securely route segmented traffic into isolated virtual machines.
+* **Zero Trust Architecture (ZTA):** Foundational alignment was achieved by moving away from a flat hardware structure to a multi-tenant virtual environment where workloads are inherently isolated by the hypervisor.
+
+## Business Value & Organizational Benefits
+Leveraging bare-metal virtualization for edge security could drive up to an 80% reduction in hardware procurement costs and power consumption by eliminating the need for sprawling server racks. Furthermore, the ability to snapshot and rapidly clone virtualized security nodes provides a massive boost to disaster recovery capabilities, potentially reducing system restoration times from days to mere minutes.
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="https://docs.google.com/document/d/1rKk4UFOzAnzP7z0lBFeltNz3El-NgSV_bMQoGRxqPyk/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="external-link" class="w-5 h-5"></i> View Full Report
+    </a>
+</div>
+`
+            },
+            {
+                id: 29,
+                title: 'Enforcing Cryptographic Trust Boundaries in Homelab Infrastructure',
+                category: 'Cybersecurity',
+                excerpt: 'Building a Unified Security Appliance: Part 11. This deployment established stringent cryptographic controls across all administrative and remote access pathways within the virtualized security appliance.',
+                tags: ['NetworkSecurity', 'Cryptography', 'Zero Trust'],
+                icon: 'key',
+                iconColor: 'text-amber-400',
+                date: 'July 2026',
+                content: `
+<div class="bg-slate-800/50 border-l-4 border-emerald-500 p-6 rounded-r-lg mb-12 not-prose">
+    <h3 class="text-lg font-semibold text-slate-100 mb-2 mt-0">Project Overview</h3>
+    <p class="text-slate-300 leading-relaxed mb-0">
+    This deployment established stringent cryptographic controls across all administrative and remote access pathways within the virtualized security appliance. By systematically replacing password-based authentications with explicit key-pair validations and encrypted tunnels, the architecture eliminated vectors for automated brute-force attacks. This initiative successfully enforced a zero-trust model for infrastructure management.
+    </p>
+</div>
+
+## Core Technologies
+* Ed25519 SSH Keys
+* AES-256 Encryption
+* WireGuard / Tailscale (Mesh VPN)
+* Nextcloud (Server-Side Encryption)
+* Wazuh (Agent Authentication Keys)
+
+## 1. Situation
+As the unified security appliance came online, critical management interfaces—including the hypervisor, the firewall, and the SIEM dashboard—became active on the internal network. Relying on traditional passwords to protect these high-value targets left the infrastructure vulnerable to credential stuffing, insider threats, or lateral movement from a compromised endpoint. A comprehensive strategy was required to mathematically enforce identity verification across all administrative touchpoints.
+
+## 2. Task
+An architectural mandate was created to eliminate implicit trust within the management plane. It was required that all administrative remote access, endpoint telemetry enrollments, and data-at-rest storage mechanisms be secured using robust, modern cryptographic standards.
+
+## 3. Action
+* **SSH Key Authentication Enforcement:** I generated secure Ed25519 cryptographic key pairs for the primary administrator workstation and explicitly disabled password-based SSH logins across the Linux infrastructure, rendering brute-force access attempts mathematically impossible.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/ssh-key-authentication.png" alt="Terminal output displaying the configuration of strict SSH key authentication" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 1: Terminal output displaying the configuration of strict SSH key authentication.</figcaption>
+</figure>
+
+* **SIEM Agent Enrollment Verification:** I locked down the Wazuh centralized logging server by injecting a unique, complex pre-shared authentication password, forcing all deploying endpoints to present the cryptographic token before they were allowed to push telemetry data.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/wazuh-authd-pass.png" alt="Configuration file enforcing the pre-shared agent enrollment password" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 2: Configuration file enforcing the pre-shared agent enrollment password.</figcaption>
+</figure>
+
+* **VPN Tailnet Lock Activation:** I activated the "Tailnet Lock" feature within the mesh VPN architecture, ensuring that any new device attempting to join the remote access overlay had to be cryptographically signed and approved by an existing, trusted administrator node.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/tailscale-tailnet-lock.png" alt="Command line execution confirming the initialization of the Tailnet Lock" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 3: Command line execution confirming the initialization of the Tailnet Lock.</figcaption>
+</figure>
+
+* **Data-at-Rest Encryption Implementation:** I deployed the AES-256 Server-Side Encryption module within the Nextcloud private cloud environment, ensuring that all uploaded files were cryptographically scrambled before being written to the underlying hypervisor storage.
+<figure class="my-8 not-prose">
+    <div class="w-full rounded-xl border border-slate-700 bg-slate-800 p-2 shadow-lg mb-3">
+        <img src="./images/nextcloud-encryption-active.png" alt="Nextcloud administration panel confirming active data-at-rest encryption" class="w-full rounded-lg object-contain">
+    </div>
+    <figcaption class="text-center text-sm text-slate-500">Figure 4: Nextcloud administration panel confirming active data-at-rest encryption.</figcaption>
+</figure>
+
+## 4. Result
+The cryptographic enforcement initiative was a complete success. The deployment successfully secured the entire management plane, demanding mathematical proof of identity for every critical interaction. By actively encrypting remote administrative sessions, endpoint log enrollments, and localized file storage, the project achieved a resilient trust boundary that heavily mitigates the risk of credential compromise.
+
+## Frameworks & Standards
+* **Zero Trust Architecture (ZTA):** Implicit trust was removed by demanding explicit cryptographic authentication (SSH keys, VPN node signing) before granting access to infrastructure management interfaces.
+* **NIST Cybersecurity Framework (CSF):** The "Protect" function (PR.AC-4) was achieved by managing access permissions through robust public-key cryptography rather than vulnerable passwords.
+* **CIS Controls:** Control 3 (Data Protection) was achieved by enabling AES-256 server-side encryption to protect sensitive data residing on the hypervisor.
+* **Nigeria Data Protection Act (NDPA 2023):** Section 39 alignment (Security of Data) was achieved by enforcing strict cryptographic access controls, ensuring that personal data hosted on the appliance is protected against unauthorized access.
+
+## Business Value & Organizational Benefits
+Implementing stringent cryptographic boundaries virtually eliminates the threat of automated credential stuffing attacks, which could prevent devastating administrative takeovers. By securing data at rest and in transit with modern encryption standards, organizations can confidently pass stringent compliance audits and avoid severe regulatory penalties associated with negligent data protection practices.
+
+<div class="mt-12 pt-8 border-t border-slate-800 not-prose flex flex-col items-center sm:items-start">
+    <h3 class="text-xl font-semibold text-slate-100 mb-4 font-google">Full Project Documentation</h3>
+    <a href="https://docs.google.com/document/d/1rKk4UFOzAnzP7z0lBFeltNz3El-NgSV_bMQoGRxqPyk/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-lg transition-colors gap-2">
+        <i data-lucide="external-link" class="w-5 h-5"></i> View Full Report
+    </a>
+</div>
+`
             }
         ];
 
